@@ -14,7 +14,7 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [Deploy & SEO Basics](./deploy-seo-basics.md) | pending |
+| [Deploy & SEO Basics](./deploy-seo-basics.md) | in_progress |
 | [Global Chrome](./global-chrome.md) | pending |
-| [Project Scaffold](./project-scaffold.md) | pending |
+| [Project Scaffold](./project-scaffold.md) | completed |
 | [Shared Learning Components](./shared-learning-components.md) | pending |

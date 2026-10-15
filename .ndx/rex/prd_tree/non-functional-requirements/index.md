@@ -14,5 +14,5 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [Static Hosting & Performance Bar](./static-hosting-performance-bar.md) | pending |
 | [Attribution, Licensing & Upstream Boundaries](./attribution-licensing-upstream.md) | pending |
+| [Static Hosting & Performance Bar](./static-hosting-performance-bar.md) | pending |
