@@ -102,30 +102,36 @@
      {
       "@type": "ListItem",
       "position": 1,
+      "url": "https://handwired.wiki/pages/js-vs-nn.html",
+      "name": "JS vs neural net: the same rule, three ways"
+     },
+     {
+      "@type": "ListItem",
+      "position": 2,
       "url": "https://handwired.wiki/pages/soft-switch.html",
       "name": "Soft switch: an if/else made of ReLUs"
      },
      {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "url": "https://handwired.wiki/pages/compare-explorer.html",
       "name": "Exact comparison explorer"
      },
      {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "url": "https://handwired.wiki/pages/circuit-graph.html",
       "name": "Code → network"
      },
      {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "url": "https://handwired.wiki/pages/train.html",
       "name": "Unfreeze & train"
      },
      {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "url": "https://handwired.wiki/pages/toggle.html",
       "name": "Toggle switch template"
      }
@@ -158,7 +164,7 @@
   <header class="site-header">
     <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/gallery.html" aria-current="page">Gallery</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html" aria-current="page">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
   </header>
   <main id="main" class="page" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Demo gallery</li></ol></nav>
@@ -168,6 +174,7 @@
 
 <h2>Which demos run on this site?</h2>
 <div class="card-grid">
+<a class="card feature" href="/pages/js-vs-nn.html"><h3>★ JS vs neural net</h3><p>One shipping rule as plain JS, as a Handwired net and as a generic trained net. Exactness, retraining with hard rules intact, and readable learned constants, measured live.</p></a>
 <a class="card" href="/pages/soft-switch.html"><h3>Soft switch</h3><p>The README's <code>a &gt; 4 ? 10 : 12</code> as two ReLUs and a select. Editable <code>a</code>, branches and live plot.</p></a>
 <a class="card" href="/pages/compare-explorer.html"><h3>Exact comparison explorer</h3><p>Pick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.</p></a>
 <a class="card" href="/pages/circuit-graph.html"><h3>Code → network graph</h3><p>Visualize the operations and layers behind a select, a comparison and an exact clamp.</p></a>

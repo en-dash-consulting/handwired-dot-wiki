@@ -106,52 +106,45 @@
   <header class="site-header">
     <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
   </header>
   <main id="main" class="page home" tabindex="-1">
     
     <article>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero hero-jsnn" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="kicker">a project by Cheng Lou · explained</p>
           <h1 id="hero-title">Handwired: turn <span class="copper">JavaScript</span> into a neural net</h1>
           <p class="sub">No training. Exact, yet fully differentiable. Runs in your browser without a GPU.</p>
-          <div class="ctas"><a class="button" href="/pages/soft-switch.html">Play with a live circuit</a><a class="button secondary" href="/pages/why-handwired.html">Why it matters</a></div>
-          <span class="hand scribble" aria-hidden="true">↓ real Handwired runtime, running in your tab</span>
         </div>
-        <div class="hero-art"><svg class="hw-hero-svg" viewBox="0 0 960 420" role="img" aria-labelledby="hero-svg-title">
-  <title id="hero-svg-title">Animation: the JavaScript ternary a &gt; 4 ? 10 : 12 rewires into a network of two ReLUs, a difference and a select.</title>
-  <g class="hw-code"><text class="hw-tok tok-kw" data-k="kw" x="40" y="58" style="--dx:800px;--dy:183px">const result = </text><text class="hw-tok tok-a" data-k="a" x="274" y="58" style="--dx:-184px;--dy:183px">a</text><text class="hw-tok tok-cmp" data-k="cmp" x="290" y="58" style="--dx:50px;--dy:183px"> &gt; 4</text><text class="hw-tok tok-p" data-k="p" x="352" y="58" style="--dx:488px;--dy:183px"> ?</text><text class="hw-tok tok-hi" data-k="hi" x="383" y="58" style="--dx:297px;--dy:68px"> 10</text><text class="hw-tok tok-p" data-k="p" x="430" y="58" style="--dx:410px;--dy:183px"> :</text><text class="hw-tok tok-lo" data-k="lo" x="461" y="58" style="--dx:219px;--dy:298px"> 12</text></g>
-  <g class="hw-net">
-    <path class="hw-wire " data-w="a-r1" d="M110,235 C235,235 235,160 360,160" pathLength="1"/><path class="hw-flow " data-f="a-r1" d="M110,235 C235,235 235,160 360,160"/><path class="hw-wire " data-w="a-r2" d="M110,235 C235,235 235,310 360,310" pathLength="1"/><path class="hw-flow " data-f="a-r2" d="M110,235 C235,235 235,310 360,310"/><path class="hw-wire " data-w="r1-ab" d="M360,160 C460,160 460,235 560,235" pathLength="1"/><path class="hw-flow " data-f="r1-ab" d="M360,160 C460,160 460,235 560,235"/><path class="hw-wire neg" data-w="r2-ab" d="M360,310 C460,310 460,235 560,235" pathLength="1"/><path class="hw-flow neg" data-f="r2-ab" d="M360,310 C460,310 460,235 560,235"/>
-    <path class="hw-wire " data-w="ab-out" d="M560,235 C710,235 710,235 860,235" pathLength="1"/><path class="hw-flow " data-f="ab-out" d="M560,235 C710,235 710,235 860,235"/><path class="hw-wire " data-w="hi-out" d="M700,120 C780,120 780,235 860,235" pathLength="1"/><path class="hw-flow " data-f="hi-out" d="M700,120 C780,120 780,235 860,235"/><path class="hw-wire " data-w="lo-out" d="M700,350 C780,350 780,235 860,235" pathLength="1"/><path class="hw-flow " data-f="lo-out" d="M700,350 C780,350 780,235 860,235"/>
-    <g class="hw-node" data-n="a" style="--x:110px;--y:235px">
-  <circle class="hw-halo" cx="110" cy="235" r="44"/><circle class="hw-body" cx="110" cy="235" r="34"/>
-  <text class="hw-label" x="110" y="233" text-anchor="middle">a</text>
-  <text class="hw-val" data-v="a" x="110" y="252" text-anchor="middle">5</text></g><g class="hw-node" data-n="r1" style="--x:360px;--y:160px">
-  <circle class="hw-halo" cx="360" cy="160" r="56"/><circle class="hw-body" cx="360" cy="160" r="46"/>
-  <text class="hw-label" x="360" y="158" text-anchor="middle">relu(a−4)</text>
-  <text class="hw-val" data-v="r1" x="360" y="177" text-anchor="middle">1</text></g><g class="hw-node" data-n="r2" style="--x:360px;--y:310px">
-  <circle class="hw-halo" cx="360" cy="310" r="56"/><circle class="hw-body" cx="360" cy="310" r="46"/>
-  <text class="hw-label" x="360" y="308" text-anchor="middle">relu(a−5)</text>
-  <text class="hw-val" data-v="r2" x="360" y="327" text-anchor="middle">0</text></g>
-    <g class="hw-node" data-n="ab" style="--x:560px;--y:235px">
-  <circle class="hw-halo" cx="560" cy="235" r="50"/><circle class="hw-body" cx="560" cy="235" r="40"/>
-  <text class="hw-label" x="560" y="233" text-anchor="middle">above4</text>
-  <text class="hw-val" data-v="ab" x="560" y="252" text-anchor="middle">1</text></g><g class="hw-node" data-n="hi" style="--x:700px;--y:120px">
-  <circle class="hw-halo" cx="700" cy="120" r="38"/><circle class="hw-body" cx="700" cy="120" r="28"/>
-  <text class="hw-label" x="700" y="118" text-anchor="middle">on</text>
-  <text class="hw-val" data-v="hi" x="700" y="137" text-anchor="middle">10</text></g><g class="hw-node" data-n="lo" style="--x:700px;--y:350px">
-  <circle class="hw-halo" cx="700" cy="350" r="38"/><circle class="hw-body" cx="700" cy="350" r="28"/>
-  <text class="hw-label" x="700" y="348" text-anchor="middle">off</text>
-  <text class="hw-val" data-v="lo" x="700" y="367" text-anchor="middle">12</text></g><g class="hw-node" data-n="out" style="--x:860px;--y:235px">
-  <circle class="hw-halo" cx="860" cy="235" r="50"/><circle class="hw-body" cx="860" cy="235" r="40"/>
-  <text class="hw-label" x="860" y="233" text-anchor="middle">result</text>
-  <text class="hw-val" data-v="out" x="860" y="252" text-anchor="middle">10</text></g>
-  </g>
-  <text class="hw-note" x="430" y="405" text-anchor="middle">both branches always run — the bit picks one</text>
-</svg></div>
       </section>
+      <section class="jsnn on-home" aria-labelledby="jsnn-title">
+  <h2 id="jsnn-title" class="jsnn-title">Same code, three ways, running live</h2>
+  <p class="jsnn-hook">A shipping price rule, written once in JS. Watch it run as <b class="c-js">plain JS</b>, as <b class="c-hw">a Handwired neural net</b>, and next to <b class="c-mlp">an ordinary neural net</b> trained to copy it.</p>
+  <div class="beats" role="group" aria-label="Steps">
+    <button type="button" class="beat" data-beat="1" aria-pressed="true"><span>1</span> Check exactness</button>
+    <button type="button" class="beat" data-beat="2" aria-pressed="false"><span>2</span> Change the prices</button>
+    <button type="button" class="beat" data-beat="3" aria-pressed="false"><span>3</span> Read what it learned</button>
+  </div>
+  <div class="beat-say" aria-live="polite" data-say>Running the network…</div>
+  <div class="cols">
+    <div role="group" class="col js" aria-labelledby="c1"><header><h3 id="c1"><span class="dot"></span>Plain JS</h3><p>runs exactly as written; can't learn</p></header>
+      <pre class="src" tabindex="0" aria-label="Plain JS source"><code data-js></code></pre><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
+    <div role="group" class="col hw" aria-labelledby="c2"><header><h3 id="c2"><span class="dot"></span>Same JS as a Handwired net</h3><p data-hwsub>frozen: weights are the constants</p></header>
+      <pre class="src" tabindex="0" aria-label="Handwired net, shown as its source"><code data-hw></code></pre>
+      <ul class="knobs" data-knobs aria-label="Network weights that are the program's constants"></ul><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
+    <div role="group" class="col mlp" aria-labelledby="c3"><header><h3 id="c3"><span class="dot"></span>Generic neural net</h3><p data-mlpsub>1 → 16 → 1 ReLU, 49 weights</p></header>
+      <div class="weights" data-weights role="img" aria-label="The generic net's 49 weights as a heatmap"></div>
+      <p class="mlp-eq"><code>price = W₂ · relu(W₁ · kg + b₁) + b₂</code></p><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
+  </div>
+  <figure class="chart">
+    <svg data-chart viewBox="0 0 720 300" role="group" aria-label="Price in dollars against parcel weight for all three, with invoices you can drag"></svg>
+    <figcaption><span class="lg js">plain JS</span><span class="lg hw">Handwired net</span><span class="lg mlp">generic net</span><span class="lg inv">invoices (drag or use ↑↓)</span><span class="lg rule">hard rules: $0 … $60</span></figcaption>
+  </figure>
+  <div class="diff" data-diff hidden></div>
+  <p class="fine" data-fine>Measured live in your browser over all 6,401 parcel weights from 0 to 100 kg in 1/64 kg steps. Generic net: seed 7, Adam, the same training loop and gradients (Handwired's backprop) as the Handwired net.</p>
+</section>
+      <p class="hero-more"><a class="button" href="/pages/js-vs-nn.html">Open the full comparison</a> <a class="button secondary" href="/pages/gallery.html">All demos</a></p>
       <p class="lede"><strong>Handwired</strong> is an open-source project by <a href="https://chenglou.me" rel="noopener">Cheng Lou</a> that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.</p>
 
 <h2>What is Handwired?</h2>

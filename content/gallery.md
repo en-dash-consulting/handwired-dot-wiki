@@ -11,6 +11,7 @@ type: collection
 ## Which demos run on this site?
 
 <div class="card-grid">
+<a class="card feature" href="/pages/js-vs-nn.html"><h3>★ JS vs neural net</h3><p>One shipping rule as plain JS, as a Handwired net and as a generic trained net. Exactness, retraining with hard rules intact, and readable learned constants, measured live.</p></a>
 <a class="card" href="/pages/soft-switch.html"><h3>Soft switch</h3><p>The README's <code>a &gt; 4 ? 10 : 12</code> as two ReLUs and a select. Editable <code>a</code>, branches and live plot.</p></a>
 <a class="card" href="/pages/compare-explorer.html"><h3>Exact comparison explorer</h3><p>Pick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.</p></a>
 <a class="card" href="/pages/circuit-graph.html"><h3>Code → network graph</h3><p>Visualize the operations and layers behind a select, a comparison and an exact clamp.</p></a>

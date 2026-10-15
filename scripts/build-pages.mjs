@@ -7,12 +7,13 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { heroSvg } from './hero.mjs'
+import { JSNN_UI } from './jsnn-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
 const UPSTREAM = 'https://github.com/chenglou/handwired'
-const NAV = ['why-handwired', 'concepts', 'getting-started', 'gallery', 'faq', 'about']
-const ORDER = ['index', ...NAV, 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
+const NAV = ['gallery', 'why-handwired', 'concepts', 'getting-started', 'faq', 'about']
+const ORDER = ['index', ...NAV, 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const strip = s => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
@@ -43,6 +44,7 @@ const navLabel = slug => bySlug[slug].nav
 
 const verdict = `<div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>`
 const DEMOS = {
+  jsnn: JSNN_UI(),
   'soft-switch': `
 <section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
@@ -193,16 +195,15 @@ const footer = `<footer class="site-footer">
   </footer>`
 
 function hero(p) {
-  return `<section class="hero" aria-labelledby="hero-title">
+  return `<section class="hero hero-jsnn" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="kicker">a project by Cheng Lou · explained</p>
           <h1 id="hero-title">${p.h1}</h1>
           <p class="sub">${p.sub}</p>
-          <div class="ctas"><a class="button" href="/pages/soft-switch.html">Play with a live circuit</a><a class="button secondary" href="/pages/why-handwired.html">Why it matters</a></div>
-          <span class="hand scribble" aria-hidden="true">↓ real Handwired runtime, running in your tab</span>
         </div>
-        <div class="hero-art">${heroSvg()}</div>
-      </section>`
+      </section>
+      ${JSNN_UI(true)}
+      <p class="hero-more"><a class="button" href="/pages/js-vs-nn.html">Open the full comparison</a> <a class="button secondary" href="/pages/gallery.html">All demos</a></p>`
 }
 
 function render(p) {
