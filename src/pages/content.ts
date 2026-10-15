@@ -1,3 +1,3 @@
 import '../lib/site'
-const root = document.querySelector<HTMLElement>('.jsnn')
-if (root) void import('../jsnn/demo').then(({ mountJsnn }) => { (window as unknown as { jsnn: unknown }).jsnn = mountJsnn(root) })
+const root = document.querySelector<HTMLElement>('[data-home-lesson]')
+if (root) void import('../cat/lesson').then(({ mountLesson }) => { (window as unknown as { lesson: unknown }).lesson = mountLesson(root, { home: true }) })

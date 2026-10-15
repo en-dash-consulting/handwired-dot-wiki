@@ -82,7 +82,7 @@
    "@id": "https://handwired.wiki/#page",
    "url": "https://handwired.wiki/",
    "name": "Handwired — Learn Cheng Lou's JavaScript-to-Neural-Net Library | handwired.wiki",
-   "headline": "Handwired: turn JavaScript into a neural net",
+   "headline": "What if your JavaScript was a neural net?",
    "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ.",
    "inLanguage": "en",
    "isPartOf": {
@@ -111,40 +111,21 @@
   <main id="main" class="page home" tabindex="-1">
     
     <article>
-      <section class="hero hero-jsnn" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="kicker">a project by Cheng Lou · explained</p>
-          <h1 id="hero-title">Handwired: turn <span class="copper">JavaScript</span> into a neural net</h1>
-          <p class="sub">No training. Exact, yet fully differentiable. Runs in your browser without a GPU.</p>
-        </div>
+      <section class="hero hero-lesson" aria-labelledby="hero-title">
+        <p class="kicker">a project by Cheng Lou · explained</p>
+        <h1 id="hero-title">What if your JavaScript <span class="copper">was</span> a neural net?</h1>
+        <p class="sub">Not a copy that approximates it. The same function, exactly, and it can still learn. Here is a 3-minute way to see it.</p>
       </section>
-      <section class="jsnn on-home" aria-labelledby="jsnn-title">
-  <h2 id="jsnn-title" class="jsnn-title">Same code, three ways, running live</h2>
-  <p class="jsnn-hook">A shipping price rule, written once in JS. Watch it run as <b class="c-js">plain JS</b>, as <b class="c-hw">a Handwired neural net</b>, and next to <b class="c-mlp">an ordinary neural net</b> trained to copy it.</p>
-  <div class="beats" role="group" aria-label="Steps">
-    <button type="button" class="beat" data-beat="1" aria-pressed="true"><span>1</span> Check exactness</button>
-    <button type="button" class="beat" data-beat="2" aria-pressed="false"><span>2</span> Change the prices</button>
-    <button type="button" class="beat" data-beat="3" aria-pressed="false"><span>3</span> Read what it learned</button>
+      <div class="lesson home-lesson" data-home-lesson><section class="step" id="step-1" data-step="1" aria-labelledby="s1">
+  <p class="step-n">Step 1 of 7</p>
+  <h2 id="s1">Here's a tiny JavaScript function.</h2>
+  <p class="say">It decides how hard a cat should jump to land on a shelf. Drag the shelf and watch.</p>
+  <div class="duo">
+    <div><pre class="code" tabindex="0" aria-label="The jumpPower function" data-code="1"></pre><p class="trace" data-trace="1" aria-live="polite"></p></div>
+    <div class="vis"><div class="scene-wrap" data-wrap="1"><svg class="scene" data-scene="1" viewBox="0 0 420 300" role="img" aria-label="A cat jumping toward a shelf"></svg></div><label class="shelf-ctl"><span>Shelf height</span><input type="range" min="0" max="100" step="1" value="62" data-shelf="1" /><output data-shelf-out="1">62 cm</output></label></div>
   </div>
-  <div class="beat-say" aria-live="polite" data-say>Running the network…</div>
-  <div class="cols">
-    <div role="group" class="col js" aria-labelledby="c1"><header><h3 id="c1"><span class="dot"></span>Plain JS</h3><p>runs exactly as written; can't learn</p></header>
-      <pre class="src" tabindex="0" aria-label="Plain JS source"><code data-js></code></pre><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-    <div role="group" class="col hw" aria-labelledby="c2"><header><h3 id="c2"><span class="dot"></span>Same JS as a Handwired net</h3><p data-hwsub>frozen: weights are the constants</p></header>
-      <pre class="src" tabindex="0" aria-label="Handwired net, shown as its source"><code data-hw></code></pre>
-      <ul class="knobs" data-knobs aria-label="Network weights that are the program's constants"></ul><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-    <div role="group" class="col mlp" aria-labelledby="c3"><header><h3 id="c3"><span class="dot"></span>Generic neural net</h3><p data-mlpsub>1 → 16 → 1 ReLU, 49 weights</p></header>
-      <div class="weights" data-weights role="img" aria-label="The generic net's 49 weights as a heatmap"></div>
-      <p class="mlp-eq"><code>price = W₂ · relu(W₁ · kg + b₁) + b₂</code></p><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-  </div>
-  <figure class="chart">
-    <svg data-chart viewBox="0 0 720 300" role="group" aria-label="Price in dollars against parcel weight for all three, with invoices you can drag"></svg>
-    <figcaption><span class="lg js">plain JS</span><span class="lg hw">Handwired net</span><span class="lg mlp">generic net</span><span class="lg inv">invoices (drag or use ↑↓)</span><span class="lg rule">hard rules: $0 … $60</span></figcaption>
-  </figure>
-  <div class="diff" data-diff hidden></div>
-  <p class="fine" data-fine>Measured live in your browser over all 6,401 parcel weights from 0 to 100 kg in 1/64 kg steps. Generic net: seed 7, Adam, the same training loop and gradients (Handwired's backprop) as the Handwired net.</p>
-</section>
-      <p class="hero-more"><a class="button" href="/pages/js-vs-nn.html">Open the full comparison</a> <a class="button secondary" href="/pages/gallery.html">All demos</a></p>
+  <p class="continue"><a class="button" href="/pages/js-vs-nn.html#step-2">Next: the same function, as a neural net →</a></p>
+</section></div>
       <p class="lede"><strong>Handwired</strong> is an open-source project by <a href="https://chenglou.me" rel="noopener">Cheng Lou</a> that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.</p>
 
 <h2>What is Handwired?</h2>

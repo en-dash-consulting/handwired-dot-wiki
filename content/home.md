@@ -2,8 +2,8 @@
 slug: index
 title: "Handwired — Learn Cheng Lou's JavaScript-to-Neural-Net Library | handwired.wiki"
 nav: Home
-h1: "Handwired: turn <span class=\"copper\">JavaScript</span> into a neural net"
-sub: "No training. Exact, yet fully differentiable. Runs in your browser without a GPU."
+h1: "What if your JavaScript <span class=\"copper\">was</span> a neural net?"
+sub: "Not a copy that approximates it. The same function, exactly, and it can still learn. Here is a 3-minute way to see it."
 description: "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
 type: home
 ---

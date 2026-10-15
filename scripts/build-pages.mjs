@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { heroSvg } from './hero.mjs'
-import { JSNN_UI } from './jsnn-ui.mjs'
+import { LESSON, STEP1 } from './lesson-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
@@ -44,7 +44,7 @@ const navLabel = slug => bySlug[slug].nav
 
 const verdict = `<div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>`
 const DEMOS = {
-  jsnn: JSNN_UI(),
+  lesson: LESSON(),
   'soft-switch': `
 <section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
@@ -195,15 +195,12 @@ const footer = `<footer class="site-footer">
   </footer>`
 
 function hero(p) {
-  return `<section class="hero hero-jsnn" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="kicker">a project by Cheng Lou · explained</p>
-          <h1 id="hero-title">${p.h1}</h1>
-          <p class="sub">${p.sub}</p>
-        </div>
+  return `<section class="hero hero-lesson" aria-labelledby="hero-title">
+        <p class="kicker">a project by Cheng Lou · explained</p>
+        <h1 id="hero-title">${p.h1}</h1>
+        <p class="sub">${p.sub}</p>
       </section>
-      ${JSNN_UI(true)}
-      <p class="hero-more"><a class="button" href="/pages/js-vs-nn.html">Open the full comparison</a> <a class="button secondary" href="/pages/gallery.html">All demos</a></p>`
+      <div class="lesson home-lesson" data-home-lesson>${STEP1(true)}</div>`
 }
 
 function render(p) {

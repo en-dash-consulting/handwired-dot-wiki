@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JS vs Neural Net: One Rule as Plain JS, a Handwired Net and a Trained Net | handwired.wiki</title>
-  <meta name="description" content="Live side-by-side: a shipping-price rule as plain JavaScript, as an exact Handwired neural net, and as a generic neural net trained to copy it. Exactness, retraining on new data with hard rules intact, and readable learned constants, all measured in your browser." />
+  <title>The Cat Is a Neural Net: JavaScript vs Neural Network, Explained Live | handwired.wiki</title>
+  <meta name="description" content="A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
@@ -16,8 +16,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="JS vs Neural Net: One Rule as Plain JS, a Handwired Net and a Trained Net | handwired.wiki" />
-  <meta property="og:description" content="Live side-by-side: a shipping-price rule as plain JavaScript, as an exact Handwired neural net, and as a generic neural net trained to copy it. Exactness, retraining on new data with hard rules intact, and readable learned constants, all measured in your browser." />
+  <meta property="og:title" content="The Cat Is a Neural Net: JavaScript vs Neural Network, Explained Live | handwired.wiki" />
+  <meta property="og:description" content="A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net." />
   <meta property="og:url" content="https://handwired.wiki/pages/js-vs-nn.html" />
   <meta property="og:site_name" content="handwired.wiki" />
   <meta property="og:image" content="https://handwired.wiki/og-image.png" />
@@ -26,8 +26,8 @@
   <meta property="og:image:alt" content="handwired.wiki — JavaScript as an exact, differentiable neural net" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JS vs Neural Net: One Rule as Plain JS, a Handwired Net and a Trained Net | handwired.wiki" />
-  <meta name="twitter:description" content="Live side-by-side: a shipping-price rule as plain JavaScript, as an exact Handwired neural net, and as a generic neural net trained to copy it. Exactness, retraining on new data with hard rules intact, and readable learned constants, all measured in your browser." />
+  <meta name="twitter:title" content="The Cat Is a Neural Net: JavaScript vs Neural Network, Explained Live | handwired.wiki" />
+  <meta name="twitter:description" content="A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net." />
   <meta name="twitter:image" content="https://handwired.wiki/og-image.png" />
   <script type="application/ld+json">
 {
@@ -81,9 +81,9 @@
    "@type": "TechArticle",
    "@id": "https://handwired.wiki/pages/js-vs-nn.html#page",
    "url": "https://handwired.wiki/pages/js-vs-nn.html",
-   "name": "JS vs Neural Net: One Rule as Plain JS, a Handwired Net and a Trained Net | handwired.wiki",
-   "headline": "JS vs neural net: the same rule, three ways",
-   "description": "Live side-by-side: a shipping-price rule as plain JavaScript, as an exact Handwired neural net, and as a generic neural net trained to copy it. Exactness, retraining on new data with hard rules intact, and readable learned constants, all measured in your browser.",
+   "name": "The Cat Is a Neural Net: JavaScript vs Neural Network, Explained Live | handwired.wiki",
+   "headline": "The cat is a neural net",
+   "description": "A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://handwired.wiki/#website"
@@ -119,7 +119,7 @@
     {
      "@type": "ListItem",
      "position": 3,
-     "name": "JS vs neural net: the same rule, three ways",
+     "name": "The cat is a neural net",
      "item": "https://handwired.wiki/pages/js-vs-nn.html"
     }
    ]
@@ -136,52 +136,109 @@
     <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
   </header>
   <main id="main" class="page demo-page" tabindex="-1">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li aria-current="page">JS vs neural net: the same rule, three ways</li></ol></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li aria-current="page">The cat is a neural net</li></ol></nav>
     <article>
-      <h1>JS vs neural net: the same rule, three ways</h1>
-      <p class="lede">Handwired turns the JS rule into a neural net with exactly the same answers. Because it's a net, you can train it on new data. And because it's still your code, what it learns reads as JS.</p>
+      <h1>The cat is a neural net</h1>
+      <p class="lede">Seven small steps, about three minutes. Everything you see is computed live in your browser.</p>
 
-<section class="jsnn" aria-labelledby="jsnn-title">
-  <h2 id="jsnn-title" class="jsnn-title">Three columns, one shipping rule</h2>
-  <p class="jsnn-hook">A shipping price rule, written once in JS. Watch it run as <b class="c-js">plain JS</b>, as <b class="c-hw">a Handwired neural net</b>, and next to <b class="c-mlp">an ordinary neural net</b> trained to copy it.</p>
-  <div class="beats" role="group" aria-label="Steps">
-    <button type="button" class="beat" data-beat="1" aria-pressed="true"><span>1</span> Check exactness</button>
-    <button type="button" class="beat" data-beat="2" aria-pressed="false"><span>2</span> Change the prices</button>
-    <button type="button" class="beat" data-beat="3" aria-pressed="false"><span>3</span> Read what it learned</button>
+<div class="lesson" data-lesson>
+  <div class="lesson-bar"><button type="button" class="sound" data-sound aria-pressed="false">Sound off</button></div>
+  <section class="step" id="step-1" data-step="1" aria-labelledby="s1">
+  <p class="step-n">Step 1 of 7</p>
+  <h2 id="s1">Here's a tiny JavaScript function.</h2>
+  <p class="say">It decides how hard a cat should jump to land on a shelf. Drag the shelf and watch.</p>
+  <div class="duo">
+    <div><pre class="code" tabindex="0" aria-label="The jumpPower function" data-code="1"></pre><p class="trace" data-trace="1" aria-live="polite"></p></div>
+    <div class="vis"><div class="scene-wrap" data-wrap="1"><svg class="scene" data-scene="1" viewBox="0 0 420 300" role="img" aria-label="A cat jumping toward a shelf"></svg></div><label class="shelf-ctl"><span>Shelf height</span><input type="range" min="0" max="100" step="1" value="62" data-shelf="1" /><output data-shelf-out="1">62 cm</output></label></div>
   </div>
-  <div class="beat-say" aria-live="polite" data-say>Running the network…</div>
-  <div class="cols">
-    <div role="group" class="col js" aria-labelledby="c1"><header><h3 id="c1"><span class="dot"></span>Plain JS</h3><p>runs exactly as written; can't learn</p></header>
-      <pre class="src" tabindex="0" aria-label="Plain JS source"><code data-js></code></pre><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-    <div role="group" class="col hw" aria-labelledby="c2"><header><h3 id="c2"><span class="dot"></span>Same JS as a Handwired net</h3><p data-hwsub>frozen: weights are the constants</p></header>
-      <pre class="src" tabindex="0" aria-label="Handwired net, shown as its source"><code data-hw></code></pre>
-      <ul class="knobs" data-knobs aria-label="Network weights that are the program's constants"></ul><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-    <div role="group" class="col mlp" aria-labelledby="c3"><header><h3 id="c3"><span class="dot"></span>Generic neural net</h3><p data-mlpsub>1 → 16 → 1 ReLU, 49 weights</p></header>
-      <div class="weights" data-weights role="img" aria-label="The generic net's 49 weights as a heatmap"></div>
-      <p class="mlp-eq"><code>price = W₂ · relu(W₁ · kg + b₁) + b₂</code></p><dl class="stats"><div class="st" data-st="exact"><dt>Matches the JS rule</dt><dd data-v>…</dd></div><div class="st" data-st="err"><dt>Off from the invoices</dt><dd data-v>…</dd></div><div class="st" data-st="viol"><dt>Breaks a hard rule</dt><dd data-v>…</dd></div><div class="st" data-st="steps"><dt>Training steps</dt><dd data-v>…</dd></div></dl></div>
-  </div>
-  <figure class="chart">
-    <svg data-chart viewBox="0 0 720 300" role="group" aria-label="Price in dollars against parcel weight for all three, with invoices you can drag"></svg>
-    <figcaption><span class="lg js">plain JS</span><span class="lg hw">Handwired net</span><span class="lg mlp">generic net</span><span class="lg inv">invoices (drag or use ↑↓)</span><span class="lg rule">hard rules: $0 … $60</span></figcaption>
-  </figure>
-  <div class="diff" data-diff hidden></div>
-  <p class="fine" data-fine>Measured live in your browser over all 6,401 parcel weights from 0 to 100 kg in 1/64 kg steps. Generic net: seed 7, Adam, the same training loop and gradients (Handwired's backprop) as the Handwired net.</p>
+  <button type="button" class="next" data-next="2" hidden>Now, a twist <span aria-hidden="true">↓</span></button>
 </section>
-<h2>What is each column?</h2>
-<p><strong>Plain JS</strong> is the source shown, run with <code>new Function</code>. <strong>The Handwired net</strong> is the same rule written with Handwired&#39;s builder (<code>affine</code>, <code>multiply</code>, <code>emitCompare</code> for <code>kg &gt; HEAVY</code>, <code>emitClampExact</code> for the min/max): 41 operations whose source cells hold <code>BASE</code>, <code>PER_KG</code> and <code>SURCHARGE</code>. <strong>The generic net</strong> is a 1 → 16 → 1 ReLU network (65 operations, 49 weights), also run on the Handwired runtime so both nets use the same evaluator, backprop and Adam loop. It starts from seed 7 and trains for 2,500 steps on random weights between 0 and 100 kg priced by the JS rule.</p>
-<h2>What does each step measure?</h2>
-<ol>
-<li><strong>Exactness.</strong> Every parcel weight from 0 to 100 kg in 1/64 kg steps (6,401 inputs) runs through all three. An answer counts as a match only if it equals the JS number exactly, with no tolerance. The weights are on a 1/64 grid and the constants are whole cents, so float32 represents every intermediate value exactly. That&#39;s why the Handwired net matches the float64 JS bit for bit.</li>
-<li><strong>Change the prices.</strong> Thirteen invoices from the carrier&#39;s new price list appear. Plain JS has no gradients, so it stays where it was. <em>Unfreeze &amp; train</em> runs Adam on both nets with the same loss (mean squared error on the invoices). Only <code>BASE</code>, <code>PER_KG</code> and <code>SURCHARGE</code> unfreeze; <code>HEAVY</code> and <code>CAP</code> stay frozen, and the clamp is still an exact min/max. So the Handwired net can&#39;t return less than $0 or more than $60. The generic net has no such structure. <strong>Breaks a hard rule</strong> counts how many of the 6,401 outputs fall below −1¢ or above $60.01.</li>
-<li><strong>Read it.</strong> The Handwired net&#39;s learned weights are the program&#39;s constants, so they print as a JS diff. The page rounds them to whole cents, re-runs the 6,401-input check on the exported JS against the net with those constants, and reports the match count. The generic net&#39;s 49 numbers have no such reading.</li>
-</ol>
-<h2>Where is the honest fine print?</h2>
-<ul>
-<li>The Handwired net is shaped like the rule, so of course it fits a change in the rule&#39;s own constants quickly. That is the point: you start from code you already trust. It would not learn an unrelated pattern; drag the invoices into a shape the rule can&#39;t express and its error stays above zero.</li>
-<li>Gradients cannot move <code>HEAVY</code>: a comparison is flat almost everywhere, as upstream&#39;s docs explain. That&#39;s why it stays frozen.</li>
-<li>The generic net&#39;s step count depends on its seed, size and learning rate. We use one fixed setup (seed 7, 16 hidden units, Adam with lr 0.02, then 0.004 after step 1,500; fine-tuning at 0.01) and report what that run does. You could also bolt a clamp onto it. Handwired&#39;s point is that you get that clamp by writing the rule, not by designing a model.</li>
-<li>Exactness holds for the inputs and constants above. With arbitrary fractional constants, float32 and JS&#39;s float64 can differ in the last bits; upstream&#39;s <a href="https://github.com/chenglou/handwired/blob/main/docs/execution-model.md" rel="noopener">execution model</a> covers that.</li>
-</ul>
+  <section class="step" id="step-2" data-step="2" aria-labelledby="s2" hidden>
+    <p class="step-n">Step 2 of 7</p>
+    <h2 id="s2">The same function is also a <span class="term"><button type="button" class="term-btn" aria-describedby="def-net">neural net</button><span role="tooltip" id="def-net" class="term-tip">A chain of weighted sums and simple on/off switches. Its numbers are usually learned from examples.</span></span>.</h2>
+    <p class="say">Handwired rebuilt <code>jumpPower</code> out of the parts neural nets are made of. Nobody trained it: its <span class="term"><button type="button" class="term-btn" aria-describedby="def-w">weights</button><span role="tooltip" id="def-w" class="term-tip">The numbers inside a neural net. In a Handwired net they are your constants.</span></span> are your constants.</p>
+    <fieldset class="predict" data-predict="2"><legend>Before you look: will the network give the same answer as the JavaScript?</legend><div class="choices"><button type="button" class="choice" data-v="exact">Exactly the same</button><button type="button" class="choice" data-v="close">Very close</button><button type="button" class="choice" data-v="no">Different</button></div><p class="verdict-line" data-verdict aria-live="polite"></p></fieldset>
+    <div class="reveal" data-reveal="2" hidden>
+      <div class="duo net-duo">
+        <pre class="code small" tabindex="0" aria-label="The jumpPower function" data-code="2"></pre>
+        <svg class="net" data-net viewBox="0 0 520 300" role="img" aria-label="The function as a network: 41 operations wired in layers"></svg>
+      </div>
+      <div class="answers" aria-live="polite"><div><span class="who js">JavaScript says</span><b data-ans="js">…</b></div><div class="eq" data-eq>=</div><div><span class="who hw">The network says</span><b data-ans="hw">…</b></div></div>
+      <label class="shelf-ctl"><span>Shelf height</span><input type="range" min="0" max="100" step="1" value="62" data-shelf="2" /><output data-shelf-out="2">62 cm</output></label>
+      <p class="aside">Every dot is one operation: a weighted sum, or a sum through an on/off switch. Bright dots are busy for this shelf.</p>
+    </div>
+    <button type="button" class="next" data-next="3" hidden>Try to break it <span aria-hidden="true">↓</span></button>
+  </section>
+  <section class="step" id="step-3" data-step="3" aria-labelledby="s3" hidden>
+    <p class="step-n">Step 3 of 7</p>
+    <h2 id="s3">Try to catch it being wrong.</h2>
+    <p class="say">One shelf matching could be luck. Let's try every shelf from 0 to 100 cm, in steps of 1/32 cm.</p>
+    <fieldset class="predict" data-predict="3"><legend>How many of those 3,201 shelves will get a different answer?</legend><div class="choices"><button type="button" class="choice" data-v="0">None</button><button type="button" class="choice" data-v="few">A handful</button><button type="button" class="choice" data-v="many">Lots</button></div><p class="verdict-line" data-verdict aria-live="polite"></p></fieldset>
+    <div class="reveal" data-reveal="3" hidden>
+      <div class="race"><span class="big" data-race>0</span><span class="of">of 3,201 shelves give the same answer</span></div>
+      <canvas class="tiles" data-tiles width="800" height="160" role="img" aria-label="One square per shelf height; green means the network and JavaScript agree exactly"></canvas>
+      <p class="aside" data-race-note></p>
+    </div>
+    <button type="button" class="next" data-next="4" hidden>Now change the world <span aria-hidden="true">↓</span></button>
+  </section>
+  <section class="step" id="step-4" data-step="4" aria-labelledby="s4" hidden>
+    <p class="step-n">Step 4 of 7</p>
+    <h2 id="s4">Then the cat had a very big dinner.</h2>
+    <p class="say">A heavier cat needs more power. Plain JavaScript doesn't know that, and it can't find out.</p>
+    <button type="button" class="button primary" data-feed>Feed the cat</button>
+    <div class="reveal" data-reveal="4" hidden>
+      <div class="scene-wrap" data-wrap="4"><svg class="scene" data-scene="4" viewBox="0 0 420 300" role="img" aria-label="A cat jumping toward a shelf"></svg><p class="tally" aria-live="polite"><span class="big" data-tally4>0</span> <span>of 12 jumps landed</span></p></div>
+      <p class="aside">Each miss is the old rule giving the heavier cat too little power, or too much. The code is still the code: to fix it, someone would have to work out new numbers by hand.</p>
+    </div>
+    <button type="button" class="next" data-next="5" hidden>Let the network learn <span aria-hidden="true">↓</span></button>
+  </section>
+  <section class="step" id="step-5" data-step="5" aria-labelledby="s5" hidden>
+    <p class="step-n">Step 5 of 7</p>
+    <h2 id="s5">But the network can learn from those 12 jumps.</h2>
+    <p class="say">Because it's a neural net, we can <span class="term"><button type="button" class="term-btn" aria-describedby="def-nudge">nudge</button><span role="tooltip" id="def-nudge" class="term-tip">One small training step: measure how wrong the 12 answers are, and move each weight a little in the direction that makes them less wrong. Hundreds of nudges take a second or two.</span></span> its weights toward the right answers, the usual way nets are trained. Its weights are the constants, so watch the numbers in the code.</p>
+    <button type="button" class="button primary" data-learn>Unfreeze and learn</button>
+    <div class="reveal" data-reveal="5" hidden>
+      <div class="duo">
+        <pre class="code live" tabindex="0" aria-label="The network, shown as its code, while it learns" data-code="5"></pre>
+        <div class="vis"><div class="scene-wrap" data-wrap="5"><svg class="scene" data-scene="5" viewBox="0 0 420 300" role="img" aria-label="A cat jumping toward a shelf"></svg><p class="tally" aria-live="polite"><span class="big" data-tally5>0</span> <span>of 12 jumps land</span></p></div></div>
+      </div>
+      <p class="nudges" data-nudges></p>
+      <div class="learned" data-learned hidden></div>
+    </div>
+    <button type="button" class="next" data-next="6" hidden>Compare with a regular neural net <span aria-hidden="true">↓</span></button>
+  </section>
+  <section class="step" id="step-6" data-step="6" aria-labelledby="s6" hidden>
+    <p class="step-n">Step 6 of 7</p>
+    <h2 id="s6">Why not just train a regular neural net?</h2>
+    <p class="say">Give a regular net the same 12 jumps. It's a standard design with 49 weights. We first trained it to copy the original rule, so both start from the same behavior.</p>
+    <button type="button" class="button primary" data-race6>Train both on the 12 jumps</button>
+    <div class="reveal" data-reveal="6" hidden>
+      <div class="vs">
+        <div class="side hw"><h3>Handwired net</h3><svg class="mini" data-mini="hw" viewBox="0 0 300 170" role="img" aria-label="Jump power for every shelf, Handwired net"></svg>
+          <p class="metric"><span class="big" data-m="hw-miss">0</span> <span>shelves it would miss, out of 3,201</span></p><p class="metric sm"><b data-m="hw-steps">0</b> nudges · <b data-m="hw-bad">0</b> impossible jumps</p><p class="cap">What it learned:</p><pre class="code xs" tabindex="0" data-m="hw-code" aria-label="What it learned"></pre></div>
+        <div class="side mlp"><h3>Regular neural net</h3><svg class="mini" data-mini="mlp" viewBox="0 0 300 170" role="img" aria-label="Jump power for every shelf, regular net"></svg>
+          <p class="metric"><span class="big" data-m="mlp-miss">0</span> <span>shelves it would miss, out of 3,201</span></p><p class="metric sm"><b data-m="mlp-steps">0</b> nudges · <b data-m="mlp-bad">0</b> impossible jumps</p><p class="cap">What it learned: 49 numbers. Which one means &ldquo;heavier cat&rdquo;?</p><div class="heat" data-m="mlp-heat" role="img" aria-label="What it learned: 49 numbers"></div></div>
+      </div>
+      <p class="aside">Both saw only the 12 white dots. The miss count checks every shelf from 0 to 100 cm against what the heavier cat really needs. An impossible jump asks for under 0% or over 100%; the Handwired net can't, because <code>Math.min</code> and <code>Math.max</code> are still in it, exactly.</p>
+    </div>
+    <button type="button" class="next" data-next="7" hidden>So what? <span aria-hidden="true">↓</span></button>
+  </section>
+  <section class="step recap" id="step-7" data-step="7" aria-labelledby="s7" hidden>
+    <p class="step-n">Step 7 of 7</p>
+    <h2 id="s7">Handwired turns code you trust into a neural net you can train, and it stays your code.</h2>
+    <p class="say">That's the idea behind Cheng Lou's demos: a whole desktop UI running as one net, a photo layout that learns from your sketch, and a JSON search running on the GPU.</p>
+    <p class="ctas"><a class="button" href="https://chenglou.me/handwired/" rel="noopener">See Cheng Lou's demos</a> <a class="button secondary" href="/pages/getting-started.html">Write your own</a> <a class="button secondary" href="/pages/soft-switch.html">How the wiring works</a></p>
+  </section>
+  <details class="fineprint"><summary>Fine print: what's measured, and what isn't</summary>
+    <ul>
+      <li>Everything is computed live in your browser. JavaScript runs the source shown, through <code>new Function</code>. The network is the same rule built with Handwired's builder: 41 operations, using <code>emitCompare</code> for <code>shelf &gt; 50</code> and <code>emitClampExact</code> for the min/max.</li>
+      <li>"Same answer" means the identical number with no tolerance, for all 3,201 shelves (0 to 100 cm in 1/32 cm steps). That holds because the inputs and constants are values 32-bit floats store exactly. For arbitrary fractions, JavaScript's 64-bit math and the network's 32-bit math can differ in the last digits.</li>
+      <li>The heavier cat is a simulation: its "right" powers come from the same rule with BASE 12, PER_CM 1 and EXTRA 16. A jump lands if the power is within 0.75% of what the cat needed.</li>
+      <li>Learning uses Adam on the gradients from <code>circuit.backpropagateReference</code>. Only BASE, PER_CM and EXTRA learn. The 50 cm threshold can't learn, because a comparison has no slope. The learned constants are shown rounded (whole numbers, quarters for PER_CM); the page re-checks the rounded code against the network.</li>
+      <li>The regular net is 1 → 16 → 1 with ReLUs (49 weights), run on the same Handwired runtime with the same training code. It starts from seed 7 and is pre-trained for 2,500 steps on random shelves priced by the original rule. Its results depend on that setup, and you could bolt a clamp onto it. The Handwired net is shaped like the rule, which is exactly why it learns this change quickly; it couldn't learn an unrelated pattern.</li>
+    </ul>
+  </details>
+</div>
 
     </article>
     <p id="demo-status" class="status" role="status">Loading Handwired…</p>
@@ -192,6 +249,6 @@
     <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="https://github.com/chenglou/handwired">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/handwired-dot-wiki">site source</a></p>
   </footer>
-  <script type="module" src="/src/demos/jsnn.ts"></script>
+  <script type="module" src="/src/demos/lesson.ts"></script>
 </body>
 </html>
