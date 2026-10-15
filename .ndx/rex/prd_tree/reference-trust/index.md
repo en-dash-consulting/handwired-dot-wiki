@@ -14,6 +14,6 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [About, Attribution, FAQ](./about-attribution-faq.md) | pending |
-| [Accessibility & Quality Bar](./accessibility-quality-bar.md) | pending |
+| [Accessibility & Quality Bar](./accessibility-quality-bar/index.md) | completed |
+| [About, Attribution, FAQ](./about-attribution-faq.md) | completed |
 | [API / Mental-Model Reference](./api-mental-model-reference.md) | pending |

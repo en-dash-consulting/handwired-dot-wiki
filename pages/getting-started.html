@@ -3,26 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started — handwired.wiki</title>
-  <meta name="description" content="Install Handwired and run your first compiled program." />
+  <title>Getting Started with Handwired: Install, Run the Demos &amp; Use It in Vite | handwired.wiki</title>
+  <meta name="description" content="Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency." />
   <meta name="author" content="En Dash Consulting" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://handwired.wiki/pages/getting-started.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Getting Started — handwired.wiki" />
-  <meta property="og:description" content="Install Handwired and run your first compiled program." />
-  <meta property="og:image" content="https://handwired.wiki/og-image.svg" />
+  <link rel="alternate" type="text/markdown" href="/md/getting-started.md" title="Markdown version" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Getting Started with Handwired: Install, Run the Demos &amp; Use It in Vite | handwired.wiki" />
+  <meta property="og:description" content="Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency." />
   <meta property="og:url" content="https://handwired.wiki/pages/getting-started.html" />
   <meta property="og:site_name" content="handwired.wiki" />
+  <meta property="og:image" content="https://handwired.wiki/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="handwired.wiki — JavaScript as an exact, differentiable neural net" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Getting Started — handwired.wiki" />
-  <meta name="twitter:description" content="Install Handwired and run your first compiled program." />
-  <meta name="twitter:image" content="https://handwired.wiki/og-image.svg" />
+  <meta name="twitter:title" content="Getting Started with Handwired: Install, Run the Demos &amp; Use It in Vite | handwired.wiki" />
+  <meta name="twitter:description" content="Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency." />
+  <meta name="twitter:image" content="https://handwired.wiki/og-image.png" />
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://handwired.wiki/#website",
+   "name": "handwired.wiki",
+   "url": "https://handwired.wiki/",
+   "publisher": {
+    "@id": "https://handwired.wiki/#org"
+   },
+   "inLanguage": "en",
+   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://handwired.wiki/#org",
+   "name": "En Dash Consulting",
+   "url": "https://endash.us"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://handwired.wiki/#chenglou",
+   "name": "Cheng Lou",
+   "url": "https://chenglou.me"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "@id": "https://handwired.wiki/#handwired",
+   "name": "Handwired",
+   "alternateName": [
+    "handwired js",
+    "chenglou/handwired"
+   ],
+   "description": "Turn your regular JavaScript code into a neural net; no training, exact, yet also fully differentiable.",
+   "codeRepository": "https://github.com/chenglou/handwired",
+   "url": "https://chenglou.me/handwired/",
+   "author": {
+    "@id": "https://handwired.wiki/#chenglou"
+   },
+   "license": "https://opensource.org/licenses/MIT",
+   "programmingLanguage": [
+    "TypeScript",
+    "JavaScript"
+   ],
+   "runtimePlatform": "Bun, web browsers"
+  },
+  {
+   "@type": "HowTo",
+   "@id": "https://handwired.wiki/pages/getting-started.html#page",
+   "url": "https://handwired.wiki/pages/getting-started.html",
+   "name": "Getting started with Handwired",
+   "headline": "Getting started with Handwired",
+   "description": "Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://handwired.wiki/#website"
+   },
+   "about": {
+    "@id": "https://handwired.wiki/#handwired"
+   },
+   "publisher": {
+    "@id": "https://handwired.wiki/#org"
+   },
+   "dateModified": "2026-10-15",
+   "image": "https://handwired.wiki/og-image.png",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "text": "Install Bun (upstream is tested with Bun 1.4.3)."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "text": "Clone the repo: git clone https://github.com/chenglou/handwired && cd handwired && bun install."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "text": "Run bun start and open http://127.0.0.1:3000/ for Mini OS, the learned gallery and JSON search."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "text": "Run bun run start:template to open the toggle switch template, the starting point for a new app."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 5,
+     "text": "Or add Handwired to a Vite project as a pinned git dependency and import its TypeScript sources."
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://handwired.wiki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Getting started with Handwired",
+     "item": "https://handwired.wiki/pages/getting-started.html"
+    }
+   ]
+  }
+ ]
+}
+  </script>
 </head>
 <body>
-  <header class="site-header"><a class="brand" href="/">handwired<span>.wiki</span></a><nav><a href="/pages/why-handwired.html">Why Handwired</a><a href="/pages/getting-started.html">Getting Started</a><a href="/pages/playground.html">Playground</a><a href="/pages/gallery.html">Gallery</a><a href="/pages/about.html">About</a></nav></header>
-  <main class="page"><h1>Getting Started</h1><p>Install Handwired and run your first compiled program.</p><p class="todo">Coming soon.</p></main>
-  <footer class="site-footer">An independent community resource by <a href="https://endash.us">En Dash Consulting</a>. Not affiliated with <a href="https://github.com/chenglou/handwired">Handwired</a> (MIT, Cheng Lou).</footer>
-  <script type="module" src="/src/pages/getting-started.ts"></script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html" aria-current="page">Getting started</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+  </header>
+  <main id="main" class="page" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Getting started with Handwired</li></ol></nav>
+    <article>
+      <h1>Getting started with Handwired</h1>
+      <p class="lede"><strong>Short answer:</strong> Handwired isn't published to npm. Clone the GitHub repo and run it with <a href="https://bun.sh" rel="noopener">Bun</a>, or add it to a bundler project as a pinned git dependency — that's how this site uses it.</p>
+
+<h2>How do I run the upstream demos?</h2>
+<p>The repo needs Bun (upstream tests with Bun 1.4.3).</p>
+<pre tabindex="0"><code class="language-sh">git clone https://github.com/chenglou/handwired
+cd handwired
+bun install
+bun start                 # demo site at http://127.0.0.1:3000/ — /os/, /learned-gallery/, /json-search/
+bun run start:template    # the toggle switch template at http://localhost:3000/
+bun run test              # every test, about 3 minutes
+</code></pre>
+<h2>Where should I start reading code?</h2>
+<p>Upstream recommends <code>template/</code> — a toggle switch written as one numeric program, <code>toggle-reference.ts</code> (the same switch in plain JS) and <code>toggle.test.ts</code> comparing the two — and <code>docs/tutorial.md</code>, which walks through it. Then <code>docs/expressions.md</code> for single expressions, <code>docs/patterns.md</code> for loops, and <code>docs/execution-model.md</code> as the reference.</p>
+<h2>How do I use Handwired in a Vite or TypeScript project?</h2>
+<p>Add it as a git dependency pinned to a commit:</p>
+<pre tabindex="0"><code class="language-json">{
+  &quot;dependencies&quot;: {
+    &quot;handwired&quot;: &quot;github:chenglou/handwired#4ea7fcb27ebe93acf49b9f29a93e162b975bad46&quot;
+  }
+}
+</code></pre>
+<p>Then import the runtime&#39;s TypeScript sources directly — Vite transpiles them:</p>
+<pre tabindex="0"><code class="language-ts">import { Circuit, emitCompare, emitSelect } from &#39;handwired/src/runtime/numeric-ui-core.ts&#39;
+
+const circuit = new Circuit(2)            // two source cells
+const a = circuit.source(0), b = circuit.source(1)
+circuit.assumeRange(a, 0, 1024); circuit.assumeGrid(a, 1)
+circuit.assumeRange(b, 0, 1024); circuit.assumeGrid(b, 1)
+const bit = emitCompare(circuit, a, &#39;&gt;=&#39;, b)  // exactly 0 or 1
+const max = emitSelect(circuit, bit, b, a)    // bit ? a : b
+
+const values = circuit.evaluateReference(new Float32Array([7, 3]))
+console.log(values[bit], values[max])         // 1 7
+</code></pre>
+<p>In <code>tsconfig.json</code>, set <code>&quot;allowImportingTsExtensions&quot;: true</code> with <code>&quot;noEmit&quot;: true</code> (or let your bundler handle types). The package is marked <code>private</code> upstream and has no stable API promise, so pin a commit and upgrade deliberately.</p>
+<h2>What does a real app look like?</h2>
+<p>A full app adds a source table (<code>createSourceTable</code> from <code>src/runtime/cells.ts</code>) to declare inputs, events and state, <code>table.next</code> for each state cell, <code>createEvaluator</code> to compile it, and <code>advanceFrame</code> from <code>host-timing.ts</code> for springs. The <a href="/pages/toggle.html">toggle demo</a> on this site runs the upstream template unmodified.</p>
+
+    </article>
+    
+    
+  </main>
+  <footer class="site-footer">
+    <p><strong>handwired.wiki</strong> is an independent community resource by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Cheng Lou.</p>
+    <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="https://github.com/chenglou/handwired">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
+    <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/handwired-dot-wiki">site source</a></p>
+  </footer>
+  <script type="module" src="/src/pages/content.ts"></script>
 </body>
 </html>

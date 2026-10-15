@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "pages": "node scripts/build-pages.mjs",
+    "build": "npm run pages && tsc && vite build",
+    "og": "node scripts/generate-og-image.mjs",
+    "test": "playwright test",
     "preview": "vite preview",
     "typecheck": "tsc"
   },
@@ -13,8 +16,11 @@
     "handwired": "github:chenglou/handwired#4ea7fcb27ebe93acf49b9f29a93e162b975bad46"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
+    "@playwright/test": "^1.64.1",
+    "marked": "^15.0.12",
     "typescript": "^6.0.2",
     "vite": "^8.0.3"
   }

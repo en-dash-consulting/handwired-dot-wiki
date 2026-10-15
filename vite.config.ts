@@ -1,18 +1,12 @@
 import { resolve } from 'path'
+import { readdirSync } from 'fs'
 import { defineConfig } from 'vite'
+
+const pages = Object.fromEntries(
+  readdirSync(resolve(__dirname, 'pages')).filter(f => f.endsWith('.html')).map(f => [f.replace(/\.html$/, ''), resolve(__dirname, 'pages', f)]),
+)
 
 export default defineConfig({
   base: '/',
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        'why-handwired': resolve(__dirname, 'pages/why-handwired.html'),
-        'getting-started': resolve(__dirname, 'pages/getting-started.html'),
-        'playground': resolve(__dirname, 'pages/playground.html'),
-        'gallery': resolve(__dirname, 'pages/gallery.html'),
-        'about': resolve(__dirname, 'pages/about.html'),
-      },
-    },
-  },
+  build: { rollupOptions: { input: { main: resolve(__dirname, 'index.html'), ...pages } } },
 })

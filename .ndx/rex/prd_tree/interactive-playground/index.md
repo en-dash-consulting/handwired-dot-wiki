@@ -2,11 +2,14 @@
 id: "9d1c8739-c8a3-4cdc-a6ff-03be81e179c0"
 level: "epic"
 title: "Interactive Playground"
-status: "pending"
+status: "completed"
 priority: "high"
 source: "docs/07-requirements.md"
+startedAt: "2026-10-15T19:07:37.927Z"
+completedAt: "2026-10-15T19:07:37.927Z"
+endedAt: "2026-10-15T19:07:37.927Z"
 description: "Code-to-network playground, live input explorer, and unfreeze-and-train learned mode inspired by upstream Learned gallery."
-lastModified: "2026-10-15T18:22:37.385Z"
+lastModified: "2026-10-15T19:07:37.942Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
 
@@ -14,6 +17,6 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [Code to Network Playground](./code-to-network-playground.md) | pending |
-| [Live Input Explorer](./live-input-explorer.md) | pending |
-| [Unfreeze & Train (Learned Mode)](./unfreeze-train-learned-mode.md) | pending |
+| [Code to Network Playground](./code-to-network-playground/index.md) | completed |
+| [Live Input Explorer](./live-input-explorer/index.md) | completed |
+| [Unfreeze & Train (Learned Mode)](./unfreeze-train-learned-mode/index.md) | completed |

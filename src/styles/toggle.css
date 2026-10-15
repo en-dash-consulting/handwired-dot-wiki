@@ -1,6 +1,0 @@
-/* Styles required by upstream template/toggle.ts (it positions .track relative to the viewport). */
-.track { position: fixed; left: 0; top: 0; width: 52px; height: 32px; border-radius: 16px; cursor: pointer; z-index: 1;
-  background: color-mix(in srgb, #34c759 calc(var(--fill, 0) * 100%), #d1d1d6);
-  filter: brightness(calc(1 - var(--armed, 0) * 0.1)); }
-.thumb { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 12px; background: white; box-shadow: 0 1px 3px rgb(0 0 0 / 0.3); }
-.hw-stage { min-height: 40vh; }

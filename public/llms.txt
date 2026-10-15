@@ -1,0 +1,32 @@
+# handwired.wiki
+
+> Independent learning resource and live demo gallery for Handwired, Cheng Lou's open-source project that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, runnable in a browser without a GPU. Upstream: https://github.com/chenglou/handwired (MIT) and https://chenglou.me/handwired/.
+
+Key facts:
+- Handwired programs are fixed lists of FP32 operations: weighted sums (circuit.affine), products with a ReLU (circuit.reglu), boolean rounding (circuit.boolean) and table reads (circuit.indexRead).
+- You write builder code (ordinary JavaScript that runs once and appends operations to a Circuit); no tool converts existing JavaScript source automatically.
+- Example: `a > 4 ? 10 : 12` becomes `above4 = relu(a - 4) - relu(a - 5); result = above4 * 10 + (1 - above4) * 12`.
+- Not published to npm; clone the repo and use Bun, or depend on it via git ("github:chenglou/handwired#<commit>").
+- handwired.wiki is not affiliated with Cheng Lou; it is run by En Dash Consulting (https://endash.us).
+
+## Guides
+- [Learn Handwired](https://handwired.wiki/): Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ. (markdown: https://handwired.wiki/md/index.md)
+- [Why Handwired?](https://handwired.wiki/pages/why-handwired.html): Why write JavaScript as a neural net? Handwired programs are exact like code, differentiable like models, and parallel like GPU kernels. The idea behind Cheng Lou's project. (markdown: https://handwired.wiki/md/why-handwired.md)
+- [Handwired concepts](https://handwired.wiki/pages/concepts.html): How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients. (markdown: https://handwired.wiki/md/concepts.md)
+- [Getting started with Handwired](https://handwired.wiki/pages/getting-started.html): Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency. (markdown: https://handwired.wiki/md/getting-started.md)
+- [Demo gallery](https://handwired.wiki/pages/gallery.html): Every Handwired demo in one place: live in-browser demos on handwired.wiki plus Cheng Lou's upstream Mini OS, Learned gallery and 100,000-document JSON search. (markdown: https://handwired.wiki/md/gallery.md)
+- [About handwired.wiki](https://handwired.wiki/pages/about.html): handwired.wiki is an independent learning resource and demo gallery for Cheng Lou's Handwired, built by En Dash Consulting. Attribution, licensing and sources. (markdown: https://handwired.wiki/md/about.md)
+
+## Interactive demos
+- [Soft switch: an if/else made of ReLUs](https://handwired.wiki/pages/soft-switch.html): Interactive demo: the Handwired README's a > 4 ? 10 : 12 built as relu(a - 4) - relu(a - 5) and a select, evaluated by the real Handwired runtime as you drag a. (markdown: https://handwired.wiki/md/soft-switch.md)
+- [Exact comparison explorer](https://handwired.wiki/pages/compare-explorer.html): Interactive Handwired demo: compare two numbers with emitCompare, pick with emitSelect, take emitMinimumExact, see operation counts with and without a grid, and fuzz against JavaScript. (markdown: https://handwired.wiki/md/compare-explorer.md)
+- [Code → network](https://handwired.wiki/pages/circuit-graph.html): See what a JavaScript expression becomes in Handwired: every affine, reglu and select operation of a circuit, laid out by layer, built live by the real runtime. (markdown: https://handwired.wiki/md/circuit-graph.md)
+- [Unfreeze & train](https://handwired.wiki/pages/train.html): Interactive demo: start from an exact handwired program, unfreeze its threshold, slope and branch values, and fit new targets by gradient descent using Handwired's backpropagateReference. (markdown: https://handwired.wiki/md/train.md)
+- [Toggle switch template](https://handwired.wiki/pages/toggle.html): Upstream Handwired's template app running live: a toggle switch whose hit testing, arming and spring animation are one numeric program, checked against plain JavaScript. (markdown: https://handwired.wiki/md/toggle.md)
+
+## FAQ
+- [Handwired FAQ](https://handwired.wiki/pages/faq.html): Answers about Handwired by Cheng Lou: what it is, whether it's a compiler, if it needs training or a GPU, how it stays exact and differentiable, and how to install it. (markdown: https://handwired.wiki/md/faq.md)
+
+## Optional
+- [llms-full.txt](https://handwired.wiki/llms-full.txt): every page's full text in one file
+- [Upstream docs](https://github.com/chenglou/handwired/tree/main/docs)

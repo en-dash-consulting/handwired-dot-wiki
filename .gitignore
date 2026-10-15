@@ -55,3 +55,6 @@ playwright/.cache/
 claude_commands.log
 claude_commands.log.*
 README.proposed.md
+screenshots-review/
+test-results/
+playwright-report/

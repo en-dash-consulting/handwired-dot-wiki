@@ -14,6 +14,6 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [Community / Site-Original Demos](./community-site-original-demos.md) | pending |
-| [Gallery Index](./gallery-index.md) | pending |
-| [Upstream Demo Spotlights](./upstream-demo-spotlights.md) | pending |
+| [Community / Site-Original Demos](./community-site-original-demos/index.md) | completed |
+| [Gallery Index](./gallery-index.md) | completed |
+| [Upstream Demo Spotlights](./upstream-demo-spotlights.md) | in_progress |

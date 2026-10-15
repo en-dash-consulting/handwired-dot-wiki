@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toggle switch embed — handwired.wiki</title>
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://handwired.wiki/pages/toggle.html" />
+  <style>
+    /* From upstream template/index.html (MIT, Cheng Lou). toggle.ts writes transforms, --fill and --armed. */
+    html, body { margin: 0; height: 100%; overflow: hidden; touch-action: none; background: #fbfaf7; font: 14px/1.4 system-ui, sans-serif; color: #4a4a55 }
+    @media (prefers-color-scheme: dark) { body { color: #b4b4c0; background: #111114 } }
+    .track { position: absolute; left: 0; top: 0; width: 52px; height: 32px; border-radius: 16px; cursor: pointer;
+      background: color-mix(in srgb, #34c759 calc(var(--fill, 0) * 100%), #8e8e96);
+      filter: brightness(calc(1 - var(--armed, 0) * 0.1)) }
+    .thumb { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 12px; background: white; box-shadow: 0 1px 3px rgb(0 0 0 / 0.3) }
+    p { position: absolute; bottom: 10px; width: 100%; text-align: center; margin: 0 }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="track" role="switch" aria-checked="false" aria-label="Handwired toggle (pointer operated)"><div class="thumb"></div></div>
+    <p id="state" aria-live="polite">Press and release on the switch.</p>
+  </main>
+  <script type="module" src="/src/demos/toggle-embed.ts"></script>
+</body>
+</html>

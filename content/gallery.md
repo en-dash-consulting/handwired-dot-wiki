@@ -1,0 +1,29 @@
+---
+slug: gallery
+title: "Handwired Demo Gallery: Live JavaScript Neural Net Demos | handwired.wiki"
+nav: Gallery
+h1: Demo gallery
+description: "Every Handwired demo in one place: live in-browser demos on handwired.wiki plus Cheng Lou's upstream Mini OS, Learned gallery and 100,000-document JSON search."
+type: collection
+---
+<p class="lede">Every demo below runs the real Handwired runtime in your browser — no server, no GPU required. Upstream demos link to Cheng Lou's site.</p>
+
+## Which demos run on this site?
+
+<div class="card-grid">
+<a class="card" href="/pages/soft-switch.html"><h3>Soft switch</h3><p>The README's <code>a &gt; 4 ? 10 : 12</code> as two ReLUs and a select. Editable <code>a</code>, branches and live plot.</p></a>
+<a class="card" href="/pages/compare-explorer.html"><h3>Exact comparison explorer</h3><p>Pick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.</p></a>
+<a class="card" href="/pages/circuit-graph.html"><h3>Code → network graph</h3><p>Visualize the operations and layers behind a select, a comparison and an exact clamp.</p></a>
+<a class="card" href="/pages/train.html"><h3>Unfreeze &amp; train</h3><p>Start from the exact program, then fit its threshold, slope and branch values by gradient descent.</p></a>
+<a class="card" href="/pages/toggle.html"><h3>Toggle switch template</h3><p>Upstream's <code>template/</code> app: a spring-animated switch run as one numeric program.</p></a>
+</div>
+
+## What are the upstream demos?
+
+<div class="card-grid">
+<a class="card ext" href="https://chenglou.me/handwired/"><h3>Mini OS (HandwiredOS)</h3><p>A small desktop with three windows and a dock — focus, stacking, dragging, resizing, springs, a photo gallery — run by one program: 234 source cells, 4,646 live operations in 130 layers, 9,909 weights, zero training.</p></a>
+<a class="card ext" href="https://chenglou.me/handwired/"><h3>Learned gallery</h3><p>A photo layout drawn by a small network inside a program (6,320 operations in 8 layers, 244 trained source cells), trained with Adam using the program's own gradients while you edit the sketch.</p></a>
+<a class="card ext" href="https://chenglou.me/handwired/"><h3>Search 100,000 JSON documents</h3><p>Regex matching, JSON parsing and highlighting written as numeric programs, then emitted as WebGPU shaders that search every document at each keystroke.</p></a>
+</div>
+
+Figures above are from the upstream READMEs at the pinned commit.
