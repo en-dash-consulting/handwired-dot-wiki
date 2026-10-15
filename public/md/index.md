@@ -1,4 +1,4 @@
-# Learn Handwired
+# Handwired: turn JavaScript into a neural net
 
 > Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ.
 

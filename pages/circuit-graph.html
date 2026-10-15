@@ -153,14 +153,17 @@
       <option value="clamp">clamp(x, lo, hi), exact</option>
     </select>
   </div>
-  <pre tabindex="0"><code id="js-code"></code></pre>
-  <p id="graph-stats" class="hint" aria-live="polite"></p>
-  <div class="graph-scroll" tabindex="0" role="region" aria-label="Circuit graph, scrollable" aria-describedby="graph-desc">
-    <svg id="graph" role="img" aria-labelledby="graph-desc"></svg>
+  <pre class="big-code"><code id="js-code"></code></pre>
+  <div id="graph-inputs" class="knobs"></div>
+  <p class="r-mid" id="graph-result" aria-live="polite"></p>
+  <p id="graph-stats" class="hint"></p>
+  <div class="graph-wrap">
+    <div class="graph-scroll" tabindex="0" role="region" aria-label="Circuit graph, scrollable. Tab to nodes to inspect them.">
+      <svg id="graph" role="group" aria-label="Circuit graph"></svg>
+    </div>
+    <aside id="inspector" class="inspector" aria-live="polite" aria-label="Node inspector"></aside>
   </div>
-  <p id="graph-desc" class="visually-hidden"></p>
-  <h3>Operations</h3>
-  <ol id="ops" class="ops"></ol>
+  <details class="ops-details"><summary>All operations as text</summary><ol id="ops" class="ops"></ol></details>
 </section>
 <h2>How do I read the graph?</h2>
 <p>Each box is a wire: an input cell or an operation&#39;s result. Edges are the terms an operation reads; dashed edges have negative coefficients. An operation&#39;s layer is one more than the deepest wire it reads, so the number of columns is the program&#39;s depth.</p>

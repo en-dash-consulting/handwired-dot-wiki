@@ -14,3 +14,9 @@ description: "Header wordmark + track nav; sidebar page tree; footer with En Das
 lastModified: "2026-10-15T19:07:43.845Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
+
+## Children
+
+| Title | Status |
+|-------|--------|
+| [Handwired visual identity + animated hero](./handwired-visual-identity-animated-hero.md) | completed |

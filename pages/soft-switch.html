@@ -142,26 +142,65 @@
       <p class="lede">The ternary <code>a &gt; 4 ? 10 : 12</code> becomes <code>above4 = relu(a − 4) − relu(a − 5)</code> and <code>result = above4 × 10 + (1 − above4) × 12</code>. Drag <code>a</code> — every number below comes from a real Handwired <code>Circuit</code>.</p>
 
 
-<section class="demo" aria-labelledby="demo-title">
+<section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
-  <div class="controls">
+  <div class="demo-top">
+    <div class="code-card" aria-label="The JavaScript being replaced">
+      <p class="card-kicker">your code</p>
+      <pre class="big-code"><code>const a = <span id="a-val" class="tok-a">5</span>
+const result = a &gt; 4
+  ? <span id="code-hi" class="branch">10</span>
+  : <span id="code-lo" class="branch">12</span></code></pre>
+      <div class="results"><div><span class="r-label">circuit</span><output id="out-result" class="r-big">10</output></div><div><span class="r-label">plain JS</span><output id="out-js" class="r-big js">10</output></div></div>
+    </div>
+    <div class="circuit-card"><p class="card-kicker">turns into <span class="hand">live network</span></p>
+      <svg id="circuit" class="hw-hero-svg circuit-svg" viewBox="0 70 960 350" role="img" aria-labelledby="circuit-title">
+  <title id="circuit-title">Live circuit: input a feeds relu(a−4) and relu(a−5); their difference above4 selects between the on and off branch. Nodes light up with their activation.</title>
+  <g class="hw-code"><!--<text class="hw-tok tok-kw" data-k="kw" x="40" y="58" style="--dx:800px;--dy:183px">const result = </text><text class="hw-tok tok-a" data-k="a" x="274" y="58" style="--dx:-184px;--dy:183px">a</text><text class="hw-tok tok-cmp" data-k="cmp" x="290" y="58" style="--dx:50px;--dy:183px"> &gt; 4</text><text class="hw-tok tok-p" data-k="p" x="352" y="58" style="--dx:488px;--dy:183px"> ?</text><text class="hw-tok tok-hi" data-k="hi" x="383" y="58" style="--dx:297px;--dy:68px"> 10</text><text class="hw-tok tok-p" data-k="p" x="430" y="58" style="--dx:410px;--dy:183px"> :</text><text class="hw-tok tok-lo" data-k="lo" x="461" y="58" style="--dx:219px;--dy:298px"> 12</text>--></g>
+  <g class="hw-net">
+    <path class="hw-wire " data-w="a-r1" d="M110,235 C235,235 235,160 360,160" pathLength="1"/><path class="hw-flow " data-f="a-r1" d="M110,235 C235,235 235,160 360,160"/><path class="hw-wire " data-w="a-r2" d="M110,235 C235,235 235,310 360,310" pathLength="1"/><path class="hw-flow " data-f="a-r2" d="M110,235 C235,235 235,310 360,310"/><path class="hw-wire " data-w="r1-ab" d="M360,160 C460,160 460,235 560,235" pathLength="1"/><path class="hw-flow " data-f="r1-ab" d="M360,160 C460,160 460,235 560,235"/><path class="hw-wire neg" data-w="r2-ab" d="M360,310 C460,310 460,235 560,235" pathLength="1"/><path class="hw-flow neg" data-f="r2-ab" d="M360,310 C460,310 460,235 560,235"/>
+    <path class="hw-wire " data-w="ab-out" d="M560,235 C710,235 710,235 860,235" pathLength="1"/><path class="hw-flow " data-f="ab-out" d="M560,235 C710,235 710,235 860,235"/><path class="hw-wire " data-w="hi-out" d="M700,120 C780,120 780,235 860,235" pathLength="1"/><path class="hw-flow " data-f="hi-out" d="M700,120 C780,120 780,235 860,235"/><path class="hw-wire " data-w="lo-out" d="M700,350 C780,350 780,235 860,235" pathLength="1"/><path class="hw-flow " data-f="lo-out" d="M700,350 C780,350 780,235 860,235"/>
+    <g class="hw-node" data-n="a" style="--x:110px;--y:235px">
+  <circle class="hw-halo" cx="110" cy="235" r="44"/><circle class="hw-body" cx="110" cy="235" r="34"/>
+  <text class="hw-label" x="110" y="233" text-anchor="middle">a</text>
+  <text class="hw-val" data-v="a" x="110" y="252" text-anchor="middle">5</text></g><g class="hw-node" data-n="r1" style="--x:360px;--y:160px">
+  <circle class="hw-halo" cx="360" cy="160" r="56"/><circle class="hw-body" cx="360" cy="160" r="46"/>
+  <text class="hw-label" x="360" y="158" text-anchor="middle">relu(a−4)</text>
+  <text class="hw-val" data-v="r1" x="360" y="177" text-anchor="middle">1</text></g><g class="hw-node" data-n="r2" style="--x:360px;--y:310px">
+  <circle class="hw-halo" cx="360" cy="310" r="56"/><circle class="hw-body" cx="360" cy="310" r="46"/>
+  <text class="hw-label" x="360" y="308" text-anchor="middle">relu(a−5)</text>
+  <text class="hw-val" data-v="r2" x="360" y="327" text-anchor="middle">0</text></g>
+    <g class="hw-node" data-n="ab" style="--x:560px;--y:235px">
+  <circle class="hw-halo" cx="560" cy="235" r="50"/><circle class="hw-body" cx="560" cy="235" r="40"/>
+  <text class="hw-label" x="560" y="233" text-anchor="middle">above4</text>
+  <text class="hw-val" data-v="ab" x="560" y="252" text-anchor="middle">1</text></g><g class="hw-node" data-n="hi" style="--x:700px;--y:120px">
+  <circle class="hw-halo" cx="700" cy="120" r="38"/><circle class="hw-body" cx="700" cy="120" r="28"/>
+  <text class="hw-label" x="700" y="118" text-anchor="middle">on</text>
+  <text class="hw-val" data-v="hi" x="700" y="137" text-anchor="middle">10</text></g><g class="hw-node" data-n="lo" style="--x:700px;--y:350px">
+  <circle class="hw-halo" cx="700" cy="350" r="38"/><circle class="hw-body" cx="700" cy="350" r="28"/>
+  <text class="hw-label" x="700" y="348" text-anchor="middle">off</text>
+  <text class="hw-val" data-v="lo" x="700" y="367" text-anchor="middle">12</text></g><g class="hw-node" data-n="out" style="--x:860px;--y:235px">
+  <circle class="hw-halo" cx="860" cy="235" r="50"/><circle class="hw-body" cx="860" cy="235" r="40"/>
+  <text class="hw-label" x="860" y="233" text-anchor="middle">result</text>
+  <text class="hw-val" data-v="out" x="860" y="252" text-anchor="middle">10</text></g>
+  </g>
+  <text class="hw-note" x="430" y="405" text-anchor="middle">both branches always run — the bit picks one</text>
+</svg>
+    </div>
+  </div>
+  <div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>
+  <figure class="plot-fig"><svg id="plot" class="chart draggable" role="img" aria-label="Curves of relu(a−4), relu(a−5) and above4 for a from −1 to 9, with a draggable point at the current a"></svg>
+  <figcaption><span class="key k-r1">relu(a − 4)</span> <span class="key k-r2">relu(a − 5)</span> <span class="key k-ab">above4 = difference</span> · drag the plot or use the slider · <span id="op-count"></span></figcaption></figure>
+  <div class="controls a-controls">
     <label for="a-range">a</label>
-    <input id="a-range" type="range" min="-2" max="10" step="0.25" value="5" aria-describedby="a-help" />
-    <input id="a-num" type="number" min="-2" max="10" step="0.25" value="5" aria-label="a (number)" class="num" />
-    <label for="hi">on branch (a &gt; 4)</label><input id="hi" type="number" value="10" class="num" />
+    <input id="a-range" type="range" min="-1" max="9" step="1" value="5" />
+    <output for="a-range" class="r-mid" id="a-out">5</output>
+    <span class="switch-field"><input id="blend" type="checkbox" role="switch" /><label for="blend">allow in-between values <span class="hint">(see how the blend makes it differentiable)</span></label></span>
+  </div>
+  <div class="controls">
+    <label for="hi">on branch</label><input id="hi" type="number" value="10" class="num" />
     <label for="lo">off branch</label><input id="lo" type="number" value="12" class="num" />
   </div>
-  <p id="a-help" class="hint">Integers give exact bits; fractions between 4 and 5 blend the branches.</p>
-  <dl class="readout" aria-live="polite">
-    <div><dt>relu(a − 4)</dt><dd id="out-r1">–</dd></div>
-    <div><dt>relu(a − 5)</dt><dd id="out-r2">–</dd></div>
-    <div><dt>above4</dt><dd id="out-above4">–</dd></div>
-    <div class="em"><dt>circuit result</dt><dd id="out-result">–</dd></div>
-    <div><dt>plain JS</dt><dd id="out-js">–</dd></div>
-    <div class="wide"><dt>check</dt><dd id="out-agree">–</dd></div>
-  </dl>
-  <figure><svg id="plot" class="chart" role="img" aria-label="Plot of the circuit's result (line) and plain JavaScript (dots) for a from −2 to 10"></svg>
-  <figcaption>Line: circuit output for every <code>a</code>. Dots: plain JS at integers. <span id="op-count"></span>.</figcaption></figure>
 </section>
 <h2>Why does this work?</h2>
 <p>For an integer <code>a</code>, <code>relu(a − 4) − relu(a − 5)</code> is 0 when <code>a ≤ 4</code> and 1 when <code>a ≥ 5</code> — an exact bit. <code>emitSelect</code> then computes <code>bit × on + (1 − bit) × off</code>, so both branches run and the bit picks one. Set <code>a</code> to a fraction like 4.5 and the bit becomes 0.5, blending the branches: that&#39;s why upstream&#39;s <code>emitCompare</code> relies on declared ranges and grids to guarantee exact bits.</p>

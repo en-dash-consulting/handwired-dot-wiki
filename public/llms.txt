@@ -10,7 +10,7 @@ Key facts:
 - handwired.wiki is not affiliated with Cheng Lou; it is run by En Dash Consulting (https://endash.us).
 
 ## Guides
-- [Learn Handwired](https://handwired.wiki/): Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ. (markdown: https://handwired.wiki/md/index.md)
+- [Handwired: turn JavaScript into a neural net](https://handwired.wiki/): Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ. (markdown: https://handwired.wiki/md/index.md)
 - [Why Handwired?](https://handwired.wiki/pages/why-handwired.html): Why write JavaScript as a neural net? Handwired programs are exact like code, differentiable like models, and parallel like GPU kernels. The idea behind Cheng Lou's project. (markdown: https://handwired.wiki/md/why-handwired.md)
 - [Handwired concepts](https://handwired.wiki/pages/concepts.html): How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients. (markdown: https://handwired.wiki/md/concepts.md)
 - [Getting started with Handwired](https://handwired.wiki/pages/getting-started.html): Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency. (markdown: https://handwired.wiki/md/getting-started.md)

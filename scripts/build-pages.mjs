@@ -6,6 +6,7 @@ import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
+import { heroSvg } from './hero.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
@@ -40,50 +41,65 @@ const path = slug => slug === 'index' ? '/' : `/pages/${slug}.html`
 const url = slug => SITE + path(slug)
 const navLabel = slug => bySlug[slug].nav
 
+const verdict = `<div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>`
 const DEMOS = {
   'soft-switch': `
-<section class="demo" aria-labelledby="demo-title">
+<section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
-  <div class="controls">
+  <div class="demo-top">
+    <div class="code-card" aria-label="The JavaScript being replaced">
+      <p class="card-kicker">your code</p>
+      <pre class="big-code"><code>const a = <span id="a-val" class="tok-a">5</span>
+const result = a &gt; 4
+  ? <span id="code-hi" class="branch">10</span>
+  : <span id="code-lo" class="branch">12</span></code></pre>
+      <div class="results"><div><span class="r-label">circuit</span><output id="out-result" class="r-big">10</output></div><div><span class="r-label">plain JS</span><output id="out-js" class="r-big js">10</output></div></div>
+    </div>
+    <div class="circuit-card"><p class="card-kicker">turns into <span class="hand">live network</span></p>
+      ${heroSvg({ code: false, id: 'circuit', cls: 'hw-hero-svg circuit-svg', title: 'Live circuit: input a feeds relu(a−4) and relu(a−5); their difference above4 selects between the on and off branch. Nodes light up with their activation.' }).replace('class="hw-hero-svg circuit-svg"', 'id="circuit" class="hw-hero-svg circuit-svg"')}
+    </div>
+  </div>
+  ${verdict}
+  <figure class="plot-fig"><svg id="plot" class="chart draggable" role="img" aria-label="Curves of relu(a−4), relu(a−5) and above4 for a from −1 to 9, with a draggable point at the current a"></svg>
+  <figcaption><span class="key k-r1">relu(a − 4)</span> <span class="key k-r2">relu(a − 5)</span> <span class="key k-ab">above4 = difference</span> · drag the plot or use the slider · <span id="op-count"></span></figcaption></figure>
+  <div class="controls a-controls">
     <label for="a-range">a</label>
-    <input id="a-range" type="range" min="-2" max="10" step="0.25" value="5" aria-describedby="a-help" />
-    <input id="a-num" type="number" min="-2" max="10" step="0.25" value="5" aria-label="a (number)" class="num" />
-    <label for="hi">on branch (a &gt; 4)</label><input id="hi" type="number" value="10" class="num" />
+    <input id="a-range" type="range" min="-1" max="9" step="1" value="5" />
+    <output for="a-range" class="r-mid" id="a-out">5</output>
+    <span class="switch-field"><input id="blend" type="checkbox" role="switch" /><label for="blend">allow in-between values <span class="hint">(see how the blend makes it differentiable)</span></label></span>
+  </div>
+  <div class="controls">
+    <label for="hi">on branch</label><input id="hi" type="number" value="10" class="num" />
     <label for="lo">off branch</label><input id="lo" type="number" value="12" class="num" />
   </div>
-  <p id="a-help" class="hint">Integers give exact bits; fractions between 4 and 5 blend the branches.</p>
-  <dl class="readout" aria-live="polite">
-    <div><dt>relu(a − 4)</dt><dd id="out-r1">–</dd></div>
-    <div><dt>relu(a − 5)</dt><dd id="out-r2">–</dd></div>
-    <div><dt>above4</dt><dd id="out-above4">–</dd></div>
-    <div class="em"><dt>circuit result</dt><dd id="out-result">–</dd></div>
-    <div><dt>plain JS</dt><dd id="out-js">–</dd></div>
-    <div class="wide"><dt>check</dt><dd id="out-agree">–</dd></div>
-  </dl>
-  <figure><svg id="plot" class="chart" role="img" aria-label="Plot of the circuit's result (line) and plain JavaScript (dots) for a from −2 to 10"></svg>
-  <figcaption>Line: circuit output for every <code>a</code>. Dots: plain JS at integers. <span id="op-count"></span>.</figcaption></figure>
 </section>`,
   compare: `
 <section class="demo" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
+  <div class="cmp-top">
+    <div id="lamp" class="lamp" aria-hidden="true"><span id="lamp-val">1</span></div>
+    <div class="cmp-expr"><p class="card-kicker">emitCompare(circuit, a, rel, b)</p><p id="expr" class="r-big expr">614 &gt;= 614</p><p class="hint">JS says <output id="out-js-bit">true</output></p></div>
+  </div>
+  <svg id="line" class="chart draggable numline" role="img" aria-label="Number line from 0 to 1024 with draggable pins a and b"></svg>
   <div class="controls">
     <label for="a">a</label><input id="a" type="number" min="0" max="1024" value="614" class="num" />
     <label for="relation">relation</label>
     <select id="relation"><option>&gt;=</option><option>&gt;</option><option>&lt;</option><option>&lt;=</option><option>===</option></select>
     <label for="b">b</label><input id="b" type="number" min="0" max="1024" value="614" class="num" />
-    <span class="check"><input id="grid" type="checkbox" checked /><label for="grid">declare integer grid</label></span>
+    <span class="switch-field"><input id="grid" type="checkbox" role="switch" checked /><label for="grid">integer grid</label></span>
   </div>
-  <p class="hint">Both inputs are declared in 0..1024. Without the grid, any FP32 value (try 614.0001) is allowed.</p>
-  <dl class="readout" aria-live="polite">
-    <div class="em"><dt>emitCompare bit</dt><dd id="out-bit">–</dd></div>
-    <div><dt>plain JS</dt><dd id="out-js-bit">–</dd></div>
-    <div><dt>emitSelect(bit, b, a)</dt><dd id="out-picked">–</dd></div>
-    <div><dt>emitMinimumExact</dt><dd id="out-min">–</dd></div>
-    <div><dt>Math.min</dt><dd id="out-js-min">–</dd></div>
-    <div class="wide"><dt>check</dt><dd id="out-agree">–</dd></div>
-    <div class="wide"><dt>program size</dt><dd id="out-stats">–</dd></div>
-  </dl>
-  <p><button id="fuzz" type="button" class="button">Fuzz 5,000 random pairs</button> <output id="out-fuzz" aria-live="polite"></output></p>
+  <p class="buttons"><button type="button" class="button secondary ulp" data-dir="-1">a − 1 ULP</button><button type="button" class="button secondary ulp" data-dir="1">a + 1 ULP</button> <span class="hint">turn the grid off, then nudge a by the smallest FP32 step</span></p>
+  ${verdict}
+  <div class="side-by-side">
+    <div class="mini"><span class="r-label">emitSelect(bit, b, a)</span><output id="out-picked" class="r-mid">614</output></div>
+    <div class="mini"><span class="r-label">emitMinimumExact(a, b)</span><output id="out-min" class="r-mid">614</output></div>
+  </div>
+  <h3>What exactness costs</h3>
+  <div class="cost"><div id="row-grid" class="cost-row"><span>with integer grid</span><span class="bar"><span id="bar-grid"></span></span><output id="cost-grid"></output></div>
+  <div id="row-nogrid" class="cost-row"><span>any FP32 (sign cascade)</span><span class="bar"><span id="bar-nogrid"></span></span><output id="cost-nogrid"></output></div></div>
+  <h3>Fuzz it</h3>
+  <p class="buttons"><button id="fuzz" type="button" class="button">Test 5,000 random pairs</button> <output id="out-fuzz" aria-live="polite"></output></p>
+  <div id="fuzz-grid" class="fuzz-grid" aria-hidden="true"></div>
 </section>`,
   graph: `
 <section class="demo" aria-labelledby="demo-title">
@@ -97,14 +113,17 @@ const DEMOS = {
       <option value="clamp">clamp(x, lo, hi), exact</option>
     </select>
   </div>
-  <pre><code id="js-code"></code></pre>
-  <p id="graph-stats" class="hint" aria-live="polite"></p>
-  <div class="graph-scroll" tabindex="0" role="region" aria-label="Circuit graph, scrollable" aria-describedby="graph-desc">
-    <svg id="graph" role="img" aria-labelledby="graph-desc"></svg>
+  <pre class="big-code"><code id="js-code"></code></pre>
+  <div id="graph-inputs" class="knobs"></div>
+  <p class="r-mid" id="graph-result" aria-live="polite"></p>
+  <p id="graph-stats" class="hint"></p>
+  <div class="graph-wrap">
+    <div class="graph-scroll" tabindex="0" role="region" aria-label="Circuit graph, scrollable. Tab to nodes to inspect them.">
+      <svg id="graph" role="group" aria-label="Circuit graph"></svg>
+    </div>
+    <aside id="inspector" class="inspector" aria-live="polite" aria-label="Node inspector"></aside>
   </div>
-  <p id="graph-desc" class="visually-hidden"></p>
-  <h3>Operations</h3>
-  <ol id="ops" class="ops"></ol>
+  <details class="ops-details"><summary>All operations as text</summary><ol id="ops" class="ops"></ol></details>
 </section>`,
   train: `
 <section class="demo" aria-labelledby="demo-title">
@@ -114,17 +133,16 @@ const DEMOS = {
     <select id="target"><option>a &gt; 6 ? 3 : 15</option><option>ramp from 2 up to 14 between a = 3 and 7</option><option>a &gt; 2 ? 11 : 5</option></select>
     <label for="lr">learning rate</label><input id="lr" type="number" step="0.01" min="0.01" max="2" value="0.3" class="num" />
   </div>
-  <p class="buttons"><button id="run" type="button" class="button" aria-pressed="false">Train</button>
+  <p class="buttons"><button id="run" type="button" class="button" aria-pressed="false">▶ Train</button>
   <button id="step" type="button" class="button secondary">Step ×10</button>
   <button id="reset" type="button" class="button secondary">Reset to exact program</button></p>
-  <dl class="readout" aria-live="off">
-    <div><dt>t</dt><dd id="p-t">–</dd></div><div><dt>k</dt><dd id="p-k">–</dd></div>
-    <div><dt>hi</dt><dd id="p-hi">–</dd></div><div><dt>lo</dt><dd id="p-lo">–</dd></div>
-    <div class="em"><dt>loss (MSE)</dt><dd id="loss">–</dd></div><div><dt>steps</dt><dd id="steps">0</dd></div>
-  </dl>
-  <figure><svg id="fit" class="chart" role="img" aria-label="Target points (dots) and current program output (line) for a from 0 to 10"></svg>
-  <figcaption>Dots: target. Line: the program's output with its current cells.</figcaption></figure>
-  <figure><svg id="loss-chart" class="chart small" role="img" aria-label="Loss over training steps"></svg><figcaption>Loss over steps.</figcaption></figure>
+  <figure class="plot-fig"><svg id="fit" class="chart" role="img" aria-label="Target points, the current program output, its errors, and the original exact program for a from 0 to 10"></svg>
+  <figcaption><span class="key k-target">target</span> <span class="key k-ab">program now</span> <span class="key k-exact">exact starting program</span> <span class="key k-ghost">earlier steps</span></figcaption></figure>
+  <div class="gauges">
+    ${['t', 'k', 'hi', 'lo'].map(n => `<div class="gauge" id="g-${n}"><span class="r-label">${{ t: 'threshold t', k: 'slope k', hi: 'on value hi', lo: 'off value lo' }[n]}</span><output id="p-${n}" class="r-mid">–</output><span class="gauge-track" aria-hidden="true"><span class="gauge-exact"></span><span class="gauge-fill"></span></span><svg id="s-${n}" class="spark-svg" viewBox="0 0 120 30" aria-hidden="true"></svg></div>`).join('')}
+  </div>
+  <div class="side-by-side"><div class="mini"><span class="r-label">loss (MSE)</span><output id="loss" class="r-mid">–</output></div><div class="mini"><span class="r-label">steps</span><output id="steps" class="r-mid">0</output></div></div>
+  <figure><svg id="loss-chart" class="chart small" role="img" aria-label="Loss over training steps, log scale"></svg></figure>
 </section>`,
   toggle: `
 <section class="demo" aria-labelledby="demo-title">
@@ -173,6 +191,19 @@ const footer = `<footer class="site-footer">
     <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="${UPSTREAM}">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/handwired-dot-wiki">site source</a></p>
   </footer>`
+
+function hero(p) {
+  return `<section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">a project by Cheng Lou · explained</p>
+          <h1 id="hero-title">${p.h1}</h1>
+          <p class="sub">${p.sub}</p>
+          <div class="ctas"><a class="button" href="/pages/soft-switch.html">Play with a live circuit</a><a class="button secondary" href="/pages/why-handwired.html">Why it matters</a></div>
+          <span class="hand scribble" aria-hidden="true">↓ real Handwired runtime, running in your tab</span>
+        </div>
+        <div class="hero-art">${heroSvg()}</div>
+      </section>`
+}
 
 function render(p) {
   let html = marked.parse(p.body.replace('<!-- demo -->', '@@DEMO@@'))
@@ -226,7 +257,7 @@ ${jsonLd(p)}
   <main id="main" class="page${p.type === 'home' ? ' home' : ''}${p.demo ? ' demo-page' : ''}" tabindex="-1">
     ${crumbs}
     <article>
-      <h1>${p.h1}</h1>
+      ${p.type === 'home' ? hero(p) : `<h1>${p.h1}</h1>`}
       ${html}
     </article>
     ${p.demo ? '<p id="demo-status" class="status" role="status">Loading Handwired…</p>' : ''}

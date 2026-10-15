@@ -49,30 +49,48 @@ for (const d of demos) {
   })
 }
 
-test('soft switch matches JS at integers and blends at 4.5', async ({ page }) => {
+test('soft switch: exact at integers, framed blend when allowed', async ({ page }) => {
   await page.goto('/pages/soft-switch.html')
   for (const [a, want] of [['3', '12'], ['4', '12'], ['5', '10'], ['9', '10']] as const) {
-    await page.fill('#a-num', a)
+    await page.fill('#a-range', a)
     await expect(page.locator('#out-result')).toHaveText(want)
-    await expect(page.locator('#out-agree')).toContainText('Matches')
+    await expect(page.locator('#out-js')).toHaveText(want)
+    await expect(page.locator('#verdict-title')).toHaveText('Exact match')
   }
-  await page.fill('#a-num', '4.5')
+  // the slider snaps to whole numbers while blending is off
+  await expect(page.locator('#a-range')).toHaveAttribute('step', '1')
+  await expect(page.locator('#verdict-title')).toHaveText('Exact match')
+  await page.check('#blend')
+  await page.fill('#a-range', '4.5')
   await expect(page.locator('#out-result')).toHaveText('11')
+  await expect(page.locator('#verdict-title')).toHaveText('In-between, on purpose')
+  await expect(page.locator('#circuit .hw-node.lit')).not.toHaveCount(0)
 })
 
-test('compare explorer: fuzz finds no mismatches with and without grid', async ({ page }) => {
+test('soft switch: dragging the plot moves a', async ({ page }) => {
+  await page.goto('/pages/soft-switch.html')
+  await page.locator('#plot').scrollIntoViewIfNeeded()
+  const box = (await page.locator('#plot').boundingBox())!
+  await page.mouse.click(box.x + box.width * 0.2, box.y + box.height / 2)
+  await expect(page.locator('#out-result')).toHaveText('12')
+})
+
+test('compare explorer: fuzz finds no mismatches, ULP nudges stay exact', async ({ page }) => {
   await page.goto('/pages/compare-explorer.html')
   for (const rel of ['>=', '>', '===']) {
     await page.selectOption('#relation', rel)
     await page.click('#fuzz')
-    await expect(page.locator('#out-fuzz')).toContainText(': 0 mismatches')
+    await expect(page.locator('#out-fuzz')).toContainText('5,000 random pairs (20% equal): 0 mismatches', { timeout: 15000 })
   }
   await page.uncheck('#grid')
-  await page.fill('#a', '614.0001'); await page.fill('#b', '614')
+  await page.fill('#a', '614'); await page.fill('#b', '614')
   await page.selectOption('#relation', '>')
-  await expect(page.locator('#out-bit')).toHaveText('1')
+  await expect(page.locator('#lamp-val')).toHaveText('0')
+  await page.click('.ulp[data-dir="1"]')
+  await expect(page.locator('#lamp-val')).toHaveText('1')
+  await expect(page.locator('#verdict-title')).toHaveText('Exact match')
   await page.click('#fuzz')
-  await expect(page.locator('#out-fuzz')).toContainText(': 0 mismatches')
+  await expect(page.locator('#out-fuzz')).toContainText(': 0 mismatches', { timeout: 15000 })
 })
 
 test('graph renders operations for every program', async ({ page }) => {
@@ -82,6 +100,11 @@ test('graph renders operations for every program', async ({ page }) => {
     expect(await page.locator('#ops li').count()).toBeGreaterThan(1)
     expect(await page.locator('#graph rect').count()).toBeGreaterThan(2)
   }
+  await page.selectOption('#program', 'soft-switch')
+  await page.fill('#in-a', '3')
+  await expect(page.locator('#graph-result')).toContainText('result = 12')
+  await page.locator('#graph .gnode').first().focus()
+  await expect(page.locator('#inspector')).toContainText('input cell')
 })
 
 test('training reduces loss', async ({ page }) => {
@@ -104,6 +127,6 @@ test('toggle flips on press and release', async ({ page }) => {
 test('getting-started snippet output is correct', async ({ page }) => {
   await page.goto('/pages/compare-explorer.html')
   await page.fill('#a', '7'); await page.fill('#b', '3'); await page.selectOption('#relation', '>=')
-  await expect(page.locator('#out-bit')).toHaveText('1')
+  await expect(page.locator('#lamp-val')).toHaveText('1')
   await expect(page.locator('#out-picked')).toHaveText('7')
 })

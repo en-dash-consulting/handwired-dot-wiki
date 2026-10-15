@@ -144,24 +144,30 @@
 
 <section class="demo" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
+  <div class="cmp-top">
+    <div id="lamp" class="lamp" aria-hidden="true"><span id="lamp-val">1</span></div>
+    <div class="cmp-expr"><p class="card-kicker">emitCompare(circuit, a, rel, b)</p><p id="expr" class="r-big expr">614 &gt;= 614</p><p class="hint">JS says <output id="out-js-bit">true</output></p></div>
+  </div>
+  <svg id="line" class="chart draggable numline" role="img" aria-label="Number line from 0 to 1024 with draggable pins a and b"></svg>
   <div class="controls">
     <label for="a">a</label><input id="a" type="number" min="0" max="1024" value="614" class="num" />
     <label for="relation">relation</label>
     <select id="relation"><option>&gt;=</option><option>&gt;</option><option>&lt;</option><option>&lt;=</option><option>===</option></select>
     <label for="b">b</label><input id="b" type="number" min="0" max="1024" value="614" class="num" />
-    <span class="check"><input id="grid" type="checkbox" checked /><label for="grid">declare integer grid</label></span>
+    <span class="switch-field"><input id="grid" type="checkbox" role="switch" checked /><label for="grid">integer grid</label></span>
   </div>
-  <p class="hint">Both inputs are declared in 0..1024. Without the grid, any FP32 value (try 614.0001) is allowed.</p>
-  <dl class="readout" aria-live="polite">
-    <div class="em"><dt>emitCompare bit</dt><dd id="out-bit">–</dd></div>
-    <div><dt>plain JS</dt><dd id="out-js-bit">–</dd></div>
-    <div><dt>emitSelect(bit, b, a)</dt><dd id="out-picked">–</dd></div>
-    <div><dt>emitMinimumExact</dt><dd id="out-min">–</dd></div>
-    <div><dt>Math.min</dt><dd id="out-js-min">–</dd></div>
-    <div class="wide"><dt>check</dt><dd id="out-agree">–</dd></div>
-    <div class="wide"><dt>program size</dt><dd id="out-stats">–</dd></div>
-  </dl>
-  <p><button id="fuzz" type="button" class="button">Fuzz 5,000 random pairs</button> <output id="out-fuzz" aria-live="polite"></output></p>
+  <p class="buttons"><button type="button" class="button secondary ulp" data-dir="-1">a − 1 ULP</button><button type="button" class="button secondary ulp" data-dir="1">a + 1 ULP</button> <span class="hint">turn the grid off, then nudge a by the smallest FP32 step</span></p>
+  <div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>
+  <div class="side-by-side">
+    <div class="mini"><span class="r-label">emitSelect(bit, b, a)</span><output id="out-picked" class="r-mid">614</output></div>
+    <div class="mini"><span class="r-label">emitMinimumExact(a, b)</span><output id="out-min" class="r-mid">614</output></div>
+  </div>
+  <h3>What exactness costs</h3>
+  <div class="cost"><div id="row-grid" class="cost-row"><span>with integer grid</span><span class="bar"><span id="bar-grid"></span></span><output id="cost-grid"></output></div>
+  <div id="row-nogrid" class="cost-row"><span>any FP32 (sign cascade)</span><span class="bar"><span id="bar-nogrid"></span></span><output id="cost-nogrid"></output></div></div>
+  <h3>Fuzz it</h3>
+  <p class="buttons"><button id="fuzz" type="button" class="button">Test 5,000 random pairs</button> <output id="out-fuzz" aria-live="polite"></output></p>
+  <div id="fuzz-grid" class="fuzz-grid" aria-hidden="true"></div>
 </section>
 <h2>Why does the grid change the cost?</h2>
 <p>With both operands declared on an integer grid, <code>a &gt;= b</code> is built from the integer difference as <code>relu(1 − relu(−D))</code> — 2 operations. Without a grid, the difference is lifted by a <em>sign cascade</em> of power-of-two multiplications and clamps until any nonzero difference down to 2⁻¹⁴⁹ reaches 1 — more operations and layers, the same bits.</p>

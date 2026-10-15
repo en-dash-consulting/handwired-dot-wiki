@@ -149,17 +149,16 @@
     <select id="target"><option>a &gt; 6 ? 3 : 15</option><option>ramp from 2 up to 14 between a = 3 and 7</option><option>a &gt; 2 ? 11 : 5</option></select>
     <label for="lr">learning rate</label><input id="lr" type="number" step="0.01" min="0.01" max="2" value="0.3" class="num" />
   </div>
-  <p class="buttons"><button id="run" type="button" class="button" aria-pressed="false">Train</button>
+  <p class="buttons"><button id="run" type="button" class="button" aria-pressed="false">▶ Train</button>
   <button id="step" type="button" class="button secondary">Step ×10</button>
   <button id="reset" type="button" class="button secondary">Reset to exact program</button></p>
-  <dl class="readout" aria-live="off">
-    <div><dt>t</dt><dd id="p-t">–</dd></div><div><dt>k</dt><dd id="p-k">–</dd></div>
-    <div><dt>hi</dt><dd id="p-hi">–</dd></div><div><dt>lo</dt><dd id="p-lo">–</dd></div>
-    <div class="em"><dt>loss (MSE)</dt><dd id="loss">–</dd></div><div><dt>steps</dt><dd id="steps">0</dd></div>
-  </dl>
-  <figure><svg id="fit" class="chart" role="img" aria-label="Target points (dots) and current program output (line) for a from 0 to 10"></svg>
-  <figcaption>Dots: target. Line: the program's output with its current cells.</figcaption></figure>
-  <figure><svg id="loss-chart" class="chart small" role="img" aria-label="Loss over training steps"></svg><figcaption>Loss over steps.</figcaption></figure>
+  <figure class="plot-fig"><svg id="fit" class="chart" role="img" aria-label="Target points, the current program output, its errors, and the original exact program for a from 0 to 10"></svg>
+  <figcaption><span class="key k-target">target</span> <span class="key k-ab">program now</span> <span class="key k-exact">exact starting program</span> <span class="key k-ghost">earlier steps</span></figcaption></figure>
+  <div class="gauges">
+    <div class="gauge" id="g-t"><span class="r-label">threshold t</span><output id="p-t" class="r-mid">–</output><span class="gauge-track" aria-hidden="true"><span class="gauge-exact"></span><span class="gauge-fill"></span></span><svg id="s-t" class="spark-svg" viewBox="0 0 120 30" aria-hidden="true"></svg></div><div class="gauge" id="g-k"><span class="r-label">slope k</span><output id="p-k" class="r-mid">–</output><span class="gauge-track" aria-hidden="true"><span class="gauge-exact"></span><span class="gauge-fill"></span></span><svg id="s-k" class="spark-svg" viewBox="0 0 120 30" aria-hidden="true"></svg></div><div class="gauge" id="g-hi"><span class="r-label">on value hi</span><output id="p-hi" class="r-mid">–</output><span class="gauge-track" aria-hidden="true"><span class="gauge-exact"></span><span class="gauge-fill"></span></span><svg id="s-hi" class="spark-svg" viewBox="0 0 120 30" aria-hidden="true"></svg></div><div class="gauge" id="g-lo"><span class="r-label">off value lo</span><output id="p-lo" class="r-mid">–</output><span class="gauge-track" aria-hidden="true"><span class="gauge-exact"></span><span class="gauge-fill"></span></span><svg id="s-lo" class="spark-svg" viewBox="0 0 120 30" aria-hidden="true"></svg></div>
+  </div>
+  <div class="side-by-side"><div class="mini"><span class="r-label">loss (MSE)</span><output id="loss" class="r-mid">–</output></div><div class="mini"><span class="r-label">steps</span><output id="steps" class="r-mid">0</output></div></div>
+  <figure><svg id="loss-chart" class="chart small" role="img" aria-label="Loss over training steps, log scale"></svg></figure>
 </section>
 <h2>What is being trained?</h2>
 <p>The circuit computes <code>s = clamp(k × (a − t), 0, 1)</code> with two ReLUs, then <code>y = s × hi + (1 − s) × lo</code> with <code>emitSelect</code>. Each step evaluates 21 sample points, backpropagates the squared error, and moves <code>t</code>, <code>k</code>, <code>hi</code> and <code>lo</code> by plain gradient descent.</p>
