@@ -1,0 +1,7 @@
+.site-header, .site-footer { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--rule); }
+.site-footer { border-bottom: 0; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+.site-header nav { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.site-header nav a { color: var(--fg); text-decoration: none; }
+.brand { font-family: var(--font-mono); font-weight: 700; color: var(--fg); text-decoration: none; margin-right: auto; }
+.brand span { color: var(--accent); }
+.page { max-width: var(--measure); margin: 0 auto; padding: var(--space-5) var(--space-4); }

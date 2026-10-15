@@ -1,0 +1,5 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--font-sans); }
+a { color: var(--accent); }
+code, pre { font-family: var(--font-mono); }
+pre { background: var(--code-bg); padding: var(--space-3); border-radius: 8px; overflow-x: auto; }

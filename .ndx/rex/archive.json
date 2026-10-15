@@ -1,0 +1,41 @@
+{
+  "schema": "rex/archive/v1",
+  "batches": [
+    {
+      "timestamp": "2026-10-15T18:22:05.615Z",
+      "source": "reshape",
+      "items": [
+        {
+          "id": "824c21c9-7b39-4f67-b3d5-9816cf0f3e96",
+          "title": "Global Chrome",
+          "status": "pending",
+          "level": "feature",
+          "description": "Header wordmark + track nav; sidebar page tree; footer with En Dash attribution, upstream links, unaffiliated disclaimer; prev/next; mobile hamburger.",
+          "priority": "high",
+          "source": "docs/07-requirements.md",
+          "acceptanceCriteria": [
+            "Header, sidebar, footer render on every page",
+            "Mobile nav works",
+            "Disclaimer and upstream links present"
+          ],
+          "lastModified": "2026-10-15T18:22:05.562Z",
+          "lastModifiedBy": "Nick Daniel <nick@endash.us>",
+          "children": []
+        }
+      ],
+      "count": 1,
+      "reason": "hash-suffix consolidation (add path)",
+      "mergeAuditTrail": [
+        {
+          "survivorId": "6db16e98-9c3e-4451-a773-375c8dfe06a9",
+          "mergedFromIds": [
+            "824c21c9-7b39-4f67-b3d5-9816cf0f3e96"
+          ],
+          "reasoning": "Hash-suffix duplicate: \"Global Chrome\" consolidates into \"Global Chrome\" (same stripped title)",
+          "preReshapeCommit": "6e0ab55760de41d687500f41379c6f6b8984b1f5",
+          "timestamp": "2026-10-15T18:22:05.615Z"
+        }
+      ]
+    }
+  ]
+}

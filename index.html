@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>handwired.wiki — Learn Handwired: JavaScript as an exact, differentiable neural net</title>
+  <meta name="description" content="Interactive tutorials and gallery for Handwired by Cheng Lou: turn ordinary JavaScript into a neural net — no training, exact, fully differentiable." />
+  <meta name="author" content="En Dash Consulting" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://handwired.wiki/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="handwired.wiki — Learn Handwired: JavaScript as an exact, differentiable neural net" />
+  <meta property="og:description" content="Interactive tutorials and gallery for Handwired by Cheng Lou: turn ordinary JavaScript into a neural net — no training, exact, fully differentiable." />
+  <meta property="og:image" content="https://handwired.wiki/og-image.svg" />
+  <meta property="og:url" content="https://handwired.wiki/" />
+  <meta property="og:site_name" content="handwired.wiki" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="handwired.wiki — Learn Handwired: JavaScript as an exact, differentiable neural net" />
+  <meta name="twitter:description" content="Interactive tutorials and gallery for Handwired by Cheng Lou: turn ordinary JavaScript into a neural net — no training, exact, fully differentiable." />
+  <meta name="twitter:image" content="https://handwired.wiki/og-image.svg" />
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="/">handwired<span>.wiki</span></a><nav><a href="/pages/why-handwired.html">Why Handwired</a><a href="/pages/getting-started.html">Getting Started</a><a href="/pages/playground.html">Playground</a><a href="/pages/gallery.html">Gallery</a><a href="/pages/about.html">About</a></nav></header>
+  <main class="page">
+    <h1>Learn Handwired</h1>
+    <p class="lede">Turn regular JavaScript into a neural net — no training, exact, yet fully differentiable.</p>
+    <pre><code>const result = (a &gt; 4) ? 10 : 12
+// becomes
+const above4 = Math.max(0, a - 4) - Math.max(0, a - 5)
+const result = above4 * 10 + (1 - above4) * 12</code></pre>
+    <p><a class="button" href="/pages/playground.html">Try the playground →</a></p>
+  </main>
+  <footer class="site-footer">An independent community resource by <a href="https://endash.us">En Dash Consulting</a>. Not affiliated with <a href="https://github.com/chenglou/handwired">Handwired</a> (MIT, Cheng Lou).</footer>
+  <script type="module" src="/src/pages/home.ts"></script>
+</body>
+</html>

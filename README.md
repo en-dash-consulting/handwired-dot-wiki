@@ -14,17 +14,30 @@ Upstream demos on [chenglou.me/handwired](https://chenglou.me/handwired/) includ
 
 ## Status
 
-Scaffold only: git + n-dx initialized; feature plan captured in the n-dx PRD. Site implementation is not started yet.
+Project scaffold landed: Vite MPA + TypeScript strict, self-hosted Inter + JetBrains Mono, CSS architecture (`src/styles/`), placeholder pages, and a Handwired smoke test at `/pages/playground.html`. Deployed to GitHub Pages via `.github/workflows/deploy.yml` with `public/CNAME` → handwired.wiki.
 
 ## Development
 
-Coming soon (planned: Vite MPA + TypeScript, modeled after [learn-pretext.com](https://learn-pretext.com)).
-
 ```bash
-# after scaffold lands
 npm install
-npm run dev
+npm run dev       # Vite dev server
+npm run build     # tsc (strict, noEmit) + vite build → dist/
+npm run preview   # serve dist/
 ```
+
+### Consuming Handwired
+
+Upstream ([chenglou/handwired](https://github.com/chenglou/handwired)) is a bun repo of raw TypeScript sources, not a published npm package. We install it as a **pinned git dependency**:
+
+```json
+"handwired": "github:chenglou/handwired#<commit-sha>"
+```
+
+and import the `.ts` sources directly (Vite transpiles them), e.g. `import { mountToggle } from 'handwired/template/toggle.ts'`. Type shims for imported modules live in `src/env.d.ts` (upstream sources are not type-checked by our `tsc`). Bump the SHA deliberately to upgrade.
+
+## Workflow
+
+Tasks are tracked in the n-dx PRD (`.ndx/`) and driven with `ndx next` / `ndx status` / `ndx update`. Autonomous `ndx work` (Claude/hench) is **not** used on this project, even though `.ndx/config.json` still lists an LLM vendor.
 
 ## Related
 
