@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolVersion": "0.1.0",
+  "analyzedAt": "2026-10-15T18:18:44.322Z",
+  "gitSha": "6e0ab55760de41d687500f41379c6f6b8984b1f5",
+  "gitBranch": "main",
+  "targetPath": "/Users/nick/development/endash/handwired.wiki",
+  "modules": {
+    "inventory": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.013Z",
+      "completedAt": "2026-10-15T18:18:44.067Z"
+    },
+    "imports": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.068Z",
+      "completedAt": "2026-10-15T18:18:44.117Z"
+    },
+    "classifications": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.118Z",
+      "completedAt": "2026-10-15T18:18:44.166Z"
+    },
+    "zones": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.167Z",
+      "completedAt": "2026-10-15T18:18:44.229Z"
+    },
+    "components": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.231Z",
+      "completedAt": "2026-10-15T18:18:44.277Z"
+    },
+    "callgraph": {
+      "status": "complete",
+      "startedAt": "2026-10-15T18:18:44.277Z",
+      "completedAt": "2026-10-15T18:18:44.322Z"
+    }
+  },
+  "repo": {
+    "name": "handwired.wiki",
+    "remoteUrl": null,
+    "remoteHost": null,
+    "remotePath": null,
+    "defaultBranch": null
+  },
+  "language": "typescript",
+  "languages": [
+    "typescript"
+  ],
+  "analysisFingerprint": "71e4f76bd06ac0fa",
+  "lastAnalysis": {
+    "at": "2026-10-15T18:18:44.010Z",
+    "mode": "fast",
+    "durationMs": 578,
+    "phases": {
+      "inventory": 55,
+      "imports": 49,
+      "classifications": 48,
+      "zones": 63,
+      "components": 46,
+      "callgraph": 46
+    },
+    "llm": {
+      "byTaskClass": {}
+    },
+    "partition": {
+      "fingerprint": "61da42e8ad3bed7e",
+      "health": {
+        "zones": 0,
+        "smallZones": 0,
+        "smallShare": 0,
+        "numericIds": 0,
+        "largestShare": 0,
+        "verdict": "healthy"
+      },
+      "initial": true,
+      "rejected": false,
+      "reused": false
+    }
+  }
+}
