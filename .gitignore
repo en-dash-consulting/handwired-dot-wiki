@@ -1,0 +1,28 @@
+# Dependencies & build
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.local
+
+# Local AI / n-dx tooling (machine-specific state)
+.claude/
+.hench/
+.sourcevision/
+.ndx/
+.n-dx-web.port
+.n-dx.local.json
+.rex/n-dx_workflow.md
+.rex/execution-log*.jsonl
+.run-logs/
+
+# Test / Playwright
+test-results/
+playwright-report/
+playwright/.cache/
