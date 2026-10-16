@@ -227,6 +227,7 @@ function render(p) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){var t=new URLSearchParams(location.search).get("theme");if(/^[abc]$/.test(t))document.documentElement.dataset.dir=t})()</script>
   <meta charset="UTF-8" />
   ${GA}
   <script>try{if(localStorage.getItem('hw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
