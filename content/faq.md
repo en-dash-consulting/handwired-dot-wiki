@@ -10,7 +10,7 @@ type: faq
 
 ## When should I use Handwired?
 
-Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, or physics fitted to a recording. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.
+Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, physics fitted to a recording, or a colour theme fitted to a designer's picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.
 
 ## What is Handwired?
 

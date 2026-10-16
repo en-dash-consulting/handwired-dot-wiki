@@ -14,6 +14,7 @@ URL: https://handwired.wiki/
 Ranking from clicksYour hand-tuned search formula learns its weights from shoppers. "Pinned first" and "never show out-of-stock" stay exact. A generic model breaks both.
 Layout from a designer's dragsDrag a few cards to the sizes you want; the layout function's constants update and every card follows, with zero overflows.
 Physics from a recordingFit gravity, drag and bounce so a simulated ball matches a recorded path, then replay it as code.
+Accessible colour themesPoint at the colours you like; the theme function learns its constants for light and dark, and every text pair stays WCAG AA.
 Search 100,000 JSON docs on the GPUCheng Lou's demo: plain-looking matching code run as GPU programs, with the same answers as JavaScript.
 
 
@@ -73,6 +74,7 @@ Every demo below runs the real Handwired runtime in your browser — no server, 
 ★ Ranking from clicksA search formula learns its weights from 1,000 shoppers while its business rules stay exact; a generic net on the same clicks breaks them.
 Layout from a designer's dragsDrag cards to the sizes you want; the sizing function learns its constants and nothing overflows.
 Physics from a recordingFit gravity, drag and bounce to a recorded path, then replay it as code.
+Accessible colour themesA theme learns from a designer's picks while WCAG AA contrast stays exact; a generic net on the same picks fails it.
 GPU JSON search (by Cheng Lou)Upstream's 100,000-document search, embedded with credit: GPU timings next to plain JavaScript.
 Beginner lesson: the cat is a neural netA 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.
 Soft switchThe README's a &gt; 4 ? 10 : 12 as two ReLUs and a select. Editable a, branches and live plot.
@@ -240,7 +242,7 @@ Quick, sourced answers about Handwired. Everything here is drawn from chenglou.m
 
 ## When should I use Handwired?
 
-Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, or physics fitted to a recording. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live ranking demo.
+Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, physics fitted to a recording, or a colour theme fitted to a designer's picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live ranking demo.
 
 ## What is Handwired?
 
@@ -339,6 +341,17 @@ Show the layout what you want with a few drags. The code learns its numbers, and
 URL: https://handwired.wiki/pages/physics.html
 
 Keep your simulation. Let a recording set its constants.
+
+*(Interactive demo on the page.)*
+
+
+---
+
+# Colour themes that learn, and stay accessible
+
+URL: https://handwired.wiki/pages/color-themes.html
+
+Let a designer point at colours. The theme learns their taste and can't learn to be unreadable.
 
 *(Interactive demo on the page.)*
 

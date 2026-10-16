@@ -70,3 +70,14 @@ button.rk-item:hover { border-color: var(--copper); }
 #rk-list:empty { min-height: calc(20 * 40px + 8px); }
 #rk-code:empty, #ly-code:empty, #ph-code:empty { display: block; min-height: 12.5em; }
 @media (max-width: 600px) { .uc-home #rk-list:empty { min-height: calc(10 * 40px); } }
+.co-ui { width: 100%; height: auto; margin: var(--space-3) 0; border-radius: 14px; }
+.co-picks { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin: var(--space-2) 0; }
+.co-pick { display: flex; align-items: center; gap: .5rem; margin: .3rem 0; }
+.co-pick input { width: 44px; height: 32px; padding: 0; border: 1px solid var(--rule); border-radius: 6px; background: none; cursor: pointer; }
+.co-pick input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.co-presets .button[aria-pressed="true"] { border-color: var(--copper); color: var(--copper-hi); }
+.co-table table { width: 100%; font-size: .85rem; } .co-table td { font-family: var(--font-mono); white-space: nowrap; }
+.co-warn { display: inline-block; background: #ffd166; color: #000; font-weight: 700; padding: 0 .35rem; border-radius: 4px; }
+.rk-code, .rk-code code { white-space: pre-wrap !important; overflow-wrap: anywhere; max-width: 100%; } .co-picks { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.rk-rules .r-label { white-space: normal; min-width: 0; } .rk-rules output { flex: none; } .co-presets { flex-wrap: wrap; }
+.uc { grid-template-columns: minmax(0, 1fr); } .uc-step { min-width: 0; } .rk-diff { overflow-x: auto; max-width: 100%; }

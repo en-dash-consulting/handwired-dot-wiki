@@ -24,3 +24,13 @@ Two hats: top UX designer + top teacher. Each pass: look at desktop (1280) and m
 - Ranking predict is a fairly easy question once you've read the hook. Physics and layout have the stronger "surprise".
 - The home on mobile needs a scroll to see the code while learning (there's the compact weights line).
 - Speed index (~7 s) on home is dominated by web fonts plus the dynamic import.
+
+## Pass 3: Accessible colour themes
+- Model: the first gamut cap, min(Y, 1−Y)/M, was too conservative, so saturated brand blues came out grey (#63749f for #3d7be0). It's now replaced by the exact per-channel gamut edge, fed as inputs (1/d for rising channels, 1/(−d) for falling ones). One bug: channels that are ~flat got cap 0. Fixed with min(1/d, 64).
+- Model: training hit the "outside its assumed range" invariant, because float32 rounds 0.3 up. Training now clips 1e-6 inside the declared ranges.
+- Model: the light card collapsed into the background (STEP → 0) and the dark backgrounds were over-tinted. STEP now has a floor (0.02 light, 0.01 dark) and TINT a cap of 0.015.
+- A11y: the preview deliberately shows failing colours in the foil, so it's an SVG image with an aria-label. Every ratio is in an HTML table, which keeps the page itself axe-clean.
+- Markup bug: the build's `</table>` → `</table></div>` rewrite closed the demo root early. Use a bare `<table>` inside our own wrapper.
+- 375 px: overflow appeared only *after* interacting, on colour **and ranking** (an auto grid track sized to the min-content of the long diff `<pre>`, plus nowrap labels). Fixed with a `minmax(0, 1fr)` track and wrapping labels. Added post-interaction no-scroll tests for all four interactive use cases.
+- Teaching: the predict reveal first hard-coded a hex (#717271) from the prototype. Now it points to the live table instead.
+- Still weak: the long code panel wraps awkwardly on narrow screens. "Hue" is an angle in a luminance-neutral linear-RGB plane, not OKLCH hue (the fine print says so). Handwired's "furthest from the picks" is large (46–83 in 8-bit units) because the picks themselves fail AA. That's the point, but it can read as a worse fit.

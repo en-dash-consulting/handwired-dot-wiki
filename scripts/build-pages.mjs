@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { heroSvg } from './hero.mjs'
 import { LESSON } from './lesson-ui.mjs'
-import { RANKING, GPUSEARCH, LAYOUT, PHYSICS } from './uc-ui.mjs'
+import { RANKING, GPUSEARCH, LAYOUT, PHYSICS, COLOR } from './uc-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
@@ -16,7 +16,7 @@ export const GA = `<script async src="https://www.googletagmanager.com/gtag/js?i
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-DPVSE41LFK');</script>`
 const UPSTREAM = 'https://github.com/chenglou/handwired'
 const NAV = ['gallery', 'why-handwired', 'concepts', 'getting-started', 'faq', 'about']
-const ORDER = ['index', ...NAV, 'ranking', 'layout', 'physics', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
+const ORDER = ['index', ...NAV, 'ranking', 'layout', 'physics', 'color-themes', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const strip = s => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
@@ -52,6 +52,7 @@ const DEMOS = {
   'gpu-search': GPUSEARCH(),
   layout: LAYOUT(),
   physics: PHYSICS(),
+  color: COLOR(),
   'soft-switch': `
 <section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>

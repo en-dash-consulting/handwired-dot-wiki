@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright'
 import { readdirSync } from 'node:fs'
 
 const pages = ['/', ...readdirSync('pages').filter(f => f.endsWith('.html') && f !== 'json-search-embed.html').map(f => `/pages/${f}`)]
-const demos = ['ranking', 'layout', 'physics', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
+const demos = ['ranking', 'layout', 'physics', 'color-themes', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
 
 for (const scheme of ['light', 'dark'] as const) {
   for (const path of pages) {

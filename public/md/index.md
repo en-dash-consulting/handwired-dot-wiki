@@ -10,6 +10,7 @@ Source: https://handwired.wiki/
 <a class="card feature" href="/pages/ranking.html"><h3>Ranking from clicks</h3><p>Your hand-tuned search formula learns its weights from shoppers. "Pinned first" and "never show out-of-stock" stay exact. A generic model breaks both.</p></a>
 <a class="card" href="/pages/layout.html"><h3>Layout from a designer's drags</h3><p>Drag a few cards to the sizes you want; the layout function's constants update and every card follows, with zero overflows.</p></a>
 <a class="card" href="/pages/physics.html"><h3>Physics from a recording</h3><p>Fit gravity, drag and bounce so a simulated ball matches a recorded path, then replay it as code.</p></a>
+<a class="card" href="/pages/color-themes.html"><h3>Accessible colour themes</h3><p>Point at the colours you like; the theme function learns its constants for light and dark, and every text pair stays WCAG AA.</p></a>
 <a class="card" href="/pages/gpu-search.html"><h3>Search 100,000 JSON docs on the GPU</h3><p>Cheng Lou's demo: plain-looking matching code run as GPU programs, with the same answers as JavaScript.</p></a>
 </div>
 

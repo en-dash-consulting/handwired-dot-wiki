@@ -4,10 +4,10 @@ level: "feature"
 title: "Use-case demos: when would you use Handwired?"
 status: "completed"
 startedAt: "2026-10-16T03:25:36.061Z"
-completedAt: "2026-10-16T03:25:40.231Z"
-endedAt: "2026-10-16T03:25:40.231Z"
+completedAt: "2026-10-16T04:28:48.385Z"
+endedAt: "2026-10-16T04:28:48.385Z"
 acceptanceCriteria: []
-lastModified: "2026-10-16T03:25:40.574Z"
+lastModified: "2026-10-16T04:28:48.736Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
 
@@ -15,6 +15,7 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
+| [Accessible colour themes demo (5th use case)](./accessible-colour-themes-demo-5th-use.md) | completed |
 | [GPU JSON search wrapper (upstream, credited)](./gpu-json-search-wrapper-upstream.md) | completed |
 | [Home/gallery/FAQ/llms/sitemap update](./home-gallery-faq-llms-sitemap-update.md) | completed |
 | [Layout from designer drags page](./layout-from-designer-drags-page.md) | completed |

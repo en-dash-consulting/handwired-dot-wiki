@@ -82,3 +82,30 @@ export function PHYSICS() {
     <p class="hint uc-fine">The “recording” is simulated: the same step with hidden constants (GRAVITY 0.5, DRAG 0.012, BOUNCE 0.72) and ±0.4 px of camera jitter, 72 frames. The step is unrolled 72 times into one circuit (2,379 operations); the floor is an exact comparison and select. A bounce is differentiable in its height but not its timing, and gradients through many frames can explode, so learning starts on the first 12 frames and lengthens the window to all 72. Replay is float32 in the net and float64 in JavaScript, so the paths agree to the stated difference, not bit for bit.</p>`)}
 </div>`
 }
+
+export function COLOR() {
+  const step = (n, t, body) => `<section class="uc-step" aria-labelledby="co-s${n}"><h2 id="co-s${n}" class="uc-h"><span class="uc-n">${n}</span> ${t}</h2>${body}</section>`
+  const pick = (mode, role, label) => `<label class="co-pick"><input type="color" id="co-${mode}-${role}" data-mode="${mode}" data-role="${role}" /> <span>${label}</span></label>`
+  return `<div class="uc" data-uc-color>
+  ${step(1, 'A theme function, and a designer with opinions', `<p>One function turns a brand hue and seven constants per mode into a whole light and dark theme. The designer doesn't want to edit constants; they want to point at colours. And every text colour has to stay readable: WCAG AA, at least 4.5:1.</p>
+  <div class="rk-board"><div class="rk-col" role="group" aria-labelledby="co-code-h"><p id="co-code-h" class="card-kicker">the theme code <span class="hand">runs as a Handwired net</span></p><pre class="big-code rk-code" tabindex="0"><code id="co-code"></code></pre>
+    <ul class="rk-rules" aria-live="polite"><li><span class="r-label">contrast failures (36 brand hues × 2 modes × 8 pairs)</span> <output id="co-viol" class="ok">0</output></li><li><span class="r-label">furthest from the picks (8-bit units)</span> <output id="co-err">–</output></li><li><span class="r-label">net vs plain JS, different hex colours</span> <output id="co-js">–</output></li></ul></div>
+  <div class="rk-col" role="group" aria-labelledby="co-picks-h"><p id="co-picks-h" class="card-kicker">the designer's picks</p>
+    <p class="buttons co-presets" role="group" aria-label="Brand presets"></p>
+    <div class="co-picks"><div><p class="r-label">light</p>${pick('light', 'bg', 'background')}${pick('light', 'text', 'text')}${pick('light', 'accent', 'accent')}</div><div><p class="r-label">dark</p>${pick('dark', 'bg', 'background')}${pick('dark', 'text', 'text')}${pick('dark', 'accent', 'accent')}</div></div>
+    <p class="buttons rk-train"><button id="co-learn" type="button" class="button">Learn from the picks</button> <button id="co-reset" type="button" class="button secondary">Reset</button></p>
+    <p id="co-msg" class="hint rk-status" aria-live="polite"></p>
+    <svg id="co-ui" class="co-ui" viewBox="0 0 640 250" role="img" aria-label="Preview of the theme: a product card in light and dark mode, with heading, body text, caption, link, button and badge. Contrast ratios are listed in the table below."></svg>
+    <div class="co-table"><table><thead><tr><th scope="col">pair (at the brand hue)</th><th scope="col">light</th><th scope="col">dark</th></tr></thead><tbody id="co-pairs"></tbody></table></div></div></div>`)}
+  ${step(2, 'Predict', `<fieldset class="predict" id="co-predict"><legend>The Garden shop designer picked a soft grey-green for light-mode text, <code>#8a9a88</code>: only 2.8:1 on their background. After learning, the light theme's text will be…</legend><div class="choices">
+    <button type="button" class="choice" data-v="exact">exactly that grey-green</button><button type="button" class="choice" data-v="close">as close to it as AA allows</button></div></fieldset>
+    <p id="co-reveal" class="reveal" aria-live="polite" hidden></p>`)}
+  ${step(3, 'Pick, then learn', `<p>Choose a brand above or pick your own colours (the colour inputs work from the keyboard). Press <em>Learn</em>: fourteen constants move in the code, the whole theme follows, and contrast is checked across 36 brand hues after every step.</p>`)}
+  ${step(4, 'The foil: a generic model on the same picks', `<p>Fit a small neural net (hue and mode → all five colours, 4→16→15) to the same picks. It nails them, including the ones that are unreadable.</p>
+    <p class="buttons"><button id="co-mlp" type="button" class="button">Train the generic model</button> <span class="switch-field"><input id="co-show-mlp" type="checkbox" role="switch" disabled /><label for="co-show-mlp">show its theme above</label></span></p>
+    <p id="co-mlp-msg" class="hint" aria-live="polite"></p>`)}
+  ${step(5, 'The diff you\u2019d review', `<pre class="big-code rk-diff" tabindex="0"><code id="co-diff">Learn first to see the diff.</code></pre>
+    <p class="takeaway"><strong>Reach for Handwired when</strong> a designer's taste should set the numbers, but accessibility is a rule, not a suggestion.</p>
+    <p class="hint uc-fine">How the rule is exact: every colour is built in linear RGB as a luminance Y plus a push along the brand hue inside the plane where luminance doesn't change, capped at the exact edge of the sRGB gamut. So each colour's WCAG luminance is exactly Y, and “contrast ≥ r” becomes a straight-line bound on Y, which the net applies with exact min/max operations (a clamp, i.e. a projection onto the allowed range). The net enforces 4.6:1, a little above AA's 4.5:1, to leave room for rounding to 8-bit hex; the counter then measures the real WCAG formula on the hex colours the browser paints. Large-text and UI pairs need only 3:1, so 4.6:1 covers them too. The generic model's outputs are clamped to [0, 1] before painting. Hue here is an angle in that luminance-neutral plane, not OKLCH hue. The preview is drawn as an image so that its deliberately failing colours (in the foil) don't make this page itself inaccessible; the table gives every ratio as text.</p>`)}
+</div>`
+}
