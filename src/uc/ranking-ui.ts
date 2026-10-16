@@ -55,7 +55,7 @@ export function mountRanking(root: HTMLElement) {
   }
   function chart() {
     for (const [id, k] of [['#rk-hw-chart', 'hw'], ['#rk-mlp-chart', 'mlp']] as const) {
-      const svg = $(id, root) as unknown as SVGSVGElement, X = (n: number) => 4 + n / TOTAL * 292, Y = (v: number) => 84 - v * 78
+      const svg = $(id, root) as unknown as SVGSVGElement, X = (n: number) => 4 + n / TOTAL * 292, Y = (v: number) => 80 - v * 64
       const pts = history.map(h => `${X(h.n).toFixed(1)},${Y(h[k]).toFixed(1)}`).join(' ')
       svg.innerHTML = `<line x1="4" x2="296" y1="${Y(1)}" y2="${Y(1)}" class="rk2-grid"/><line x1="4" x2="296" y1="${Y(.5)}" y2="${Y(.5)}" class="rk2-grid"/><text x="296" y="${Y(1) - 2}" text-anchor="end" class="rk2-ax">100%</text><text x="296" y="${Y(.5) - 2}" text-anchor="end" class="rk2-ax">50%</text><polyline points="${pts}" class="rk2-line"/>${history.length ? `<circle cx="${X(history.at(-1)!.n)}" cy="${Y(history.at(-1)![k])}" r="3.5" class="rk2-pt"/>` : ''}<text x="4" y="89" class="rk2-ax">0 shoppers</text><text x="296" y="89" text-anchor="end" class="rk2-ax">1,000</text>`
     }

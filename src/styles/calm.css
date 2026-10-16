@@ -2,8 +2,8 @@
    Loaded last; overrides the original circuit-board identity tokens without renaming them. */
 :root {
   color-scheme: light dark;
-  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-hand: 'Source Serif 4', Georgia, serif;
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-hand: 'Bricolage Grotesque', sans-serif;
   --board: #faf8f4; --board-2: #f3efe8; --board-3: #ebe5db; --grid: transparent;
   --fg: #23211d; --ink: #141311; --muted: #5d5850; --rule: #dcd4c7;
   --copper: #a3461d; --copper-hi: #8a3814; --copper-lo: #d8b39e; --copper-soft: rgb(163 70 29 / .08);

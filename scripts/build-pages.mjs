@@ -192,7 +192,7 @@ function header(active) {
   return `<a class="skip-link" href="#main">Skip to content</a>
   <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
+    <a class="brand" href="/" aria-label="handwired.wiki home"><svg class="brand-mark hw-mark" role="img" aria-label="Handwired" width="14" height="20" viewBox="3 0 14 20"><path d="M7 2V6M7 14V18M11 10H12a4 4 0 0 1 4 4V18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle class="hw-eyelet" cx="7" cy="10" r="3" stroke-width="2"/></svg><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Main"><ul>${links}</ul></nav>
   </header>`
@@ -227,7 +227,6 @@ function render(p) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){var t=new URLSearchParams(location.search).get("theme");if(/^[abc]$/.test(t))document.documentElement.dataset.dir=t})()</script>
   <meta charset="UTF-8" />
   ${GA}
   <script>try{if(localStorage.getItem('hw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
@@ -236,8 +235,8 @@ function render(p) {
   <meta name="description" content="${esc(p.description)}" />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="${url(p.slug)}" />
   <link rel="alternate" type="text/markdown" href="/md/${p.slug}.md" title="Markdown version" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -282,7 +281,7 @@ ${jsonLd(p)}
 mkdirSync(join(ROOT, 'pages'), { recursive: true })
 mkdirSync(join(ROOT, 'public/md'), { recursive: true })
 for (const p of pages) {
-  writeFileSync(join(ROOT, p.slug === 'index' ? 'index.html' : `pages/${p.slug}.html`), render(p))
+  writeFileSync(join(ROOT, p.slug === 'index' ? 'index.html' : `pages/${p.slug}.html`), render(p).replace(/<pre(?![^>]*tabindex)/g, "<pre tabindex=\"0\""))
   const md = `# ${strip(p.h1)}\n\n> ${p.description}\n\nSource: ${url(p.slug)}\n\n${p.body.replace('<!-- demo -->', `*(Interactive demo: open ${url(p.slug)})*`)}`
   writeFileSync(join(ROOT, `public/md/${p.slug}.md`), md)
 }

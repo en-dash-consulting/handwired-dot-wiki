@@ -1,2 +1,2 @@
-{ "name": "handwired.wiki", "short_name": "handwired", "start_url": "/", "display": "standalone", "background_color": "#111114", "theme_color": "#111114",
+{ "name": "handwired.wiki", "short_name": "handwired", "start_url": "/", "display": "standalone", "background_color": "#ffffff", "theme_color": "#ffd60a",
   "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }, { "src": "/pwa-icon-512.png", "sizes": "512x512", "type": "image/png" }] }

@@ -15,7 +15,7 @@ export function RANKING(home = false) {
       ${col('rk-mlp', 'A generic neural net', 'Learning moves 65 numbers nobody can read:', '<div id="rk-mlp-w" class="rk2-weights" aria-hidden="true"></div>')}
     </div>
   </div>`
-  if (home) return `<div class="uc uc-home">${arena}<p class="hint uc-fine">Shoppers are simulated (hidden taste: <code>2·match + 1·pop + 4·fresh + 3·rating</code>). Measured live on 200 seeded test searches. <a href="/pages/ranking.html">How this works, step by step →</a></p></div>`
+  if (home) return `<div class="uc uc-home"><h2 class="visually-hidden">Live demo: a search ranking that learns from clicks</h2>${arena}<p class="hint uc-fine">Shoppers are simulated (hidden taste: <code>2·match + 1·pop + 4·fresh + 3·rating</code>). Measured live on 200 seeded test searches. <a href="/pages/ranking.html">How this works, step by step →</a></p></div>`
   return `<div class="uc">
   ${step(1, 'A ranking formula someone guessed', `<p>Every store's search has one: four weights picked by gut, plus two rules that must never break: the <strong>pinned</strong> result goes first, and <strong>out-of-stock</strong> items never reach the top 10.</p>
     <fieldset class="predict" id="rk-predict"><legend>Run as a neural net, does this formula rank results in exactly the same order as the JavaScript?</legend><div class="choices">
