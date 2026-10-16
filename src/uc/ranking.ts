@@ -76,8 +76,8 @@ export const testLists = (count: number, seed: number) => Array.from({ length: c
  *  softmax(score / TEMP − position bias)[clicked]. The position bias (1 + 0.35 × position) is assumed known, as a
  *  propensity estimate would be in practice. Minibatches of clicks, Adam, gradients from backpropagateReference. */
 export const TEMP = 100
-export function clickTrainer(net: Net, list: Item[], clicks: readonly Click[], lr: number, scale: number[], clip?: [number, number][], batch = 24, seed = 5) {
-  const opt = new Adam(net, lr, scale, clip), r = mulberry(seed)
+export function clickTrainer(net: Net, list: Item[], clicks: readonly Click[], lr: number, scale: number[], clip?: [number, number][], batch = 24, seed = 5, reuse?: Adam) {
+  const opt = reuse ?? new Adam(net, lr, scale, clip), r = mulberry(seed)
   // Pinned and out-of-stock rows are governed by the hard rules, so they carry no evidence about the weights.
   const free = (i: number) => !list[i]!.pinned && !!list[i]!.inStock
   clicks = clicks.filter(c => free(c.clicked)).map(c => ({ clicked: c.clicked, shown: c.shown.filter(free) }))

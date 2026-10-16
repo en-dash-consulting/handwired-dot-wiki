@@ -8,7 +8,7 @@ Source: https://handwired.wiki/pages/about.html
 
 ## Who made Handwired?
 
-[Cheng Lou](https://chenglou.me) created Handwired. The source is at [github.com/chenglou/handwired](https://github.com/chenglou/handwired) under the MIT license (© 2026 Cheng Lou). Please star the repo and read the upstream docs — they are the authoritative reference.
+[Cheng Lou](https://chenglou.me) created Handwired. The source is at [github.com/chenglou/handwired](https://github.com/chenglou/handwired) under the MIT license (© 2026 Cheng Lou). Please star the repo and read the official handwired docs — they are the authoritative reference.
 
 ## Who runs this site?
 
@@ -16,10 +16,10 @@ En Dash Consulting, which also runs [learn-pretext.com](https://learn-pretext.co
 
 ## How do the demos use Handwired?
 
-The demos import Handwired's runtime (`src/runtime/numeric-ui-core.ts`) and template from a commit-pinned git dependency and call only its public functions. Explanations paraphrase or quote upstream's README and docs; figures are from upstream READMEs at that commit.
+The demos import Handwired's runtime (`src/runtime/numeric-ui-core.ts`) and template from a commit-pinned git dependency and call only its public functions. Explanations paraphrase or quote handwired's own README and docs; figures are from official handwired READMEs at that commit.
 
 ## Where can I learn more?
 
 - [chenglou.me/handwired](https://chenglou.me/handwired/) — official demos
-- [Upstream docs](https://github.com/chenglou/handwired/tree/main/docs) — tutorial, expressions, patterns, execution model
+- [The official handwired docs](https://github.com/chenglou/handwired/tree/main/docs) — tutorial, expressions, patterns, execution model
 - [FAQ](/pages/faq.html) on this site

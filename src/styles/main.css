@@ -1,9 +1,3 @@
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/700.css';
-@import '@fontsource/caveat/600.css';
-@import '@fontsource/jetbrains-mono/400.css';
 @import './tokens.css';
 @import './base.css';
 @import './layout.css';
@@ -12,3 +6,5 @@
 @import './demos.css';
 @import './lesson.css';
 @import './uc.css';
+@import './calm.css';
+@import './kit.css';

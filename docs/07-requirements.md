@@ -6,7 +6,7 @@ Modeled after learn-pretext.com and html-in-canvas.dev.
 
 Handwired turns regular JavaScript into a neural net: no training, exact yet
 fully differentiable, runnable in a browser without a GPU. Control flow
-compiles to differentiable ops (e.g. ReLU soft-switches). Upstream demos:
+compiles to differentiable ops (e.g. ReLU soft-switches). Handwired's own demos:
 Mini OS, Learned gallery (unfreeze & train weights live), Search 100k JSON
 docs (JS → WebGPU kernels).
 
@@ -16,7 +16,7 @@ docs (JS → WebGPU kernels).
 
 ### E1.1: Project Scaffold
 - Vite MPA + TypeScript strict mode (same stack pattern as learn-pretext)
-- Package wiring for Handwired (consume upstream via git/local or published
+- Package wiring for Handwired (consume in Cheng Lou's handwired repo via git/local or published
   package once available; document install path clearly)
 - Multi-page Vite entries for tracks + gallery + playground
 - CSS architecture: reset, variables, global, layout, components
@@ -26,7 +26,7 @@ docs (JS → WebGPU kernels).
 ### E1.2: Global Chrome
 - Header with handwired.wiki wordmark + track nav
 - Sidebar page tree grouped by track
-- Footer: En Dash attribution, links to upstream repo + chenglou.me/handwired,
+- Footer: En Dash attribution, links to Cheng Lou's handwired repo + chenglou.me/handwired,
   GitHub for this site; “not affiliated” disclaimer
 - Prev/Next page navigation across the learning path
 - Mobile hamburger / slide-out nav
@@ -52,7 +52,7 @@ docs (JS → WebGPU kernels).
 ### E2.1: Home / Landing
 - Hero: live “JS → neural net” transform animation of a tiny conditional
 - Tagline: “Turn your regular JavaScript into a neural net”
-- One-paragraph explanation + link to upstream
+- One-paragraph explanation + link to in Cheng Lou's handwired repo
 - CTA: Start Learning → Why Handwired; secondary: Open Playground / Gallery
 - Quick-jump to tracks for returning visitors
 
@@ -64,8 +64,8 @@ docs (JS → WebGPU kernels).
 - Explain “no training / exact / differentiable / browser, no GPU required”
 
 ### E2.3: Getting Started
-- How to obtain & run Handwired locally (clone upstream, bun install / bun start
-  per upstream README; note if/when an npm package exists)
+- How to obtain & run Handwired locally (clone in Cheng Lou's handwired repo, bun install / bun start
+  per in Cheng Lou's handwired repo README; note if/when an npm package exists)
 - First ≤15-line example with live compiled graph visualization
 - Mental model: write JS → compile to network → run (and optionally train)
 - Caveats: supported JS subset, browser constraints, WebGPU optional path
@@ -91,7 +91,7 @@ docs (JS → WebGPU kernels).
 
 ### E3.4: From JS to Kernels (WebGPU path)
 - Conceptual pipeline: JS program → Handwired graph → WebGPU kernels
-- Tie-in to the 100k JSON search upstream demo (regex, parse, highlight)
+- Tie-in to the 100k JSON search in Cheng Lou's handwired repo demo (regex, parse, highlight)
 - Browser capability detection + graceful fallback messaging
 
 ---
@@ -110,7 +110,7 @@ docs (JS → WebGPU kernels).
 - Optional gradient / sensitivity readout
 
 ### E4.3: Unfreeze & Train (Learned Mode)
-- Inspired by upstream “Learned gallery”
+- Inspired by in Cheng Lou's handwired repo “Learned gallery”
 - Start from a compiled exact program; unfreeze weights; train toward a target
   behavior in real time
 - Reset-to-exact control; show weight drift visualization
@@ -124,8 +124,8 @@ docs (JS → WebGPU kernels).
 - Filters: foundations, creative, performance/WebGPU, community
 - Each card links to an immersive demo page
 
-### E5.2: Upstream Demo Spotlights
-- Mini OS spotlight page: explain architecture, embed or deep-link upstream,
+### E5.2: Cheng Lou's handwired repo Demo Spotlights
+- Mini OS spotlight page: explain architecture, embed or deep-link in Cheng Lou's handwired repo,
   discuss DOM rendering from Handwired JS
 - Learned gallery spotlight: recreate a minimal in-site version or guided tour
 - Search 100k JSON spotlight: explain JS→WebGPU compilation story
@@ -141,13 +141,13 @@ docs (JS → WebGPU kernels).
 ## Epic 6: Reference & Trust
 
 ### E6.1: API / Mental-Model Reference
-- Document the JS subset and transform rules as understood from upstream
+- Document the JS subset and transform rules as understood from in Cheng Lou's handwired repo
   docs/src/template (keep clearly marked as community notes; link canonical)
 - Glossary: weight, layer, relu encoding, freeze/unfreeze, kernel
 
 ### E6.2: About, Attribution, FAQ
 - Independent En Dash resource disclaimer
-- Links to Cheng Lou, upstream repo, live upstream demos
+- Links to Cheng Lou, Cheng Lou's handwired repo, live handwired's own demos
 - FAQ: relation to pretext / other Cheng Lou work; browser support; training
 
 ### E6.3: Accessibility & Quality Bar
@@ -161,5 +161,5 @@ docs (JS → WebGPU kernels).
 
 - Static deployable site; no required backend
 - Performance: playground compile/run should feel interactive on mid-tier laptops
-- Clear separation between upstream demos (linked/embedded) and first-party content
-- Do not claim official status or republish upstream assets without license check
+- Clear separation between handwired's own demos (linked/embedded) and first-party content
+- Do not claim official status or republish in Cheng Lou's handwired repo assets without license check

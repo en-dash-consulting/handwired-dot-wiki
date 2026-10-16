@@ -10,8 +10,8 @@
   <meta name="description" content="Interactive demo: start from an exact handwired program, unfreeze its threshold, slope and branch values, and fit new targets by gradient descent using Handwired's backpropagateReference." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://handwired.wiki/pages/train.html" />
   <link rel="alternate" type="text/markdown" href="/md/train.md" title="Markdown version" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -96,7 +96,7 @@
    "publisher": {
     "@id": "https://handwired.wiki/#org"
    },
-   "dateModified": "2026-10-15",
+   "dateModified": "2026-10-16",
    "image": "https://handwired.wiki/og-image.png",
    "author": {
     "@id": "https://handwired.wiki/#org"
@@ -134,7 +134,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
+    <a class="brand" href="/" aria-label="handwired.wiki home"><svg class="brand-mark hw-mark" role="img" aria-label="Handwired" width="14" height="20" viewBox="3 0 14 20"><path d="M7 2V6M7 14V18M11 10H12a4 4 0 0 1 4 4V18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle class="hw-eyelet" cx="7" cy="10" r="3" stroke-width="2"/></svg><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
   </header>
@@ -166,7 +166,7 @@
 <h2>What is being trained?</h2>
 <p>The circuit computes <code>s = clamp(k × (a − t), 0, 1)</code> with two ReLUs, then <code>y = s × hi + (1 − s) × lo</code> with <code>emitSelect</code>. Each step evaluates 21 sample points, backpropagates the squared error, and moves <code>t</code>, <code>k</code>, <code>hi</code> and <code>lo</code> by plain gradient descent.</p>
 <h2>Why does the threshold sometimes get stuck?</h2>
-<p>Gradients only reach <code>t</code> and <code>k</code> where the ramp is between 0 and 1; outside it the ReLUs are flat. That&#39;s the general rule from upstream&#39;s notes: exact decisions have zero slope, continuous quantities train well. Upstream&#39;s Learned gallery trains a much larger network (244 coefficients) with Adam.</p>
+<p>Gradients only reach <code>t</code> and <code>k</code> where the ramp is between 0 and 1; outside it the ReLUs are flat. That&#39;s the general rule from <a href="https://github.com/chenglou/handwired" rel="noopener">handwired&#39;s own notes</a>: exact decisions have zero slope, continuous quantities train well. Handwired&#39;s own Learned gallery trains a much larger network (244 coefficients) with Adam.</p>
 
     </article>
     <p id="demo-status" class="status" role="status">Loading Handwired…</p>

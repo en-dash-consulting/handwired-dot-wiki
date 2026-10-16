@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Adapts Cheng Lou's JSON search demo (MIT, © 2026 Cheng Lou, github.com/chenglou/handwired/tree/main/src/json-search)
 // into pages/json-search-embed.html, unmodified except: the stylesheet is loaded by Vite, the "Back" link points here,
-// and a credit line is added. Its worker is bundled from upstream's demo-worker.ts into public/pages/demo-worker.js.
+// and a credit line is added. Its worker is bundled from handwired's own demo-worker.ts into public/pages/demo-worker.js.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 const up = 'node_modules/handwired'
@@ -11,6 +11,6 @@ html = html.replace('<link rel="stylesheet" href="./json-search.css">', `<script
   .replace('Back to demos', 'Back to the walkthrough')
   .replace(/<\/main>/, `  <p class="notes">Demo and code by <a href="https://chenglou.me" target="_top">Cheng Lou</a> (Handwired, MIT license, © 2026 Cheng Lou): <a href="https://github.com/chenglou/handwired/tree/main/src/json-search" target="_top">source</a> · <a href="https://github.com/chenglou/handwired/blob/main/LICENSE" target="_top">license</a>. Embedded unmodified by handwired.wiki.</p>\n  </main>`)
   .replace('<script type="module" src="../src/json-search/demo.ts"></script>', '<script type="module" src="/src/demos/json-search-embed.ts"></script>')
-writeFileSync('pages/json-search-embed.html', html)
+writeFileSync('pages/json-search-embed.html', html.replace('id="document-text" class="document-text" tabindex="0"', 'id="document-text" class="document-text" tabindex="0" role="region"'))
 execSync(`npx -y esbuild@0.25.10 ${up}/src/json-search/demo-worker.ts --bundle --format=iife --minify --outfile=public/pages/demo-worker.js --log-level=warning`, { stdio: 'inherit' })
 console.log('json search embed built')

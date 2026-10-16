@@ -8,13 +8,17 @@ type: faq
 ---
 <p class="lede">Quick, sourced answers about Handwired. Everything here is drawn from <a href="https://chenglou.me/handwired/">chenglou.me/handwired</a> and the <a href="https://github.com/chenglou/handwired">chenglou/handwired</a> repository.</p>
 
+## What is Handwired?
+
+Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.
+
 ## When should I use Handwired?
 
 Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, physics fitted to a recording, or a colour theme fitted to a designer's picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.
 
-## What is Handwired?
+## How do I turn JavaScript into a neural network?
 
-Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.
+With Handwired you rewrite the logic with its builder API (circuit.affine, circuit.reglu, emitCompare, emitSelect and friends), which appends exact operations to a Circuit; the result is a neural net that returns the same answers as your JavaScript. There is no automatic converter: you write builder code once, by hand. See <a href="/pages/getting-started.html">Getting started</a> and the beginner <a href="/pages/js-vs-nn.html">cat lesson</a>.
 
 ## Who made Handwired?
 
@@ -22,7 +26,7 @@ Cheng Lou, also known for Pretext and React Motion. The code is at github.com/ch
 
 ## Is Handwired a JavaScript-to-neural-net compiler?
 
-Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Upstream's docs state that no tool converts existing JavaScript source into a program.
+Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Handwired's own docs state that no tool converts existing JavaScript source into a program.
 
 ## Does Handwired need training?
 
@@ -46,7 +50,7 @@ It isn't on npm. Clone github.com/chenglou/handwired and run bun install, or add
 
 ## What demos exist?
 
-Upstream has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.
+The official handwired README has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.
 
 ## Is handwired.wiki official?
 

@@ -17,4 +17,4 @@ The circuit computes `s = clamp(k × (a − t), 0, 1)` with two ReLUs, then `y =
 
 ## Why does the threshold sometimes get stuck?
 
-Gradients only reach `t` and `k` where the ramp is between 0 and 1; outside it the ReLUs are flat. That's the general rule from upstream's notes: exact decisions have zero slope, continuous quantities train well. Upstream's Learned gallery trains a much larger network (244 coefficients) with Adam.
+Gradients only reach `t` and `k` where the ramp is between 0 and 1; outside it the ReLUs are flat. That's the general rule from [handwired's own notes](https://github.com/chenglou/handwired): exact decisions have zero slope, continuous quantities train well. Handwired's own Learned gallery trains a much larger network (244 coefficients) with Adam.

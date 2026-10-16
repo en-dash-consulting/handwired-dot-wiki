@@ -1,4 +1,4 @@
-// Runs upstream's template app unmodified (pinned git dependency).
+// Runs handwired's own template app unmodified (pinned git dependency).
 import { mountToggle } from 'handwired/template/toggle.ts'
 mountToggle()
 const track = document.querySelector('.track')!, state = document.getElementById('state')!

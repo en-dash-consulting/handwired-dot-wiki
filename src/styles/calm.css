@@ -1,0 +1,70 @@
+/* Calm editorial theme (Oct 2026): paper and ink, one rust accent, serif headings, no glows or board grid.
+   Loaded last; overrides the original circuit-board identity tokens without renaming them. */
+:root {
+  color-scheme: light dark;
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-hand: 'Bricolage Grotesque', sans-serif;
+  --board: #faf8f4; --board-2: #f3efe8; --board-3: #ebe5db; --grid: transparent;
+  --fg: #23211d; --ink: #141311; --muted: #5d5850; --rule: #dcd4c7;
+  --copper: #a3461d; --copper-hi: #8a3814; --copper-lo: #d8b39e; --copper-soft: rgb(163 70 29 / .08);
+  --solder: #23211d; --led: #2c6a43; --led-soft: rgb(44 106 67 / .1); --trace: #2a5d8c; --warn: #9a4a00; --bad: #b42318;
+  --focus: #1f4fd1; --code-bg: #f3efe8; --on-accent: #ffffff;
+  --radius: 10px; --shadow: 0 0 0 1px var(--rule);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --board: #161513; --board-2: #1d1c19; --board-3: #262420; --fg: #e8e4dc; --ink: #f6f3ee; --muted: #a9a297; --rule: #36332d;
+    --copper: #e0895c; --copper-hi: #eba27c; --copper-lo: #6b4330; --copper-soft: rgb(224 137 92 / .1);
+    --solder: #e8e4dc; --led: #7cc495; --led-soft: rgb(124 196 149 / .12); --trace: #8ab8e6; --warn: #e6b45c; --bad: #f08a7e;
+    --focus: #9db8ff; --code-bg: #1d1c19; --on-accent: #161513;
+  }
+}
+html, body { background: var(--board) !important; }
+body { font-size: 17.5px; }
+h1, h2, h3, .uc-h, .card h3 { font-family: var(--font-display); letter-spacing: -0.01em; font-weight: 600; }
+h1 { font-weight: 600; letter-spacing: -0.015em; }
+h2::before { display: none !important; }
+.hand { font-style: italic; font-size: 1.05em; color: var(--muted); }
+.card-kicker { letter-spacing: .06em; }
+.hero h1 .copper { background: none !important; -webkit-background-clip: initial; background-clip: initial; color: var(--copper) !important; font-style: italic; }
+.hero .kicker::before { display: none !important; }
+/* no glows, gradients or neon anywhere */
+*, *::before, *::after { text-shadow: none !important; }
+.button, .button:hover, .card, .card:hover, .demo, .next, .verdict.exact::before, .lamp.on, .fuzz-grid span.ok, .cost-row.current, .code.live .k.moved, .card::before { box-shadow: none !important; }
+.c-ab, .fit-line, .hw-wire.hot, .n-node circle { filter: none !important; }
+.button { background: var(--ink) !important; color: var(--board) !important; border-radius: 8px; font-family: var(--font-sans); font-weight: 600; }
+.button:hover { transform: none; background: var(--copper) !important; color: var(--on-accent) !important; }
+.button.secondary { background: transparent !important; color: var(--fg) !important; border: 1px solid var(--rule); }
+.button.secondary:hover { border-color: var(--fg); background: var(--board-2) !important; color: var(--ink) !important; }
+.button:disabled { opacity: .5; cursor: not-allowed; }
+.card { background: var(--board) !important; padding-top: var(--space-4); border-radius: 10px; }
+.card::before, .card::after { display: none !important; }
+.card:hover, .card:focus-visible { transform: none; border-color: var(--fg); }
+.card.feature { border-color: var(--copper); }
+.demo { background: var(--board-2) !important; border-radius: 12px; }
+.bar > span, .gauge-fill { background: var(--copper) !important; }
+.lamp { background: var(--board-3) !important; } .lamp.on { background: var(--led) !important; }
+.site-header { background: color-mix(in srgb, var(--board) 92%, transparent) !important; backdrop-filter: none !important; border-bottom: 1px solid var(--rule); }
+.brand-mark { background: transparent !important; border-color: var(--rule) !important; color: var(--copper) !important; }
+.next { animation: none !important; }
+.choice { border-radius: 8px !important; }
+.choice[aria-pressed="true"] { color: var(--on-accent) !important; }
+.predict { background: transparent !important; border-style: solid !important; border-color: var(--rule) !important; }
+:not(pre) > code { background: var(--board-2); color: var(--ink); }
+th { color: var(--fg); }
+a:hover { color: var(--copper); }
+.site-banner { background: var(--board-2) !important; border-bottom-color: var(--rule) !important; }
+.site-banner a { color: var(--copper-hi) !important; }
+.ok { color: var(--led) !important; } .bad { color: var(--bad) !important; }
+.uc-n { background: transparent !important; border: 1px solid var(--rule); color: var(--muted) !important; font-family: var(--font-sans); }
+.takeaway { background: transparent !important; border: 0 !important; border-left: 3px solid var(--copper) !important; border-radius: 0 !important; padding: .2rem 0 .2rem 1rem !important; font-family: var(--font-display); font-size: 1.25rem !important; }
+.reveal { background: transparent !important; }
+.ly-card.bad { background: color-mix(in srgb, var(--bad) 10%, var(--board-3)) !important; }
+.site-footer { background: var(--board-2) !important; }
+.rk-item.oos { opacity: 1 !important; } .rk-item.oos .rk-name { color: var(--muted); }
+.k-ghost { color: var(--led) !important; }
+.sc-bg { fill: var(--board-2) !important; } .sc-floor { fill: var(--board-3) !important; } .sc-wall { fill: var(--board-3) !important; }
+.sc-meter-bg { fill: var(--board-3) !important; } .sc-eye { fill: var(--ink) !important; }
+.node { fill: var(--board-3) !important; }
+.predict.picked .choice:not([aria-pressed="true"]) { opacity: 1; color: var(--muted, #5f5b55); border-style: dashed; }
+.lesson { --bad: #b42318; } .side { background: var(--board-2); } [data-theme="dark"] .lesson, :root:not([data-theme="light"]) .lesson { } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lesson { --bad: #ff8a80; } } [data-theme="dark"] .lesson { --bad: #ff8a80; }

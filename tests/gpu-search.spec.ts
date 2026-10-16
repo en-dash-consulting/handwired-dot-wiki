@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-test('gpu search embed runs upstream demo (CPU fallback ok)', async ({ page }) => {
+test('gpu search embed runs the handwired demo (CPU fallback ok)', async ({ page }) => {
   test.setTimeout(90_000)
   const errors: string[] = []; page.on('pageerror', e => errors.push(String(e)))
   await page.goto('/pages/json-search-embed.html')

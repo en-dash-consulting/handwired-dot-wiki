@@ -35,7 +35,7 @@
 .hw-node.lit .hw-halo { opacity: calc(var(--act, 1) * .22); }
 .hw-node.lit .hw-body { stroke: var(--led); }
 .hw-label { font: 600 14px var(--font-mono); fill: var(--muted); }
-.hw-val { font: 700 19px var(--font-display); fill: #fff; }
+.hw-val { font: 700 19px var(--font-display); fill: var(--ink); }
 .hw-note { font: 600 24px var(--font-hand); fill: var(--copper-hi); opacity: 0; transition: opacity .6s 1.2s; }
 .wired .hw-note { opacity: .9; }
 @media (prefers-reduced-motion: reduce) { .hw-net, .hw-node, .hw-note { opacity: 1; transform: none; } .hw-wire { stroke-dashoffset: 0; } }

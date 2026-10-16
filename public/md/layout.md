@@ -1,6 +1,6 @@
 # Layout that learns from a designer's drags
 
-> A card-sizing function runs as an exact Handwired neural net. Drag a few cards to the widths you want; three constants learn from the drags, every card at every screen width follows, and nothing ever overflows. A generic net on the same drags does.
+> A card-sizing function runs as an exact Handwired neural net, learns its constants from a designer's mockups, and never overflows at any screen width.
 
 Source: https://handwired.wiki/pages/layout.html
 

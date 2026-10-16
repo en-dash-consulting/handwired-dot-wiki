@@ -10,8 +10,8 @@
   <meta name="description" content="Answers about Handwired by Cheng Lou: what it is, whether it's a compiler, if it needs training or a GPU, how it stays exact and differentiable, and how to install it." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://handwired.wiki/pages/faq.html" />
   <link rel="alternate" type="text/markdown" href="/md/faq.md" title="Markdown version" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -101,6 +101,14 @@
    "mainEntity": [
     {
      "@type": "Question",
+     "name": "What is Handwired?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats."
+     }
+    },
+    {
+     "@type": "Question",
      "name": "When should I use Handwired?",
      "acceptedAnswer": {
       "@type": "Answer",
@@ -109,10 +117,10 @@
     },
     {
      "@type": "Question",
-     "name": "What is Handwired?",
+     "name": "How do I turn JavaScript into a neural network?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats."
+      "text": "With Handwired you rewrite the logic with its builder API (circuit.affine, circuit.reglu, emitCompare, emitSelect and friends), which appends exact operations to a Circuit; the result is a neural net that returns the same answers as your JavaScript. There is no automatic converter: you write builder code once, by hand. See Getting started and the beginner cat lesson."
      }
     },
     {
@@ -128,7 +136,7 @@
      "name": "Is Handwired a JavaScript-to-neural-net compiler?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Upstream&#39;s docs state that no tool converts existing JavaScript source into a program."
+      "text": "Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Handwired&#39;s own docs state that no tool converts existing JavaScript source into a program."
      }
     },
     {
@@ -176,7 +184,7 @@
      "name": "What demos exist?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Upstream has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training."
+      "text": "The official handwired README has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training."
      }
     },
     {
@@ -214,7 +222,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
+    <a class="brand" href="/" aria-label="handwired.wiki home"><svg class="brand-mark hw-mark" role="img" aria-label="Handwired" width="14" height="20" viewBox="3 0 14 20"><path d="M7 2V6M7 14V18M11 10H12a4 4 0 0 1 4 4V18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle class="hw-eyelet" cx="7" cy="10" r="3" stroke-width="2"/></svg><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html" aria-current="page">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
   </header>
@@ -224,14 +232,16 @@
       <h1>Handwired FAQ</h1>
       <p class="lede">Quick, sourced answers about Handwired. Everything here is drawn from <a href="https://chenglou.me/handwired/" rel="noopener">chenglou.me/handwired</a> and the <a href="https://github.com/chenglou/handwired" rel="noopener">chenglou/handwired</a> repository.</p>
 
-<h2>When should I use Handwired?</h2>
-<p>Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer&#39;s examples, physics fitted to a recording, or a colour theme fitted to a designer&#39;s picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.</p>
 <h2>What is Handwired?</h2>
 <p>Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.</p>
+<h2>When should I use Handwired?</h2>
+<p>Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer&#39;s examples, physics fitted to a recording, or a colour theme fitted to a designer&#39;s picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.</p>
+<h2>How do I turn JavaScript into a neural network?</h2>
+<p>With Handwired you rewrite the logic with its builder API (circuit.affine, circuit.reglu, emitCompare, emitSelect and friends), which appends exact operations to a Circuit; the result is a neural net that returns the same answers as your JavaScript. There is no automatic converter: you write builder code once, by hand. See <a href="/pages/getting-started.html">Getting started</a> and the beginner <a href="/pages/js-vs-nn.html">cat lesson</a>.</p>
 <h2>Who made Handwired?</h2>
 <p>Cheng Lou, also known for Pretext and React Motion. The code is at github.com/chenglou/handwired under the MIT license.</p>
 <h2>Is Handwired a JavaScript-to-neural-net compiler?</h2>
-<p>Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Upstream&#39;s docs state that no tool converts existing JavaScript source into a program.</p>
+<p>Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Handwired&#39;s own docs state that no tool converts existing JavaScript source into a program.</p>
 <h2>Does Handwired need training?</h2>
 <p>No. The weights are written by hand by builder code, so the program is exact from the start. You can optionally unfreeze numbers kept in cells and train them with the program&#39;s own gradients.</p>
 <h2>Is it really exact?</h2>
@@ -243,7 +253,7 @@
 <h2>How do I install Handwired?</h2>
 <p>It isn&#39;t on npm. Clone github.com/chenglou/handwired and run bun install, or add it to a bundler project as a pinned git dependency, e.g. &quot;handwired&quot;: &quot;github:chenglou/handwired#<commit>&quot;, and import its TypeScript sources.</p>
 <h2>What demos exist?</h2>
-<p>Upstream has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.</p>
+<p>The official handwired README has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.</p>
 <h2>Is handwired.wiki official?</h2>
 <p>No. handwired.wiki is an independent community resource by En Dash Consulting, not affiliated with or endorsed by Cheng Lou.</p>
 

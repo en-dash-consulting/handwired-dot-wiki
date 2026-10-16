@@ -1,42 +1,41 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-test('ranking: exact, learns, rules hold; generic model breaks them', async ({ page }) => {
-  test.setTimeout(90_000)
+test('ranking: shoppers stream in, both learn, only the generic net breaks rules', async ({ page }) => {
+  test.setTimeout(120_000)
   const errors: string[] = []; page.on('pageerror', e => errors.push(String(e)))
   await page.goto('/pages/ranking.html')
   await expect(page.locator('#demo-status')).toContainText('✓')
   await page.getByRole('button', { name: 'Always the same' }).click()
-  await expect(page.locator('#rk-reveal')).toContainText('1,000 / 1,000')
-  const before = await page.locator('#rk-top3').textContent()
-  await page.getByRole('button', { name: 'Simulate 1,000 shoppers' }).click()
-  await page.getByRole('button', { name: 'Learn from the clicks' }).click()
-  await expect(page.locator('#rk-learn-msg')).toContainText('learned', { timeout: 30_000 })
-  await expect(page.locator('#rk-pin')).toHaveText('✓'); await expect(page.locator('#rk-oos')).toHaveText('0')
-  const after = await page.locator('#rk-top3').textContent()
+  await expect(page.locator('#rk-reveal')).toContainText('1,000 of 1,000')
+  const before = await page.locator('#rk-hw-top3').textContent()
+  await page.getByRole('button', { name: '+1 shopper' }).click()
+  await expect(page.locator('#rk-ticker')).toContainText('Shopper 1 of 1,000')
+  await page.getByRole('button', { name: /Let 1,000 shoppers in/ }).click()
+  await page.waitForTimeout(2500)
+  if (process.env.SHOTS) for (const w of [390, 1280]) { await page.setViewportSize({ width: w, height: 900 }); await page.locator('.rk2').scrollIntoViewIfNeeded(); await page.screenshot({ path: `screenshots-review/ranking2-midway-${w}.png` }) }
+  await expect(page.locator('#rk-explain')).toContainText('Done', { timeout: 90_000 })
+  await expect(page.locator('#rk-hw-pin')).toHaveClass('ok'); await expect(page.locator('#rk-hw-oos')).toHaveClass('ok')
+  await expect(page.locator('#rk-mlp-pin')).toHaveClass('bad')
+  const after = await page.locator('#rk-hw-top3').textContent()
+  console.log('RESULT', JSON.stringify([before, after, await page.locator('#rk-mlp-top3').textContent(), await page.locator('#rk-code').textContent(), await page.locator('#rk-explain').textContent(), await page.locator('#rk-mlp-pin').textContent(), await page.locator('#rk-mlp-oos').textContent()]))
   expect(parseFloat(after!)).toBeGreaterThan(parseFloat(before!) + 20)
-  await expect(page.locator('#rk-diff')).toContainText('+ const W_FRESH')
-  await page.getByRole('button', { name: 'Train the generic model' }).click()
-  await expect(page.locator('#rk-mlp-msg')).toContainText('trained', { timeout: 60_000 })
-  expect(parseInt((await page.locator('#rk-mlp-pin').textContent())!.replace(/,/g, ''))).toBeGreaterThan(0)
-  console.log('RESULT', before, after, await page.locator('#rk-learn-msg').textContent(), await page.locator('#rk-code').textContent(), await page.locator('#rk-mlp-pin').textContent(), await page.locator('#rk-mlp-oos').textContent(), await page.locator('#rk-mlp-top3').textContent(), await page.locator('#rk-mlp-msg').textContent())
-  await page.waitForTimeout(1200)
+  await expect(page.locator('#rk-diff')).toContainText('+ W_FRESH')
+  await page.waitForTimeout(800)
   const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()
   expect(r.violations.filter(v => v.impact === 'serious' || v.impact === 'critical').map(v => v.id + ' ' + v.nodes.map(n => n.target).join())).toEqual([])
   expect(errors).toEqual([])
-  if (process.env.SHOTS) for (const w of [390, 1280]) { await page.setViewportSize({ width: w, height: 900 }); await page.screenshot({ path: `screenshots-review/ranking-done-${w}.png`, fullPage: true }) }
+  if (process.env.SHOTS) for (const w of [390, 1280]) { await page.setViewportSize({ width: w, height: 900 }); await page.locator('.rk2').scrollIntoViewIfNeeded(); await page.screenshot({ path: `screenshots-review/ranking2-done-${w}.png` }) }
 })
 
-test('home: ranking live above the fold, keyboard learnable', async ({ page }) => {
+test('home: ranking above the fold; keyboard play; reduced motion finishes instantly', async ({ page }) => {
   for (const w of [390, 1280]) {
-    await page.setViewportSize({ width: w, height: w > 400 ? 800 : 844 })
-    await page.goto('/')
-    await expect(page.locator('#rk-list li').first()).toBeInViewport()
-    await expect(page.getByRole('button', { name: 'Simulate 1,000 shoppers' })).toBeAttached()
-    if (process.env.SHOTS) await page.screenshot({ path: `screenshots-review/home-uc-${w}.png` })
+    await page.setViewportSize({ width: w, height: w > 400 ? 800 : 844 }); await page.goto('/')
+    await expect(page.getByRole('button', { name: /Let 1,000 shoppers in/ })).toBeInViewport()
+    if (process.env.SHOTS) await page.screenshot({ path: `screenshots-review/home2-${w}.png` })
   }
-  await page.getByRole('button', { name: 'Simulate 1,000 shoppers' }).focus(); await page.keyboard.press('Enter')
-  await page.getByRole('button', { name: 'Learn from the clicks' }).focus(); await page.keyboard.press('Enter')
-  await expect(page.locator('#rk-learn-msg')).toContainText('learned', { timeout: 30_000 })
-  await expect(page.locator('#rk-oos')).toHaveText('0')
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.reload()
+  await page.getByRole('button', { name: /Let 1,000 shoppers in/ }).focus(); await page.keyboard.press('Enter')
+  await expect(page.locator('#rk-explain')).toContainText('Done', { timeout: 60_000 })
+  await expect(page.locator('#rk-hw-oos')).toHaveClass('ok')
 })
