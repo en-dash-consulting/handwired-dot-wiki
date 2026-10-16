@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "pages": "node scripts/build-pages.mjs",
+    "pages": "node scripts/build-pages.mjs && node scripts/build-json-search.mjs",
     "build": "npm run pages && tsc && vite build",
     "og": "node scripts/generate-og-image.mjs",
     "test": "playwright test",

@@ -24,3 +24,18 @@ export function RANKING(home = false) {
     <p class="hint uc-fine">${fine} The generic model is a 6→8→1 ReLU net, also trained with Adam, in a Web Worker so the page stays responsive. Both train on the clicks of non-pinned, in-stock results, since the rules decide the others.</p>`)}
 </div>`
 }
+
+export function GPUSEARCH() {
+  const step = (n, t, body) => `<section class="uc-step" aria-labelledby="gs-s${n}"><h2 id="gs-s${n}" class="uc-h"><span class="uc-n">${n}</span> ${t}</h2>${body}</section>`
+  return `<div class="uc" data-uc-gpu>
+  ${step(1, 'The job', `<p>You need to search 100,000 JSON documents with a regular expression on every keystroke, and highlight the JSON. In plain JavaScript that is a loop: one document after another, on one thread. On a GPU, you would have to rewrite it all as shaders.</p>`)}
+  ${step(2, 'Predict', `<fieldset class="predict" id="gs-predict"><legend>Cheng Lou wrote the matcher and the JSON parser as Handwired programs, then turned them into WebGPU shaders. Against the browser's native, heavily optimized RegExp, how does it do?</legend><div class="choices">
+    <button type="button" class="choice" data-v="slower">Slower: RegExp is native code</button><button type="button" class="choice" data-v="same">About the same</button><button type="button" class="choice" data-v="faster">Faster, on many patterns</button></div></fieldset>
+    <p id="gs-reveal" class="reveal" aria-live="polite" hidden>Measure it yourself below: the line under the search box reads “This program: … ms on the GPU. Native RegExp: … ms.”, both timed live in your browser. Try the pattern that makes RegExp backtrack: <code>([a-z]+)+x</code>. The fixed program takes the same time on any pattern; RegExp can take seconds. Timings vary by machine and GPU, so we don't print a number here.</p>`)}
+  ${step(3, 'Poke it', `<p id="gs-gpu" class="hint" aria-live="polite">Checking for WebGPU…</p>
+    <iframe class="embed gs-embed" src="/pages/json-search-embed.html" title="Cheng Lou's JSON search demo: search 100,000 JSON documents with a regular expression on the GPU" loading="lazy"></iframe>
+    <p class="hint uc-fine">Embedded unmodified from <a href="https://github.com/chenglou/handwired/tree/main/src/json-search">chenglou/handwired · src/json-search</a>, MIT license, © 2026 Cheng Lou. <a href="/pages/json-search-embed.html">Open it full screen</a>. Upstream also runs it on <a href="https://chenglou.me/handwired/">chenglou.me/handwired</a>.</p>`)}
+  ${step(4, 'Is it the same answer?', `<p>The counter you'd want is “0 differences from plain JavaScript”. This page doesn't compute that live; upstream's test suite does, comparing the search programs against plain-JavaScript references over edge cases and fuzzed inputs (<a href="https://github.com/chenglou/handwired/tree/main/tests/json-search">tests/json-search</a>: <code>search.test.ts</code>, <code>searcher.test.ts</code>, <code>edge-cases.test.ts</code>, <code>writer-fuzz.ts</code>). The CPU toggle in the demo runs the very same programs as generated JavaScript, so you can flip it and see the same matches.</p>
+    <p class="takeaway"><strong>Reach for Handwired when</strong> the same small piece of logic has to run on a huge number of inputs at once, and you want to write it once as readable code instead of hand-writing GPU shaders.</p>`)}
+</div>`
+}

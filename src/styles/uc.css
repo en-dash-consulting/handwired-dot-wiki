@@ -50,3 +50,4 @@ button.rk-item:hover { border-color: var(--copper); }
 .hero.hero-uc .sub { max-width: 60ch; }
 .rk-wline { display: none; margin: 0 0 .5rem; font-size: .78rem; color: var(--copper-hi); }
 @media (max-width: 860px) { .rk-wline { display: block; } }
+.gs-embed { width: 100%; height: min(1100px, 150vh); border: 1px solid var(--rule); border-radius: var(--radius); background: #f3eee4; }

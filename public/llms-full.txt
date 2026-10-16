@@ -323,6 +323,17 @@ Your search ranking is a formula someone guessed. Let the clicks fix the numbers
 
 ---
 
+# Search 100,000 JSON documents on the GPU
+
+URL: https://handwired.wiki/pages/gpu-search.html
+
+Write the search loop once in JavaScript-style builder code; run it on every document at once on the GPU, with the same answers.
+
+*(Interactive demo on the page.)*
+
+
+---
+
 # The cat is a neural net
 
 URL: https://handwired.wiki/pages/js-vs-nn.html
