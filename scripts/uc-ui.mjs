@@ -39,3 +39,25 @@ export function GPUSEARCH() {
     <p class="takeaway"><strong>Reach for Handwired when</strong> the same small piece of logic has to run on a huge number of inputs at once, and you want to write it once as readable code instead of hand-writing GPU shaders.</p>`)}
 </div>`
 }
+
+export function LAYOUT() {
+  const step = (n, t, body) => `<section class="uc-step" aria-labelledby="ly-s${n}"><h2 id="ly-s${n}" class="uc-h"><span class="uc-n">${n}</span> ${t}</h2>${body}</section>`
+  return `<div class="uc" data-uc-layout>
+  ${step(1, 'A sizing function nobody can quite tune', `<p>A designer wants the important cards bigger, and everything to scale with the screen. An engineer wrote three constants. They're wrong, and every round of “a bit wider on tablets?” is another guess.</p>
+  <div class="rk-board"><div class="rk-col" role="group" aria-labelledby="ly-code-h"><p id="ly-code-h" class="card-kicker">the layout code <span class="hand">runs as a Handwired net</span></p><pre class="big-code rk-code" tabindex="0"><code id="ly-code"></code></pre>
+    <ul class="rk-rules" aria-live="polite"><li><span class="r-label">cards out of bounds (50 screen widths × 20 cards)</span> <output id="ly-oob" class="ok">0</output></li><li><span class="r-label">furthest from your drags</span> <output id="ly-err">–</output></li><li><span class="r-label">net vs plain JS, max difference</span> <output id="ly-jsdiff">–</output></li></ul></div>
+  <div class="rk-col" role="group" aria-labelledby="ly-vp-l"><p class="buttons rk-train"><button id="ly-sim" type="button" class="button">Simulate a designer's 12 drags</button> <button id="ly-learn" type="button" class="button secondary" disabled>Learn from the drags</button> <button id="ly-reset" type="button" class="button secondary">Reset</button></p>
+    <p class="hint rk-status" aria-live="polite"><output id="ly-drags">0 drags logged</output> <output id="ly-msg"></output></p>
+    <div class="controls"><label id="ly-vp-l" for="ly-vp">screen width</label><input id="ly-vp" type="range" min="320" max="1440" step="10" value="1280" /><output id="ly-vp-out" for="ly-vp">1280 px</output></div>
+    <div class="ly-screen-wrap"><div id="ly-screen" class="ly-screen" role="group" aria-label="Simulated screen. Each card has a width handle: drag it, or focus it and use the arrow keys."></div></div></div></div>`)}
+  ${step(2, 'Predict', `<fieldset class="predict" id="ly-predict"><legend>You'll drag cards at one or two screen widths. After learning, at a screen width you never touched, will any card overflow the screen?</legend><div class="choices">
+    <button type="button" class="choice" data-v="never">Never: the clamp is still in the code</button><button type="button" class="choice" data-v="some">A few: learned things extrapolate badly</button></div></fieldset>
+    <p id="ly-reveal" class="reveal" aria-live="polite" hidden></p>`)}
+  ${step(3, 'Drag, then learn', `<p>Drag the right edge of a few cards to the width you want (or simulate a designer). Try two or three screen widths, so it can tell “fixed size” from “grows with the screen”. Then learn: three constants move in the code, and every card at every width follows.</p>`)}
+  ${step(4, 'The foil: a generic model on the same drags', `<p>Train a small neural net (2→12→1) on the same drags. It fits them, but it has no idea that “never wider than the screen” is a rule.</p>
+    <p class="buttons"><button id="ly-mlp" type="button" class="button" disabled>Train the generic model</button> <span class="switch-field"><input id="ly-show-mlp" type="checkbox" role="switch" disabled /><label for="ly-show-mlp">show its layout above</label></span></p>
+    <p id="ly-mlp-msg" class="hint" aria-live="polite"></p>
+    <p class="takeaway"><strong>Reach for Handwired when</strong> a designer can show you what they want faster than they can describe it, and the layout still has hard limits.</p>
+    <p class="hint uc-fine">The simulated designer drags 4 importance levels at 1280, 900 and 420 px, aiming at hidden constants (BASE 140, PER_LEVEL 70, SHARE 0.16) with ±6 px of hand wobble. The bounds check covers 50 screen widths from 320 to 1440 px with 20 seeded cards each. Widths are float32 in the net and float64 in JavaScript, so they agree to a fraction of a pixel, not bit for bit; the clamp itself is exact. Row packing is ordinary JavaScript.</p>`)}
+</div>`
+}
