@@ -6,6 +6,10 @@ Source: https://handwired.wiki/pages/faq.html
 
 <p class="lede">Quick, sourced answers about Handwired. Everything here is drawn from <a href="https://chenglou.me/handwired/">chenglou.me/handwired</a> and the <a href="https://github.com/chenglou/handwired">chenglou/handwired</a> repository.</p>
 
+## When should I use Handwired?
+
+Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, or physics fitted to a recording. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live <a href="/pages/ranking.html">ranking demo</a>.
+
 ## What is Handwired?
 
 Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.

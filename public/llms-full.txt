@@ -4,9 +4,20 @@
 
 ---
 
-# What if your JavaScript was a neural net?
+# When would you want your JavaScript to learn?
 
 URL: https://handwired.wiki/
+
+## When would you use this?
+
+
+Ranking from clicksYour hand-tuned search formula learns its weights from shoppers. "Pinned first" and "never show out-of-stock" stay exact. A generic model breaks both.
+Layout from a designer's dragsDrag a few cards to the sizes you want; the layout function's constants update and every card follows, with zero overflows.
+Physics from a recordingFit gravity, drag and bounce so a simulated ball matches a recorded path, then replay it as code.
+Search 100,000 JSON docs on the GPUCheng Lou's demo: plain-looking matching code run as GPU programs, with the same answers as JavaScript.
+
+
+New to the idea? The beginner lesson (a cat deciding how hard to jump) explains it from scratch in three minutes.
 
 Handwired is an open-source project by Cheng Lou that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.
 
@@ -59,7 +70,11 @@ Every demo below runs the real Handwired runtime in your browser — no server, 
 ## Which demos run on this site?
 
 
-★ Start here: the cat is a neural netA 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.
+★ Ranking from clicksA search formula learns its weights from 1,000 shoppers while its business rules stay exact; a generic net on the same clicks breaks them.
+Layout from a designer's dragsDrag cards to the sizes you want; the sizing function learns its constants and nothing overflows.
+Physics from a recordingFit gravity, drag and bounce to a recorded path, then replay it as code.
+GPU JSON search (by Cheng Lou)Upstream's 100,000-document search, embedded with credit: GPU timings next to plain JavaScript.
+Beginner lesson: the cat is a neural netA 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.
 Soft switchThe README's a &gt; 4 ? 10 : 12 as two ReLUs and a select. Editable a, branches and live plot.
 Exact comparison explorerPick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.
 Code → network graphVisualize the operations and layers behind a select, a comparison and an exact clamp.
@@ -223,6 +238,10 @@ URL: https://handwired.wiki/pages/faq.html
 
 Quick, sourced answers about Handwired. Everything here is drawn from chenglou.me/handwired and the chenglou/handwired repository.
 
+## When should I use Handwired?
+
+Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, or physics fitted to a recording. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live ranking demo.
+
 ## What is Handwired?
 
 Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.
@@ -289,6 +308,17 @@ The demos import Handwired's runtime (`src/runtime/numeric-ui-core.ts`) and temp
 - [chenglou.me/handwired](https://chenglou.me/handwired/) — official demos
 - [Upstream docs](https://github.com/chenglou/handwired/tree/main/docs) — tutorial, expressions, patterns, execution model
 - [FAQ](/pages/faq.html) on this site
+
+
+---
+
+# Ranking that learns from clicks, and keeps its rules
+
+URL: https://handwired.wiki/pages/ranking.html
+
+Your search ranking is a formula someone guessed. Let the clicks fix the numbers, without letting them touch the rules.
+
+*(Interactive demo on the page.)*
 
 
 ---

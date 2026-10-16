@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning a Search Ranking From Clicks, With Rules That Can't Break | handwired.wiki</title>
+  <meta name="description" content="A hand-written search ranking formula runs as an exact Handwired neural net, learns its four weights from 1,000 simulated shoppers, and keeps 'pinned first' and 'out-of-stock never in the top 10' exact. A generic neural net trained on the same clicks breaks both rules." />
+  <meta name="author" content="En Dash Consulting" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://handwired.wiki/pages/ranking.html" />
+  <link rel="alternate" type="text/markdown" href="/md/ranking.md" title="Markdown version" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Learning a Search Ranking From Clicks, With Rules That Can't Break | handwired.wiki" />
+  <meta property="og:description" content="A hand-written search ranking formula runs as an exact Handwired neural net, learns its four weights from 1,000 simulated shoppers, and keeps 'pinned first' and 'out-of-stock never in the top 10' exact. A generic neural net trained on the same clicks breaks both rules." />
+  <meta property="og:url" content="https://handwired.wiki/pages/ranking.html" />
+  <meta property="og:site_name" content="handwired.wiki" />
+  <meta property="og:image" content="https://handwired.wiki/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="handwired.wiki — JavaScript as an exact, differentiable neural net" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Learning a Search Ranking From Clicks, With Rules That Can't Break | handwired.wiki" />
+  <meta name="twitter:description" content="A hand-written search ranking formula runs as an exact Handwired neural net, learns its four weights from 1,000 simulated shoppers, and keeps 'pinned first' and 'out-of-stock never in the top 10' exact. A generic neural net trained on the same clicks breaks both rules." />
+  <meta name="twitter:image" content="https://handwired.wiki/og-image.png" />
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://handwired.wiki/#website",
+   "name": "handwired.wiki",
+   "url": "https://handwired.wiki/",
+   "publisher": {
+    "@id": "https://handwired.wiki/#org"
+   },
+   "inLanguage": "en",
+   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://handwired.wiki/#org",
+   "name": "En Dash Consulting",
+   "url": "https://endash.us"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://handwired.wiki/#chenglou",
+   "name": "Cheng Lou",
+   "url": "https://chenglou.me"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "@id": "https://handwired.wiki/#handwired",
+   "name": "Handwired",
+   "alternateName": [
+    "handwired js",
+    "chenglou/handwired"
+   ],
+   "description": "Turn your regular JavaScript code into a neural net; no training, exact, yet also fully differentiable.",
+   "codeRepository": "https://github.com/chenglou/handwired",
+   "url": "https://chenglou.me/handwired/",
+   "author": {
+    "@id": "https://handwired.wiki/#chenglou"
+   },
+   "license": "https://opensource.org/licenses/MIT",
+   "programmingLanguage": [
+    "TypeScript",
+    "JavaScript"
+   ],
+   "runtimePlatform": "Bun, web browsers"
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://handwired.wiki/pages/ranking.html#page",
+   "url": "https://handwired.wiki/pages/ranking.html",
+   "name": "Learning a Search Ranking From Clicks, With Rules That Can't Break | handwired.wiki",
+   "headline": "Ranking that learns from clicks, and keeps its rules",
+   "description": "A hand-written search ranking formula runs as an exact Handwired neural net, learns its four weights from 1,000 simulated shoppers, and keeps 'pinned first' and 'out-of-stock never in the top 10' exact. A generic neural net trained on the same clicks breaks both rules.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://handwired.wiki/#website"
+   },
+   "about": {
+    "@id": "https://handwired.wiki/#handwired"
+   },
+   "publisher": {
+    "@id": "https://handwired.wiki/#org"
+   },
+   "dateModified": "2026-10-16",
+   "image": "https://handwired.wiki/og-image.png",
+   "author": {
+    "@id": "https://handwired.wiki/#org"
+   },
+   "proficiencyLevel": "Beginner"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://handwired.wiki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Gallery",
+     "item": "https://handwired.wiki/pages/gallery.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Ranking that learns from clicks, and keeps its rules",
+     "item": "https://handwired.wiki/pages/ranking.html"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/why-handwired.html">Why Handwired</a></li><li><a href="/pages/concepts.html">Concepts</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+  </header>
+  <main id="main" class="page demo-page" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li aria-current="page">Ranking that learns from clicks, and keeps its rules</li></ol></nav>
+    <article>
+      <h1>Ranking that learns from clicks, and keeps its rules</h1>
+      <p class="lede">Your search ranking is a formula someone guessed. Let the clicks fix the numbers, without letting them touch the rules.</p>
+
+<div class="uc" data-uc-ranking>
+  <section class="uc-step" aria-labelledby="rk-s1"><h2 id="rk-s1" class="uc-h"><span class="uc-n">1</span> A ranking formula someone guessed</h2><p>Every search box has one: a few weights, picked by gut, plus two business rules that must never break. Here it is, running as an exact Handwired net.</p><div class="rk-board">
+    <div class="rk-col" role="group" aria-labelledby="rk-code-h"><p id="rk-code-h" class="card-kicker">your ranking code <span class="hand">runs as a Handwired net</span></p><pre class="big-code rk-code" tabindex="0"><code id="rk-code"></code></pre>
+      <ul class="rk-rules" aria-live="polite"><li><span class="r-label">pinned result on top</span> <output id="rk-pin" class="ok">✓</output></li><li><span class="r-label">out-of-stock in top 10</span> <output id="rk-oos" class="ok">0</output></li><li><span class="r-label">shoppers' favourite in top 3</span> <output id="rk-top3">–</output></li></ul></div>
+    <div class="rk-col" role="group" aria-labelledby="rk-list-h"><p class="buttons rk-train"><button id="rk-sim" type="button" class="button">Simulate 1,000 shoppers</button> <button id="rk-learn" type="button" class="button secondary" disabled>Learn from the clicks</button> <button id="rk-reset" type="button" class="button secondary">Reset</button></p>
+    <p class="hint rk-status" aria-live="polite"><output id="rk-clicks">0 clicks logged</output> <output id="rk-learn-msg"></output></p><p class="rk-wline" aria-hidden="true"><code id="rk-wline"></code></p><p id="rk-list-h" class="card-kicker">results for “wireless headphones” <span class="hint">· or click one yourself</span></p><ol id="rk-list" class="rk-list"></ol></div>
+  </div></section>
+  <section class="uc-step" aria-labelledby="rk-s2"><h2 id="rk-s2" class="uc-h"><span class="uc-n">2</span> Predict</h2><fieldset class="predict" id="rk-predict"><legend>Ranked as a neural net, will this list come out in exactly the same order as the plain JavaScript?</legend><div class="choices">
+    <button type="button" class="choice" data-v="always">Always the same</button><button type="button" class="choice" data-v="mostly">Mostly; nets are approximate</button><button type="button" class="choice" data-v="no">No, it needs training first</button></div></fieldset>
+    <p id="rk-reveal" class="reveal" aria-live="polite" hidden></p></section>
+  <section class="uc-step" aria-labelledby="rk-s3"><h2 id="rk-s3" class="uc-h"><span class="uc-n">3</span> Let shoppers vote, then let the code learn</h2><p>Simulate 1,000 shoppers, or click results yourself. Then watch the four weights in the code above move while the list re-sorts. The rules never move.</p></section>
+  <section class="uc-step" aria-labelledby="rk-s4"><h2 id="rk-s4" class="uc-h"><span class="uc-n">4</span> The foil: a generic model on the same clicks</h2><p>The usual move is to train a small neural net on the click log. Same clicks, same optimizer, same loss.</p>
+    <p class="buttons"><button id="rk-mlp" type="button" class="button" disabled>Train the generic model</button> <output id="rk-mlp-msg" class="hint" aria-live="polite"></output></p>
+    <div class="rk-foil" role="group" aria-label="Generic model results"><ol id="rk-mlp-list" class="rk-list small"></ol><ul class="rk-rules"><li><span class="r-label">test lists where the pinned result is not on top</span> <output id="rk-mlp-pin">–</output></li><li><span class="r-label">test lists with out-of-stock in the top 10</span> <output id="rk-mlp-oos">–</output></li><li><span class="r-label">favourite in top 3</span> <output id="rk-mlp-top3">–</output></li><li><span class="r-label">what you can read in it</span> <output id="rk-mlp-w">–</output></li></ul></div></section>
+  <section class="uc-step" aria-labelledby="rk-s5"><h2 id="rk-s5" class="uc-h"><span class="uc-n">5</span> The diff you’d actually review</h2><pre class="big-code rk-diff" tabindex="0"><code id="rk-diff">Learn first (step 3) to see the diff.</code></pre>
+    <p class="takeaway"><strong>Reach for Handwired when</strong> you already have a formula people understand, rules that must hold exactly, and data that should tune the numbers, not replace the code.</p>
+    <p class="hint uc-fine">Shoppers are simulated with a hidden taste (<code>2·match + 1·pop + 4·fresh + 3·rating</code>, hidden from both models), attention that fades with position (1 / (1 + 0.35 × position)), and less interest in out-of-stock items. Rates are measured live on seeded test lists of 20 results each. The generic model is a 6→8→1 ReLU net, also trained with Adam, in a Web Worker so the page stays responsive. Both train on the clicks of non-pinned, in-stock results, since the rules decide the others.</p></section>
+</div>
+
+    </article>
+    <p id="demo-status" class="status" role="status">Loading Handwired…</p>
+    <aside class="related" aria-label="More demos"><h2>More demos</h2><ul><li><a href="/pages/js-vs-nn.html">The cat is a neural net</a></li><li><a href="/pages/soft-switch.html">Soft switch: an if/else made of ReLUs</a></li><li><a href="/pages/compare-explorer.html">Exact comparison explorer</a></li><li><a href="/pages/circuit-graph.html">Code → network</a></li><li><a href="/pages/train.html">Unfreeze &amp; train</a></li><li><a href="/pages/toggle.html">Toggle switch template</a></li></ul></aside>
+  </main>
+  <footer class="site-footer">
+    <p><strong>handwired.wiki</strong> is an independent community resource by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Cheng Lou.</p>
+    <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="https://github.com/chenglou/handwired">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
+    <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/handwired-dot-wiki">site source</a></p>
+  </footer>
+  <script type="module" src="/src/demos/ranking.ts"></script>
+</body>
+</html>

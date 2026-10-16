@@ -1,0 +1,52 @@
+/* Use-case demos */
+.uc { display: grid; gap: var(--space-4); }
+.uc-step { border-top: 1px solid var(--rule); padding-top: var(--space-4); }
+.uc-h { display: flex; align-items: center; gap: .6rem; font-size: 1.35rem; margin: 0 0 var(--space-3); }
+.uc-n { display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--copper-soft); color: var(--copper-hi); font-size: 1rem; flex: none; }
+.rk-board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+@media (max-width: 860px) { .rk-board { grid-template-columns: minmax(0, 1fr); } }
+.rk-col { min-width: 0; }
+.rk-code { font-size: .82rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.rk-code .tok-a { color: var(--copper-hi); font-weight: 600; }
+.rk-code .tick { animation: rk-tick .5s var(--ease); }
+@keyframes rk-tick { from { background: var(--copper-soft); } to { background: transparent; } }
+.rk-code .rule, .rk-diff .rule { color: var(--led); }
+.rk-rules { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; gap: .35rem; }
+.rk-rules li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--rule); padding-bottom: .3rem; }
+.rk-rules output { font-family: var(--font-mono); font-weight: 600; }
+.ok { color: var(--led); } .bad { color: var(--warn); }
+.rk-list { list-style: none; counter-reset: rk; padding: 0; margin: 0; display: grid; gap: 4px; }
+.rk-list li { counter-increment: rk; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: center; }
+.rk-list li::before { content: counter(rk); font-family: var(--font-mono); color: var(--muted); font-size: .85rem; text-align: right; padding-right: .5rem; }
+.rk-list li.cut { border-top: 2px dashed var(--copper); padding-top: 4px; margin-top: 4px; }
+.rk-item { display: flex; justify-content: space-between; align-items: center; gap: .5rem; width: 100%; min-height: 36px; padding: .3rem .6rem; border-radius: 8px; border: 1px solid var(--rule); background: var(--board-2); color: var(--fg); font: inherit; font-size: .9rem; text-align: left; cursor: pointer; }
+.rk-item.static { cursor: default; }
+button.rk-item:hover { border-color: var(--copper); }
+.rk-item:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.rk-item.pinned { border-color: var(--led); }
+.rk-item.oos { opacity: .85; } .rk-item.oos em { color: var(--warn); font-style: normal; font-size: .78rem; }
+.rk-name { min-width: 0; overflow-wrap: anywhere; }
+.rk-f { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); white-space: nowrap; }
+.clicked .rk-item { background: var(--copper-soft); }
+.rk-list.small .rk-item { min-height: 28px; font-size: .82rem; }
+.rk-foil { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-4); }
+@media (max-width: 760px) { .rk-foil { grid-template-columns: minmax(0, 1fr); } .rk-f { display: none; } }
+.rk-diff .del { color: #ff9a8a; } .rk-diff .add { color: var(--led); }
+.reveal { background: var(--board-2); border-left: 3px solid var(--copper); padding: var(--space-3); border-radius: 8px; }
+.takeaway { font-size: 1.15rem; border: 1px solid var(--copper-lo); background: var(--copper-soft); padding: var(--space-3); border-radius: var(--radius); }
+.uc-fine { font-size: .82rem; }
+.uc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-3); }
+.uc-cards .card h3 { font-size: 1.15rem; }
+.page article > .uc, .page article > .uc-home-wrap { max-width: var(--wide) !important; }
+@media (prefers-reduced-motion: reduce) { .rk-code .tick { animation: none; } }
+@media (max-width: 860px) { .rk-board > .rk-col:last-child { order: -1; } }
+@media (max-width: 600px) {
+  .hero-uc .sub { font-size: .95rem !important; }
+  .uc-home .rk-list li:nth-child(n+11) { display: none; }
+  .uc-home.show-all .rk-list li { display: grid; }
+}
+.rk-train { margin: 0 0 .3rem; } .rk-status { margin: 0 0 var(--space-3); min-height: 1.4em; }
+.hero.hero-uc h1 { font-size: clamp(2rem, 4.6vw, 3.4rem) !important; max-width: 22ch; }
+.hero.hero-uc .sub { max-width: 60ch; }
+.rk-wline { display: none; margin: 0 0 .5rem; font-size: .78rem; color: var(--copper-hi); }
+@media (max-width: 860px) { .rk-wline { display: block; } }

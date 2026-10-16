@@ -7,13 +7,14 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { heroSvg } from './hero.mjs'
-import { LESSON, STEP1 } from './lesson-ui.mjs'
+import { LESSON } from './lesson-ui.mjs'
+import { RANKING } from './uc-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
 const UPSTREAM = 'https://github.com/chenglou/handwired'
 const NAV = ['gallery', 'why-handwired', 'concepts', 'getting-started', 'faq', 'about']
-const ORDER = ['index', ...NAV, 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
+const ORDER = ['index', ...NAV, 'ranking', 'layout', 'physics', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const strip = s => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
@@ -45,6 +46,7 @@ const navLabel = slug => bySlug[slug].nav
 const verdict = `<div id="verdict" class="verdict exact" role="status" aria-live="polite"><p id="verdict-title" class="verdict-title">Exact match</p><p id="verdict-body" class="verdict-body"></p></div>`
 const DEMOS = {
   lesson: LESSON(),
+  ranking: RANKING(),
   'soft-switch': `
 <section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>
@@ -195,12 +197,12 @@ const footer = `<footer class="site-footer">
   </footer>`
 
 function hero(p) {
-  return `<section class="hero hero-lesson" aria-labelledby="hero-title">
+  return `<section class="hero hero-lesson hero-uc" aria-labelledby="hero-title">
         <p class="kicker">a project by Cheng Lou · explained</p>
         <h1 id="hero-title">${p.h1}</h1>
         <p class="sub">${p.sub}</p>
       </section>
-      <div class="lesson home-lesson" data-home-lesson>${STEP1(true)}</div>`
+      ${RANKING(true)}`
 }
 
 function render(p) {

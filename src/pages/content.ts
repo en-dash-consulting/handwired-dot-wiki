@@ -1,3 +1,3 @@
 import '../lib/site'
-const root = document.querySelector<HTMLElement>('[data-home-lesson]')
-if (root) void import('../cat/lesson').then(({ mountLesson }) => { (window as unknown as { lesson: unknown }).lesson = mountLesson(root, { home: true }) })
+const rk = document.querySelector<HTMLElement>('[data-uc-ranking]')
+if (rk) void import('../uc/ranking-ui').then(({ mountRanking }) => { (window as unknown as { uc: unknown }).uc = mountRanking(rk) })

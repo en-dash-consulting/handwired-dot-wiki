@@ -10,7 +10,7 @@ Key facts:
 - handwired.wiki is not affiliated with Cheng Lou; it is run by En Dash Consulting (https://endash.us).
 
 ## Guides
-- [What if your JavaScript was a neural net?](https://handwired.wiki/): Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ. (markdown: https://handwired.wiki/md/index.md)
+- [When would you want your JavaScript to learn?](https://handwired.wiki/): Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ. (markdown: https://handwired.wiki/md/index.md)
 - [Demo gallery](https://handwired.wiki/pages/gallery.html): Every Handwired demo in one place: live in-browser demos on handwired.wiki plus Cheng Lou's upstream Mini OS, Learned gallery and 100,000-document JSON search. (markdown: https://handwired.wiki/md/gallery.md)
 - [Why Handwired?](https://handwired.wiki/pages/why-handwired.html): Why write JavaScript as a neural net? Handwired programs are exact like code, differentiable like models, and parallel like GPU kernels. The idea behind Cheng Lou's project. (markdown: https://handwired.wiki/md/why-handwired.md)
 - [Handwired concepts](https://handwired.wiki/pages/concepts.html): How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients. (markdown: https://handwired.wiki/md/concepts.md)
@@ -18,6 +18,7 @@ Key facts:
 - [About handwired.wiki](https://handwired.wiki/pages/about.html): handwired.wiki is an independent learning resource and demo gallery for Cheng Lou's Handwired, built by En Dash Consulting. Attribution, licensing and sources. (markdown: https://handwired.wiki/md/about.md)
 
 ## Interactive demos
+- [Ranking that learns from clicks, and keeps its rules](https://handwired.wiki/pages/ranking.html): A hand-written search ranking formula runs as an exact Handwired neural net, learns its four weights from 1,000 simulated shoppers, and keeps 'pinned first' and 'out-of-stock never in the top 10' exact. A generic neural net trained on the same clicks breaks both rules. (markdown: https://handwired.wiki/md/ranking.md)
 - [The cat is a neural net](https://handwired.wiki/pages/js-vs-nn.html): A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net. (markdown: https://handwired.wiki/md/js-vs-nn.md)
 - [Soft switch: an if/else made of ReLUs](https://handwired.wiki/pages/soft-switch.html): Interactive demo: the Handwired README's a > 4 ? 10 : 12 built as relu(a - 4) - relu(a - 5) and a select, evaluated by the real Handwired runtime as you drag a. (markdown: https://handwired.wiki/md/soft-switch.md)
 - [Exact comparison explorer](https://handwired.wiki/pages/compare-explorer.html): Interactive Handwired demo: compare two numbers with emitCompare, pick with emitSelect, take emitMinimumExact, see operation counts with and without a grid, and fuzz against JavaScript. (markdown: https://handwired.wiki/md/compare-explorer.md)

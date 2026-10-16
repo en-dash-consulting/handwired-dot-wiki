@@ -82,7 +82,7 @@
    "@id": "https://handwired.wiki/#page",
    "url": "https://handwired.wiki/",
    "name": "Handwired — Learn Cheng Lou's JavaScript-to-Neural-Net Library | handwired.wiki",
-   "headline": "What if your JavaScript was a neural net?",
+   "headline": "When would you want your JavaScript to learn?",
    "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ.",
    "inLanguage": "en",
    "isPartOf": {
@@ -111,22 +111,27 @@
   <main id="main" class="page home" tabindex="-1">
     
     <article>
-      <section class="hero hero-lesson" aria-labelledby="hero-title">
+      <section class="hero hero-lesson hero-uc" aria-labelledby="hero-title">
         <p class="kicker">a project by Cheng Lou · explained</p>
-        <h1 id="hero-title">What if your JavaScript <span class="copper">was</span> a neural net?</h1>
-        <p class="sub">Not a copy that approximates it. The same function, exactly, and it can still learn. Here is a 3-minute way to see it.</p>
+        <h1 id="hero-title">When would you want your JavaScript to <span class="copper">learn</span>?</h1>
+        <p class="sub">When you have code people trust, rules that must stay exact, and data that should tune the numbers. Handwired runs that code as a neural net, exactly, so it can learn. Try the most common case right here.</p>
       </section>
-      <div class="lesson home-lesson" data-home-lesson><section class="step" id="step-1" data-step="1" aria-labelledby="s1">
-  <p class="step-n">Step 1 of 7</p>
-  <h2 id="s1">Here's a tiny JavaScript function.</h2>
-  <p class="say">It decides how hard a cat should jump to land on a shelf. Drag the shelf and watch.</p>
-  <div class="duo">
-    <div><pre class="code" tabindex="0" aria-label="The jumpPower function" data-code="1"></pre><p class="trace" data-trace="1" aria-live="polite"></p></div>
-    <div class="vis"><div class="scene-wrap" data-wrap="1"><svg class="scene" data-scene="1" viewBox="0 0 420 300" role="img" aria-label="A cat jumping toward a shelf"></svg></div><label class="shelf-ctl"><span>Shelf height</span><input type="range" min="0" max="100" step="1" value="62" data-shelf="1" /><output data-shelf-out="1">62 cm</output></label></div>
-  </div>
-  <p class="continue"><a class="button" href="/pages/js-vs-nn.html#step-2">Next: the same function, as a neural net →</a></p>
-</section></div>
-      <p class="lede"><strong>Handwired</strong> is an open-source project by <a href="https://chenglou.me" rel="noopener">Cheng Lou</a> that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.</p>
+      <div class="uc uc-home" data-uc-ranking data-home><div class="rk-board">
+    <div class="rk-col" role="group" aria-labelledby="rk-code-h"><p id="rk-code-h" class="card-kicker">your ranking code <span class="hand">runs as a Handwired net</span></p><pre class="big-code rk-code" tabindex="0"><code id="rk-code"></code></pre>
+      <ul class="rk-rules" aria-live="polite"><li><span class="r-label">pinned result on top</span> <output id="rk-pin" class="ok">✓</output></li><li><span class="r-label">out-of-stock in top 10</span> <output id="rk-oos" class="ok">0</output></li><li><span class="r-label">shoppers' favourite in top 3</span> <output id="rk-top3">–</output></li></ul></div>
+    <div class="rk-col" role="group" aria-labelledby="rk-list-h"><p class="buttons rk-train"><button id="rk-sim" type="button" class="button">Simulate 1,000 shoppers</button> <button id="rk-learn" type="button" class="button secondary" disabled>Learn from the clicks</button> <button id="rk-reset" type="button" class="button secondary">Reset</button></p>
+    <p class="hint rk-status" aria-live="polite"><output id="rk-clicks">0 clicks logged</output> <output id="rk-learn-msg"></output></p><p class="rk-wline" aria-hidden="true"><code id="rk-wline"></code></p><p id="rk-list-h" class="card-kicker">results for “wireless headphones” <span class="hint">· or click one yourself</span></p><ol id="rk-list" class="rk-list"></ol></div>
+  </div><p class="hint uc-fine">Shoppers are simulated with a hidden taste (<code>2·match + 1·pop + 4·fresh + 3·rating</code>, hidden from both models), attention that fades with position (1 / (1 + 0.35 × position)), and less interest in out-of-stock items. Rates are measured live on seeded test lists of 20 results each. <a href="/pages/ranking.html">Full walkthrough, including the generic model that breaks the rules →</a></p></div>
+      <h2>When would you use this?</h2>
+<div class="uc-cards">
+<a class="card feature" href="/pages/ranking.html"><h3>Ranking from clicks</h3><p>Your hand-tuned search formula learns its weights from shoppers. "Pinned first" and "never show out-of-stock" stay exact. A generic model breaks both.</p></a>
+<a class="card" href="/pages/layout.html"><h3>Layout from a designer's drags</h3><p>Drag a few cards to the sizes you want; the layout function's constants update and every card follows, with zero overflows.</p></a>
+<a class="card" href="/pages/physics.html"><h3>Physics from a recording</h3><p>Fit gravity, drag and bounce so a simulated ball matches a recorded path, then replay it as code.</p></a>
+<a class="card" href="/pages/gpu-search.html"><h3>Search 100,000 JSON docs on the GPU</h3><p>Cheng Lou's demo: plain-looking matching code run as GPU programs, with the same answers as JavaScript.</p></a>
+</div>
+
+<p>New to the idea? The <a href="/pages/js-vs-nn.html">beginner lesson</a> (a cat deciding how hard to jump) explains it from scratch in three minutes.</p>
+<p class="lede"><strong>Handwired</strong> is an open-source project by <a href="https://chenglou.me" rel="noopener">Cheng Lou</a> that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.</p>
 
 <h2>What is Handwired?</h2>
 <p>Handwired is a way to write a program as <strong>a fixed list of 32-bit float operations</strong> — weighted sums, products with a ReLU, and a few exact helpers — so the program <em>is</em> a neural network. Its weights are written by hand (hence the name) instead of learned, which is why it is exact. Because it only uses differentiable primitives, you can still compute gradients through it and train its numbers later.</p>

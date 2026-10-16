@@ -9,7 +9,11 @@ Source: https://handwired.wiki/pages/gallery.html
 ## Which demos run on this site?
 
 <div class="card-grid">
-<a class="card feature" href="/pages/js-vs-nn.html"><h3>★ Start here: the cat is a neural net</h3><p>A 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.</p></a>
+<a class="card feature" href="/pages/ranking.html"><h3>★ Ranking from clicks</h3><p>A search formula learns its weights from 1,000 shoppers while its business rules stay exact; a generic net on the same clicks breaks them.</p></a>
+<a class="card" href="/pages/layout.html"><h3>Layout from a designer's drags</h3><p>Drag cards to the sizes you want; the sizing function learns its constants and nothing overflows.</p></a>
+<a class="card" href="/pages/physics.html"><h3>Physics from a recording</h3><p>Fit gravity, drag and bounce to a recorded path, then replay it as code.</p></a>
+<a class="card" href="/pages/gpu-search.html"><h3>GPU JSON search (by Cheng Lou)</h3><p>Upstream's 100,000-document search, embedded with credit: GPU timings next to plain JavaScript.</p></a>
+<a class="card" href="/pages/js-vs-nn.html"><h3>Beginner lesson: the cat is a neural net</h3><p>A 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.</p></a>
 <a class="card" href="/pages/soft-switch.html"><h3>Soft switch</h3><p>The README's <code>a &gt; 4 ? 10 : 12</code> as two ReLUs and a select. Editable <code>a</code>, branches and live plot.</p></a>
 <a class="card" href="/pages/compare-explorer.html"><h3>Exact comparison explorer</h3><p>Pick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.</p></a>
 <a class="card" href="/pages/circuit-graph.html"><h3>Code → network graph</h3><p>Visualize the operations and layers behind a select, a comparison and an exact clamp.</p></a>

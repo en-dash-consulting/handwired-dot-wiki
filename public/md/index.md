@@ -1,8 +1,19 @@
-# What if your JavaScript was a neural net?
+# When would you want your JavaScript to learn?
 
 > Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ.
 
 Source: https://handwired.wiki/
+
+## When would you use this?
+
+<div class="uc-cards">
+<a class="card feature" href="/pages/ranking.html"><h3>Ranking from clicks</h3><p>Your hand-tuned search formula learns its weights from shoppers. "Pinned first" and "never show out-of-stock" stay exact. A generic model breaks both.</p></a>
+<a class="card" href="/pages/layout.html"><h3>Layout from a designer's drags</h3><p>Drag a few cards to the sizes you want; the layout function's constants update and every card follows, with zero overflows.</p></a>
+<a class="card" href="/pages/physics.html"><h3>Physics from a recording</h3><p>Fit gravity, drag and bounce so a simulated ball matches a recorded path, then replay it as code.</p></a>
+<a class="card" href="/pages/gpu-search.html"><h3>Search 100,000 JSON docs on the GPU</h3><p>Cheng Lou's demo: plain-looking matching code run as GPU programs, with the same answers as JavaScript.</p></a>
+</div>
+
+New to the idea? The <a href="/pages/js-vs-nn.html">beginner lesson</a> (a cat deciding how hard to jump) explains it from scratch in three minutes.
 
 <p class="lede"><strong>Handwired</strong> is an open-source project by <a href="https://chenglou.me">Cheng Lou</a> that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. This site is an independent, hands-on guide with live demos that run the real Handwired runtime.</p>
 
