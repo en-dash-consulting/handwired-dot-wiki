@@ -1,6 +1,6 @@
 # Search 100,000 JSON documents on the GPU
 
-> Cheng Lou's Handwired JSON search, embedded with credit: regex matching and JSON parsing written as plain-looking JavaScript, compiled to WebGPU, timed against native RegExp, with a CPU fallback when WebGPU is missing.
+> Cheng Lou's Handwired JSON search, embedded with credit: regex and JSON parsing written in JavaScript, run as WebGPU shaders, timed against RegExp.
 
 Source: https://handwired.wiki/pages/gpu-search.html
 

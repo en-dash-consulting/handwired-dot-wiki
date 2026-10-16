@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -141,9 +141,9 @@
 <h2>What problem does Handwired solve?</h2>
 <p>Normal programs and neural nets live in different worlds. Code is exact but you can&#39;t take its gradient; a neural net is differentiable but has to be trained and is only approximately right. Handwired writes programs <em>in the language of neural nets</em> — matrix multiplication plus ReGLU (a weighted sum times the ReLU of another weighted sum) over 32-bit floats — with weights chosen by hand so the network computes exactly what the code would.</p>
 <h2>How is the program exact without training?</h2>
-<p>The weights are not learned; they are written by builder code. A comparison like <code>a &gt; 4</code> becomes <code>relu(a - 4) - relu(a - 5)</code>, which is exactly 1 or 0 for integer <code>a</code>. Upstream&#39;s <code>emitCompare</code> goes further: given declared value ranges (and optionally a grid such as whole pixels), it builds bits that equal JavaScript&#39;s comparison for <strong>every</strong> FP32 value in range. Tests in the upstream repo compare programs against plain-JavaScript references, e.g. the template&#39;s toggle switch is checked frame by frame against the same switch written in JavaScript.</p>
+<p>The weights are not learned; they are written by builder code. A comparison like <code>a &gt; 4</code> becomes <code>relu(a - 4) - relu(a - 5)</code>, which is exactly 1 or 0 for integer <code>a</code>. Handwired&#39;s own <code>emitCompare</code> goes further: given declared value ranges (and optionally a grid such as whole pixels), it builds bits that equal JavaScript&#39;s comparison for <strong>every</strong> FP32 value in range. Tests in <a href="https://github.com/chenglou/handwired" rel="noopener">Cheng Lou&#39;s handwired repo</a> compare programs against plain-JavaScript references, e.g. the template&#39;s toggle switch is checked frame by frame against the same switch written in JavaScript.</p>
 <h2>Why does differentiability matter?</h2>
-<p>Because the program only uses sums, products and ReLUs, gradients flow through it. Upstream lists use-cases this unlocks:</p>
+<p>Because the program only uses sums, products and ReLUs, gradients flow through it. The official handwired README lists use-cases this unlocks:</p>
 <ul>
 <li>unfreezing the weights and training them — &quot;what does that even do? Let&#39;s find out!&quot;</li>
 <li>attaching a frozen program to a generic neural net and training end to end</li>
@@ -153,7 +153,7 @@
 <h2>Why only two primitives?</h2>
 <p>According to the README, keeping to <code>+</code>/<code>*</code> (matmul) and ReLU means &quot;the full program stays differentiable&quot;, &quot;the weights don&#39;t need training since they&#39;re written manually&quot;, and &quot;existing GPU techniques, such as fusion, sparsity, reordering, have a great time optimizing such minimal primitives.&quot;</p>
 <h2>Is it a compiler from JavaScript source?</h2>
-<p>No. Upstream&#39;s docs are explicit: &quot;No tool converts existing JavaScript source into a program.&quot; You write <em>builder code</em> — ordinary JavaScript that runs once and appends operations to a <code>Circuit</code>. Comments in upstream code show the plain JS each line replaces. See <a href="/pages/concepts.html">Concepts</a>.</p>
+<p>No. Handwired&#39;s own docs are explicit: &quot;No tool converts existing JavaScript source into a program.&quot; You write <em>builder code</em> — ordinary JavaScript that runs once and appends operations to a <code>Circuit</code>. Comments in handwired&#39;s own source show the plain JS each line replaces. See <a href="/pages/concepts.html">Concepts</a>.</p>
 
     </article>
     

@@ -30,7 +30,7 @@ test('color themes: reduced motion learns instantly', async ({ page }) => {
   await expect(page.locator('#co-msg')).toContainText('learned', { timeout: 20_000 })
   if (process.env.SHOTS) { await page.setViewportSize({ width: 1280, height: 900 }); await page.screenshot({ path: 'screenshots-review/color-learned-1280.png' }) }
 })
-for (const [path, btns] of [['color-themes', ['#co-learn', '#co-mlp']], ['ranking', ['#rk-sim', '#rk-learn', '#rk-mlp']], ['layout', ['#ly-sim', '#ly-learn', '#ly-mlp']], ['physics', ['#ph-learn', '#ph-mlp']]] as const) {
+for (const [path, btns] of [['color-themes', ['#co-learn', '#co-mlp']], ['ranking', ['#rk-play', '#rk-reset', '#rk-play']], ['layout', ['#ly-sim', '#ly-learn', '#ly-mlp']], ['physics', ['#ph-learn', '#ph-mlp']]] as const) {
   test(`no horizontal scroll @375 after learning + foil: ${path}`, async ({ page }) => {
     test.setTimeout(60_000); await page.setViewportSize({ width: 375, height: 800 }); await page.goto(`/pages/${path}.html`)
     for (const b of btns) { await page.click(b); await page.waitForTimeout(3000) }

@@ -14,7 +14,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
 export const GA = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-DPVSE41LFK"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-DPVSE41LFK');</script>`
-const UPSTREAM = 'https://github.com/chenglou/handwired'
+const HANDWIRED_REPO = 'https://github.com/chenglou/handwired'
 const NAV = ['gallery', 'why-handwired', 'concepts', 'getting-started', 'faq', 'about']
 const ORDER = ['index', ...NAV, 'ranking', 'layout', 'physics', 'color-themes', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -167,7 +167,7 @@ function jsonLd(p) {
   const cheng = { '@type': 'Person', '@id': `${SITE}/#chenglou`, name: 'Cheng Lou', url: 'https://chenglou.me' }
   const software = { '@type': 'SoftwareSourceCode', '@id': `${SITE}/#handwired`, name: 'Handwired', alternateName: ['handwired js', 'chenglou/handwired'],
     description: 'Turn your regular JavaScript code into a neural net; no training, exact, yet also fully differentiable.',
-    codeRepository: UPSTREAM, url: 'https://chenglou.me/handwired/', author: { '@id': `${SITE}/#chenglou` }, license: 'https://opensource.org/licenses/MIT',
+    codeRepository: HANDWIRED_REPO, url: 'https://chenglou.me/handwired/', author: { '@id': `${SITE}/#chenglou` }, license: 'https://opensource.org/licenses/MIT',
     programmingLanguage: ['TypeScript', 'JavaScript'], runtimePlatform: 'Bun, web browsers' }
   const crumbs = [{ name: 'Home', item: SITE + '/' }]
   if (p.type === 'demo') crumbs.push({ name: 'Gallery', item: url('gallery') })
@@ -199,7 +199,7 @@ function header(active) {
 }
 const footer = `<footer class="site-footer">
     <p><strong>handwired.wiki</strong> is an independent community resource by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Cheng Lou.</p>
-    <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="${UPSTREAM}">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
+    <p>Handwired © 2026 <a href="https://chenglou.me">Cheng Lou</a>, MIT license — <a href="${HANDWIRED_REPO}">github.com/chenglou/handwired</a> · <a href="https://chenglou.me/handwired/">official demos</a>.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/handwired-dot-wiki">site source</a></p>
   </footer>`
 
@@ -295,7 +295,7 @@ ${pages.map(p => `  <url><loc>${url(p.slug)}</loc><lastmod>${p.lastmod}</lastmod
 const line = p => `- [${strip(p.h1)}](${url(p.slug)}): ${p.description} (markdown: ${SITE}/md/${p.slug}.md)`
 writeFileSync(join(ROOT, 'public/llms.txt'), `# handwired.wiki
 
-> Independent learning resource and live demo gallery for Handwired, Cheng Lou's open-source project that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, runnable in a browser without a GPU. Upstream: ${UPSTREAM} (MIT) and https://chenglou.me/handwired/.
+> Independent learning resource and live demo gallery for Handwired, Cheng Lou's open-source project that turns regular JavaScript code into a neural net: no training, exact, yet fully differentiable, runnable in a browser without a GPU. Cheng Lou's handwired repo: ${HANDWIRED_REPO} (MIT) and https://chenglou.me/handwired/.
 
 Key facts:
 - Handwired programs are fixed lists of FP32 operations: weighted sums (circuit.affine), products with a ReLU (circuit.reglu), boolean rounding (circuit.boolean) and table reads (circuit.indexRead).
@@ -315,8 +315,8 @@ ${line(bySlug.faq)}
 
 ## Optional
 - [llms-full.txt](${SITE}/llms-full.txt): every page's full text in one file
-- [Upstream docs](${UPSTREAM}/tree/main/docs)
+- [Official handwired docs](${HANDWIRED_REPO}/tree/main/docs)
 `)
-writeFileSync(join(ROOT, 'public/llms-full.txt'), `# handwired.wiki — full text\n\n> All pages of handwired.wiki as markdown, for one-shot ingestion. Independent resource about Handwired by Cheng Lou (${UPSTREAM}).\n\n` +
+writeFileSync(join(ROOT, 'public/llms-full.txt'), `# handwired.wiki — full text\n\n> All pages of handwired.wiki as markdown, for one-shot ingestion. Independent resource about Handwired by Cheng Lou (${HANDWIRED_REPO}).\n\n` +
   pages.map(p => `---\n\n# ${strip(p.h1)}\n\nURL: ${url(p.slug)}\n\n${p.body.replace('<!-- demo -->', '*(Interactive demo on the page.)*').replace(/<[^>]+>/g, '')}`).join('\n\n'))
 console.log(`built ${pages.length} pages`)

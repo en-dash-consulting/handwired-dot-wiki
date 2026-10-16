@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -102,7 +102,7 @@
     {
      "@type": "HowToStep",
      "position": 1,
-     "text": "Install Bun (upstream is tested with Bun 1.4.3)."
+     "text": "Install Bun (handwired is tested with Bun 1.4.3)."
     },
     {
      "@type": "HowToStep",
@@ -161,8 +161,8 @@
       <h1>Getting started with Handwired</h1>
       <p class="lede"><strong>Short answer:</strong> Handwired isn't published to npm. Clone the GitHub repo and run it with <a href="https://bun.sh" rel="noopener">Bun</a>, or add it to a bundler project as a pinned git dependency — that's how this site uses it.</p>
 
-<h2>How do I run the upstream demos?</h2>
-<p>The repo needs Bun (upstream tests with Bun 1.4.3).</p>
+<h2>How do I run handwired&#39;s own demos?</h2>
+<p>The repo needs Bun (handwired&#39;s own tests with Bun 1.4.3).</p>
 <pre tabindex="0"><code class="language-sh">git clone https://github.com/chenglou/handwired
 cd handwired
 bun install
@@ -171,7 +171,7 @@ bun run start:template    # the toggle switch template at http://localhost:3000/
 bun run test              # every test, about 3 minutes
 </code></pre>
 <h2>Where should I start reading code?</h2>
-<p>Upstream recommends <code>template/</code> — a toggle switch written as one numeric program, <code>toggle-reference.ts</code> (the same switch in plain JS) and <code>toggle.test.ts</code> comparing the two — and <code>docs/tutorial.md</code>, which walks through it. Then <code>docs/expressions.md</code> for single expressions, <code>docs/patterns.md</code> for loops, and <code>docs/execution-model.md</code> as the reference.</p>
+<p>The official handwired README recommends <code>template/</code> — a toggle switch written as one numeric program, <code>toggle-reference.ts</code> (the same switch in plain JS) and <code>toggle.test.ts</code> comparing the two — and <code>docs/tutorial.md</code>, which walks through it. Then <code>docs/expressions.md</code> for single expressions, <code>docs/patterns.md</code> for loops, and <code>docs/execution-model.md</code> as the reference.</p>
 <h2>How do I use Handwired in a Vite or TypeScript project?</h2>
 <p>Add it as a git dependency pinned to a commit:</p>
 <pre tabindex="0"><code class="language-json">{
@@ -193,9 +193,9 @@ const max = emitSelect(circuit, bit, b, a)    // bit ? a : b
 const values = circuit.evaluateReference(new Float32Array([7, 3]))
 console.log(values[bit], values[max])         // 1 7
 </code></pre>
-<p>In <code>tsconfig.json</code>, set <code>&quot;allowImportingTsExtensions&quot;: true</code> with <code>&quot;noEmit&quot;: true</code> (or let your bundler handle types). The package is marked <code>private</code> upstream and has no stable API promise, so pin a commit and upgrade deliberately.</p>
+<p>In <code>tsconfig.json</code>, set <code>&quot;allowImportingTsExtensions&quot;: true</code> with <code>&quot;noEmit&quot;: true</code> (or let your bundler handle types). The package is marked <code>private</code> in Cheng Lou&#39;s handwired repo and has no stable API promise, so pin a commit and upgrade deliberately.</p>
 <h2>What does a real app look like?</h2>
-<p>A full app adds a source table (<code>createSourceTable</code> from <code>src/runtime/cells.ts</code>) to declare inputs, events and state, <code>table.next</code> for each state cell, <code>createEvaluator</code> to compile it, and <code>advanceFrame</code> from <code>host-timing.ts</code> for springs. The <a href="/pages/toggle.html">toggle demo</a> on this site runs the upstream template unmodified.</p>
+<p>A full app adds a source table (<code>createSourceTable</code> from <code>src/runtime/cells.ts</code>) to declare inputs, events and state, <code>table.next</code> for each state cell, <code>createEvaluator</code> to compile it, and <code>advanceFrame</code> from <code>host-timing.ts</code> for springs. The <a href="/pages/toggle.html">toggle demo</a> on this site runs handwired&#39;s own template unmodified.</p>
 
     </article>
     

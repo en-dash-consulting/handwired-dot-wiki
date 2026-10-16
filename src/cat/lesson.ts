@@ -133,14 +133,14 @@ export function mountLesson(root: HTMLElement, opts: { home?: boolean } = {}) {
     q('[data-reveal="3"]').hidden = false
     const colsN = 100, size = 8, raceEl = q('[data-race]')
     tiles.width = colsN * size; tiles.height = Math.ceil(N / colsN) * size
-    tctx.fillStyle = '#16291f'; tctx.fillRect(0, 0, tiles.width, tiles.height)
+    tctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--board-3').trim() || '#ebe5db'; tctx.fillRect(0, 0, tiles.width, tiles.height)
     const per = reduced ? N : 48; state.race = { same: 0, checked: 0, worst: 0 }
     for (let i = 0; i < N;) {
       const end = Math.min(N, i + per)
       for (; i < end; i++) {
         const x = M.ALL[i]!, a = js(x), b = M.outOf(hw, x), ok = a === b
         if (ok) state.race.same++; state.race.worst = Math.max(state.race.worst, Math.abs(a - b)); state.race.checked++
-        tctx.fillStyle = ok ? '#6ff2a8' : '#ff7b7b'; tctx.fillRect((i % colsN) * size + 1, Math.floor(i / colsN) * size + 1, size - 2, size - 2)
+        tctx.fillStyle = ok ? '#2c6a43' : '#b42318'; tctx.fillRect((i % colsN) * size + 1, Math.floor(i / colsN) * size + 1, size - 2, size - 2)
       }
       raceEl.textContent = n0(state.race.same); if (i % 480 < per) blip('tick')
       if (i < N) await raf()

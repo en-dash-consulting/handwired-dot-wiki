@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -166,7 +166,7 @@
 <h2>What is being trained?</h2>
 <p>The circuit computes <code>s = clamp(k × (a − t), 0, 1)</code> with two ReLUs, then <code>y = s × hi + (1 − s) × lo</code> with <code>emitSelect</code>. Each step evaluates 21 sample points, backpropagates the squared error, and moves <code>t</code>, <code>k</code>, <code>hi</code> and <code>lo</code> by plain gradient descent.</p>
 <h2>Why does the threshold sometimes get stuck?</h2>
-<p>Gradients only reach <code>t</code> and <code>k</code> where the ramp is between 0 and 1; outside it the ReLUs are flat. That&#39;s the general rule from upstream&#39;s notes: exact decisions have zero slope, continuous quantities train well. Upstream&#39;s Learned gallery trains a much larger network (244 coefficients) with Adam.</p>
+<p>Gradients only reach <code>t</code> and <code>k</code> where the ramp is between 0 and 1; outside it the ReLUs are flat. That&#39;s the general rule from <a href="https://github.com/chenglou/handwired" rel="noopener">handwired&#39;s own notes</a>: exact decisions have zero slope, continuous quantities train well. Handwired&#39;s own Learned gallery trains a much larger network (244 coefficients) with Adam.</p>
 
     </article>
     <p id="demo-status" class="status" role="status">Loading Handwired…</p>

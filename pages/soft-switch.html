@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -206,7 +206,7 @@ const result = a &gt; 4
   </div>
 </section>
 <h2>Why does this work?</h2>
-<p>For an integer <code>a</code>, <code>relu(a − 4) − relu(a − 5)</code> is 0 when <code>a ≤ 4</code> and 1 when <code>a ≥ 5</code> — an exact bit. <code>emitSelect</code> then computes <code>bit × on + (1 − bit) × off</code>, so both branches run and the bit picks one. Set <code>a</code> to a fraction like 4.5 and the bit becomes 0.5, blending the branches: that&#39;s why upstream&#39;s <code>emitCompare</code> relies on declared ranges and grids to guarantee exact bits.</p>
+<p>For an integer <code>a</code>, <code>relu(a − 4) − relu(a − 5)</code> is 0 when <code>a ≤ 4</code> and 1 when <code>a ≥ 5</code> — an exact bit. <code>emitSelect</code> then computes <code>bit × on + (1 − bit) × off</code>, so both branches run and the bit picks one. Set <code>a</code> to a fraction like 4.5 and the bit becomes 0.5, blending the branches: that&#39;s why handwired&#39;s own <code>emitCompare</code> relies on declared ranges and grids to guarantee exact bits.</p>
 <h2>What does the circuit look like?</h2>
 <p>Two <code>reglu</code> operations, one <code>affine</code> difference, and the select macro. See it drawn on the <a href="/pages/circuit-graph.html">code → network</a> page.</p>
 

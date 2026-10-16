@@ -1,9 +1,9 @@
 ---
 slug: js-vs-nn
-title: "The Cat Is a Neural Net: JavaScript vs Neural Network, Explained Live | handwired.wiki"
+title: "JavaScript vs Neural Network: the Cat Lesson | handwired.wiki"
 nav: false
 h1: "The cat is a neural net"
-description: "A 7-step interactive lesson: a tiny JavaScript function that decides how hard a cat jumps becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn new constants in its own code, next to a regular neural net."
+description: "A beginner lesson: a tiny JavaScript function becomes an exact Handwired neural net. Poke it, try to break it, then watch it learn."
 type: demo
 demo: lesson
 ---

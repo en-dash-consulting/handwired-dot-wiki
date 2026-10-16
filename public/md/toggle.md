@@ -1,10 +1,10 @@
 # Toggle switch template
 
-> Upstream Handwired's template app running live: a toggle switch whose hit testing, arming and spring animation are one numeric program, checked against plain JavaScript.
+> Handwired's own template app running live: a toggle switch whose hit testing, arming and spring animation are one numeric program, checked against plain JavaScript.
 
 Source: https://handwired.wiki/pages/toggle.html
 
-<p class="lede">This is Handwired's <code>template/</code> app, imported unmodified from the pinned upstream commit. Press and release on the switch: hit testing, arming and the thumb's spring all run as one program.</p>
+<p class="lede">This is Handwired's <code>template/</code> app, imported unmodified from the pinned commit of <a href="https://github.com/chenglou/handwired">Cheng Lou's handwired repo</a>. Press and release on the switch: hit testing, arming and the thumb's spring all run as one program.</p>
 
 *(Interactive demo: open https://handwired.wiki/pages/toggle.html)*
 
@@ -14,4 +14,4 @@ Event handlers queue pointer events with timestamps. Each frame `advanceFrame` p
 
 ## Is it keyboard accessible?
 
-Not yet: upstream's template is pointer-driven (it acts on press and release). Upstream notes a keyboard shortcut can queue an event through the same path; this embed shows the template as-is.
+Not yet: handwired's own template is pointer-driven (it acts on press and release). The official handwired README notes a keyboard shortcut can queue an event through the same path; this embed shows the template as-is.

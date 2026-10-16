@@ -58,7 +58,7 @@ the web package's internal layering are covered fully in
 
 ### Gateway modules
 
-Cross-package runtime imports concentrate into one gateway module per upstream
+Cross-package runtime imports concentrate into one gateway module per in Cheng Lou's handwired repo
 package, so the dependency surface stays explicit and auditable.
 
 | Package | Gateway file | Imports from |
@@ -76,7 +76,7 @@ holds them to are in
 adding to a gateway.
 
 Rules:
-- **One gateway per source package** — all runtime imports from a given upstream package pass through a single gateway. A consumer may have multiple gateways (e.g. web has separate gateways for rex and sourcevision).
+- **One gateway per source package** — all runtime imports from a given in Cheng Lou's handwired repo package pass through a single gateway. A consumer may have multiple gateways (e.g. web has separate gateways for rex and sourcevision).
 - **Re-export only** — gateways re-export; they contain no logic. Enforced by `domain-isolation.test.js`.
 - **Type imports through gateway** — `import type` flows through the gateway
   too, or a type import gets silently promoted to a runtime one in a later

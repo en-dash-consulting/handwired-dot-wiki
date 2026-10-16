@@ -34,3 +34,9 @@ Two hats: top UX designer + top teacher. Each pass: look at desktop (1280) and m
 - 375 px: overflow appeared only *after* interacting, on colour **and ranking** (an auto grid track sized to the min-content of the long diff `<pre>`, plus nowrap labels). Fixed with a `minmax(0, 1fr)` track and wrapping labels. Added post-interaction no-scroll tests for all four interactive use cases.
 - Teaching: the predict reveal first hard-coded a hex (#717271) from the prototype. Now it points to the live table instead.
 - Still weak: the long code panel wraps awkwardly on narrow screens. "Hue" is an angle in a luminance-neutral linear-RGB plane, not OKLCH hue (the fine print says so). Handwired's "furthest from the picks" is large (46–83 in 8-bit units) because the picks themselves fail AA. That's the point, but it can read as a worse fit.
+
+## Pass 4 (Oct 16): Nick's review
+- Layout: nobody could tell the sides were draggable. Now the screen has a dark "drag ⟷" edge bar (an ew-resize cursor, and a keyboard slider), and each card has a dotted grip with the same cursor. On first view the screen sweeps 1280→760→1280 and both handles nudge; this is skipped under reduced motion and stops as soon as you touch anything. Your examples show as dashed copper outlines. Mockup chips jump to each width. An error line draws while it learns, then it sweeps 320→1440. The generic model sweeps to 320 so you can see the overflow.
+- Ranking: training is visible. Shoppers stream in, there's a learning round every 25, and a top-3 chart. Each column has live rule badges.
+- "Upstream" was ambiguous, so every instance was replaced with "Cheng Lou's handwired repo" / "the official handwired README/docs" / "handwired's own …", and it links to github.com/chenglou/handwired on first mention.
+- Calm theme: there were contrast regressions in the lesson (faded predict choices, `.side` panels, --bad). They're fixed, and axe is clean.

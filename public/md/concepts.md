@@ -8,7 +8,7 @@ Source: https://handwired.wiki/pages/concepts.html
 
 ## What are the building blocks?
 
-From upstream's [docs](https://github.com/chenglou/handwired/tree/main/docs), every program is made of four kinds of operation:
+From handwired's own [docs](https://github.com/chenglou/handwired/tree/main/docs), every program is made of four kinds of operation:
 
 | Operation | What it computes |
 | --- | --- |
@@ -25,7 +25,7 @@ The **source table** is a `Float32Array` the program reads. Each number in it is
 
 ## How does an if/else become a network?
 
-Both branches always compute, and an exact bit picks one: `emitSelect(circuit, condition, off, on)` is `condition × on + (1 − condition) × off`. An `if` that assigns a variable becomes a select on that cell's next value. Loops with runtime counts aren't allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (upstream's `patterns.md`).
+Both branches always compute, and an exact bit picks one: `emitSelect(circuit, condition, off, on)` is `condition × on + (1 − condition) × off`. An `if` that assigns a variable becomes a select on that cell's next value. Loops with runtime counts aren't allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (handwired's own `patterns.md`).
 
 ## Why are comparisons exact?
 
@@ -37,4 +37,4 @@ Both branches always compute, and an exact bit picks one: `emitSelect(circuit, c
 
 ## Does it need a GPU?
 
-No. The runtime evaluates programs in JavaScript on the CPU. Only upstream's JSON search demo writes its programs as WebGPU shaders.
+No. The runtime evaluates programs in JavaScript on the CPU. Only handwired's own JSON search demo writes its programs as WebGPU shaders.

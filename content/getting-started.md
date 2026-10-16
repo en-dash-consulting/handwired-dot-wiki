@@ -6,7 +6,7 @@ h1: Getting started with Handwired
 description: "Step-by-step: clone chenglou/handwired, run its demos with Bun, start from the toggle template, or add Handwired to a Vite + TypeScript project as a pinned git dependency."
 type: howto
 steps:
-  - "Install Bun (upstream is tested with Bun 1.4.3)."
+  - "Install Bun (handwired is tested with Bun 1.4.3)."
   - "Clone the repo: git clone https://github.com/chenglou/handwired && cd handwired && bun install."
   - "Run bun start and open http://127.0.0.1:3000/ for Mini OS, the learned gallery and JSON search."
   - "Run bun run start:template to open the toggle switch template, the starting point for a new app."
@@ -14,9 +14,9 @@ steps:
 ---
 <p class="lede"><strong>Short answer:</strong> Handwired isn't published to npm. Clone the GitHub repo and run it with <a href="https://bun.sh">Bun</a>, or add it to a bundler project as a pinned git dependency — that's how this site uses it.</p>
 
-## How do I run the upstream demos?
+## How do I run handwired's own demos?
 
-The repo needs Bun (upstream tests with Bun 1.4.3).
+The repo needs Bun (handwired's own tests with Bun 1.4.3).
 
 ```sh
 git clone https://github.com/chenglou/handwired
@@ -29,7 +29,7 @@ bun run test              # every test, about 3 minutes
 
 ## Where should I start reading code?
 
-Upstream recommends `template/` — a toggle switch written as one numeric program, `toggle-reference.ts` (the same switch in plain JS) and `toggle.test.ts` comparing the two — and `docs/tutorial.md`, which walks through it. Then `docs/expressions.md` for single expressions, `docs/patterns.md` for loops, and `docs/execution-model.md` as the reference.
+The official handwired README recommends `template/` — a toggle switch written as one numeric program, `toggle-reference.ts` (the same switch in plain JS) and `toggle.test.ts` comparing the two — and `docs/tutorial.md`, which walks through it. Then `docs/expressions.md` for single expressions, `docs/patterns.md` for loops, and `docs/execution-model.md` as the reference.
 
 ## How do I use Handwired in a Vite or TypeScript project?
 
@@ -59,8 +59,8 @@ const values = circuit.evaluateReference(new Float32Array([7, 3]))
 console.log(values[bit], values[max])         // 1 7
 ```
 
-In `tsconfig.json`, set `"allowImportingTsExtensions": true` with `"noEmit": true` (or let your bundler handle types). The package is marked `private` upstream and has no stable API promise, so pin a commit and upgrade deliberately.
+In `tsconfig.json`, set `"allowImportingTsExtensions": true` with `"noEmit": true` (or let your bundler handle types). The package is marked `private` in Cheng Lou's handwired repo and has no stable API promise, so pin a commit and upgrade deliberately.
 
 ## What does a real app look like?
 
-A full app adds a source table (`createSourceTable` from `src/runtime/cells.ts`) to declare inputs, events and state, `table.next` for each state cell, `createEvaluator` to compile it, and `advanceFrame` from `host-timing.ts` for springs. The [toggle demo](/pages/toggle.html) on this site runs the upstream template unmodified.
+A full app adds a source table (`createSourceTable` from `src/runtime/cells.ts`) to declare inputs, events and state, `table.next` for each state cell, `createEvaluator` to compile it, and `advanceFrame` from `host-timing.ts` for springs. The [toggle demo](/pages/toggle.html) on this site runs handwired's own template unmodified.

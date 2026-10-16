@@ -4,7 +4,7 @@
 
 ---
 
-# When would you want your JavaScript to learn?
+# Handwired: your JavaScript, running as a neural net that can learn
 
 URL: https://handwired.wiki/
 
@@ -41,7 +41,7 @@ For any integer `a`, both versions return the same number. [Try it live →](/pa
 
 ## What can you do with it?
 
-- **Run UI logic as a network.** Upstream's *Mini OS* is a small desktop — windows, dragging, stacking, springs, a photo gallery — driven by one compiled program with 9,909 weights in 130 layers and zero training.
+- **Run UI logic as a network.** [Handwired's own](https://github.com/chenglou/handwired) *Mini OS* is a small desktop — windows, dragging, stacking, springs, a photo gallery — driven by one compiled program with 9,909 weights in 130 layers and zero training.
 - **Unfreeze the weights and train them.** The *Learned gallery* trains a program's coefficients in real time with its own gradients.
 - **Get GPU-scale parallelism from single-threaded-style code.** The *JSON search* demo writes its programs as WebGPU shaders and searches 100,000 JSON documents at each keystroke.
 
@@ -52,7 +52,7 @@ Soft switchDrag a and watch a &gt; 4 ? 10 : 12 computed by ReLUs.
 Exact comparisonsemitCompare, emitSelect, emitMinimumExact vs plain JS, fuzzed.
 Code → networkSee the operations and layers a program becomes.
 Unfreeze &amp; trainGradient descent on a handwired program's constants.
-Toggle switchUpstream's template app, a spring-animated switch run as one program.
+Toggle switchHandwired's own template app, a spring-animated switch run as one program.
 
 
 ## Where do I start?
@@ -66,7 +66,7 @@ Read [Why Handwired](/pages/why-handwired.html) for the idea, [Concepts](/pages/
 
 URL: https://handwired.wiki/pages/gallery.html
 
-Every demo below runs the real Handwired runtime in your browser — no server, no GPU required. Upstream demos link to Cheng Lou's site.
+Every demo below runs the real Handwired runtime in your browser — no server, no GPU required. Handwired's own demos link to Cheng Lou's site.
 
 ## Which demos run on this site?
 
@@ -75,16 +75,16 @@ Every demo below runs the real Handwired runtime in your browser — no server, 
 Layout from a designer's dragsDrag cards to the sizes you want; the sizing function learns its constants and nothing overflows.
 Physics from a recordingFit gravity, drag and bounce to a recorded path, then replay it as code.
 Accessible colour themesA theme learns from a designer's picks while WCAG AA contrast stays exact; a generic net on the same picks fails it.
-GPU JSON search (by Cheng Lou)Upstream's 100,000-document search, embedded with credit: GPU timings next to plain JavaScript.
+GPU JSON search (by Cheng Lou)Handwired's own 100,000-document search, embedded with credit: GPU timings next to plain JavaScript.
 Beginner lesson: the cat is a neural netA 7-step lesson. A tiny JS rule becomes an exact neural net; try to break it, then watch it learn new constants in its own code, next to a regular net.
 Soft switchThe README's a &gt; 4 ? 10 : 12 as two ReLUs and a select. Editable a, branches and live plot.
 Exact comparison explorerPick a relation, toggle the integer grid, fuzz 5,000 random pairs against plain JS.
 Code → network graphVisualize the operations and layers behind a select, a comparison and an exact clamp.
 Unfreeze &amp; trainStart from the exact program, then fit its threshold, slope and branch values by gradient descent.
-Toggle switch templateUpstream's template/ app: a spring-animated switch run as one numeric program.
+Toggle switch templateHandwired's own template/ app: a spring-animated switch run as one numeric program.
 
 
-## What are the upstream demos?
+## What are handwired's own demos?
 
 
 Mini OS (HandwiredOS)A small desktop with three windows and a dock — focus, stacking, dragging, resizing, springs, a photo gallery — run by one program: 234 source cells, 4,646 live operations in 130 layers, 9,909 weights, zero training.
@@ -92,7 +92,7 @@ Learned galleryA photo layout drawn by a small network inside a program (6,320 o
 Search 100,000 JSON documentsRegex matching, JSON parsing and highlighting written as numeric programs, then emitted as WebGPU shaders that search every document at each keystroke.
 
 
-Figures above are from the upstream READMEs at the pinned commit.
+Figures above are from [the official handwired READMEs](https://github.com/chenglou/handwired) at the pinned commit.
 
 
 ---
@@ -109,11 +109,11 @@ Normal programs and neural nets live in different worlds. Code is exact but you 
 
 ## How is the program exact without training?
 
-The weights are not learned; they are written by builder code. A comparison like `a > 4` becomes `relu(a - 4) - relu(a - 5)`, which is exactly 1 or 0 for integer `a`. Upstream's `emitCompare` goes further: given declared value ranges (and optionally a grid such as whole pixels), it builds bits that equal JavaScript's comparison for **every** FP32 value in range. Tests in the upstream repo compare programs against plain-JavaScript references, e.g. the template's toggle switch is checked frame by frame against the same switch written in JavaScript.
+The weights are not learned; they are written by builder code. A comparison like `a > 4` becomes `relu(a - 4) - relu(a - 5)`, which is exactly 1 or 0 for integer `a`. Handwired's own `emitCompare` goes further: given declared value ranges (and optionally a grid such as whole pixels), it builds bits that equal JavaScript's comparison for **every** FP32 value in range. Tests in [Cheng Lou's handwired repo](https://github.com/chenglou/handwired) compare programs against plain-JavaScript references, e.g. the template's toggle switch is checked frame by frame against the same switch written in JavaScript.
 
 ## Why does differentiability matter?
 
-Because the program only uses sums, products and ReLUs, gradients flow through it. Upstream lists use-cases this unlocks:
+Because the program only uses sums, products and ReLUs, gradients flow through it. The official handwired README lists use-cases this unlocks:
 
 - unfreezing the weights and training them — "what does that even do? Let's find out!"
 - attaching a frozen program to a generic neural net and training end to end
@@ -127,7 +127,7 @@ According to the README, keeping to `+`/`*` (matmul) and ReLU means "the full pr
 
 ## Is it a compiler from JavaScript source?
 
-No. Upstream's docs are explicit: "No tool converts existing JavaScript source into a program." You write *builder code* — ordinary JavaScript that runs once and appends operations to a `Circuit`. Comments in upstream code show the plain JS each line replaces. See [Concepts](/pages/concepts.html).
+No. Handwired's own docs are explicit: "No tool converts existing JavaScript source into a program." You write *builder code* — ordinary JavaScript that runs once and appends operations to a `Circuit`. Comments in handwired's own source show the plain JS each line replaces. See [Concepts](/pages/concepts.html).
 
 
 ---
@@ -140,7 +140,7 @@ A Handwired program is a circuit: a fixed list of FP32 operations that reads a t
 
 ## What are the building blocks?
 
-From upstream's [docs](https://github.com/chenglou/handwired/tree/main/docs), every program is made of four kinds of operation:
+From handwired's own [docs](https://github.com/chenglou/handwired/tree/main/docs), every program is made of four kinds of operation:
 
 | Operation | What it computes |
 | --- | --- |
@@ -157,7 +157,7 @@ The **source table** is a `Float32Array` the program reads. Each number in it is
 
 ## How does an if/else become a network?
 
-Both branches always compute, and an exact bit picks one: `emitSelect(circuit, condition, off, on)` is `condition × on + (1 − condition) × off`. An `if` that assigns a variable becomes a select on that cell's next value. Loops with runtime counts aren't allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (upstream's `patterns.md`).
+Both branches always compute, and an exact bit picks one: `emitSelect(circuit, condition, off, on)` is `condition × on + (1 − condition) × off`. An `if` that assigns a variable becomes a select on that cell's next value. Loops with runtime counts aren't allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (handwired's own `patterns.md`).
 
 ## Why are comparisons exact?
 
@@ -169,7 +169,7 @@ Both branches always compute, and an exact bit picks one: `emitSelect(circuit, c
 
 ## Does it need a GPU?
 
-No. The runtime evaluates programs in JavaScript on the CPU. Only upstream's JSON search demo writes its programs as WebGPU shaders.
+No. The runtime evaluates programs in JavaScript on the CPU. Only handwired's own JSON search demo writes its programs as WebGPU shaders.
 
 
 ---
@@ -180,9 +180,9 @@ URL: https://handwired.wiki/pages/getting-started.html
 
 Short answer: Handwired isn't published to npm. Clone the GitHub repo and run it with Bun, or add it to a bundler project as a pinned git dependency — that's how this site uses it.
 
-## How do I run the upstream demos?
+## How do I run handwired's own demos?
 
-The repo needs Bun (upstream tests with Bun 1.4.3).
+The repo needs Bun (handwired's own tests with Bun 1.4.3).
 
 ```sh
 git clone https://github.com/chenglou/handwired
@@ -195,7 +195,7 @@ bun run test              # every test, about 3 minutes
 
 ## Where should I start reading code?
 
-Upstream recommends `template/` — a toggle switch written as one numeric program, `toggle-reference.ts` (the same switch in plain JS) and `toggle.test.ts` comparing the two — and `docs/tutorial.md`, which walks through it. Then `docs/expressions.md` for single expressions, `docs/patterns.md` for loops, and `docs/execution-model.md` as the reference.
+The official handwired README recommends `template/` — a toggle switch written as one numeric program, `toggle-reference.ts` (the same switch in plain JS) and `toggle.test.ts` comparing the two — and `docs/tutorial.md`, which walks through it. Then `docs/expressions.md` for single expressions, `docs/patterns.md` for loops, and `docs/execution-model.md` as the reference.
 
 ## How do I use Handwired in a Vite or TypeScript project?
 
@@ -225,11 +225,11 @@ const values = circuit.evaluateReference(new Float32Array([7, 3]))
 console.log(values[bit], values[max])         // 1 7
 ```
 
-In `tsconfig.json`, set `"allowImportingTsExtensions": true` with `"noEmit": true` (or let your bundler handle types). The package is marked `private` upstream and has no stable API promise, so pin a commit and upgrade deliberately.
+In `tsconfig.json`, set `"allowImportingTsExtensions": true` with `"noEmit": true` (or let your bundler handle types). The package is marked `private` in Cheng Lou's handwired repo and has no stable API promise, so pin a commit and upgrade deliberately.
 
 ## What does a real app look like?
 
-A full app adds a source table (`createSourceTable` from `src/runtime/cells.ts`) to declare inputs, events and state, `table.next` for each state cell, `createEvaluator` to compile it, and `advanceFrame` from `host-timing.ts` for springs. The [toggle demo](/pages/toggle.html) on this site runs the upstream template unmodified.
+A full app adds a source table (`createSourceTable` from `src/runtime/cells.ts`) to declare inputs, events and state, `table.next` for each state cell, `createEvaluator` to compile it, and `advanceFrame` from `host-timing.ts` for springs. The [toggle demo](/pages/toggle.html) on this site runs handwired's own template unmodified.
 
 
 ---
@@ -240,13 +240,17 @@ URL: https://handwired.wiki/pages/faq.html
 
 Quick, sourced answers about Handwired. Everything here is drawn from chenglou.me/handwired and the chenglou/handwired repository.
 
+## What is Handwired?
+
+Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.
+
 ## When should I use Handwired?
 
 Use it when you already have readable code with a few constants, some rules that must stay exact, and data that should tune those constants: a search ranking learned from clicks, a layout fitted to a designer's examples, physics fitted to a recording, or a colour theme fitted to a designer's picks that must keep WCAG contrast. Handwired runs the code as an exact, differentiable neural net, so training only moves the numbers and the rules keep holding. If you have no trusted code and lots of data, a regular model is the better tool. See the live ranking demo.
 
-## What is Handwired?
+## How do I turn JavaScript into a neural network?
 
-Handwired is an open-source project by Cheng Lou that turns regular JavaScript logic into a neural net: no training, exact, yet fully differentiable, and runnable in a browser without a GPU. Programs are written as matrix multiplications and ReLUs over 32-bit floats.
+With Handwired you rewrite the logic with its builder API (circuit.affine, circuit.reglu, emitCompare, emitSelect and friends), which appends exact operations to a Circuit; the result is a neural net that returns the same answers as your JavaScript. There is no automatic converter: you write builder code once, by hand. See Getting started and the beginner cat lesson.
 
 ## Who made Handwired?
 
@@ -254,7 +258,7 @@ Cheng Lou, also known for Pretext and React Motion. The code is at github.com/ch
 
 ## Is Handwired a JavaScript-to-neural-net compiler?
 
-Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Upstream's docs state that no tool converts existing JavaScript source into a program.
+Not in the sense of parsing your source. You write builder code — ordinary JavaScript that runs once and appends operations to a Circuit. Handwired's own docs state that no tool converts existing JavaScript source into a program.
 
 ## Does Handwired need training?
 
@@ -278,7 +282,7 @@ It isn't on npm. Clone github.com/chenglou/handwired and run bun install, or add
 
 ## What demos exist?
 
-Upstream has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.
+The official handwired README has Mini OS (a small desktop with 9,909 weights in 130 layers), the Learned gallery (a photo layout whose coefficients train in real time) and a JSON search over 100,000 documents on WebGPU. This site adds interactive demos for soft switches, exact comparisons, circuit graphs and training.
 
 ## Is handwired.wiki official?
 
@@ -295,7 +299,7 @@ handwired.wiki is an independent learning resource and demo gallery for Handwire
 
 ## Who made Handwired?
 
-[Cheng Lou](https://chenglou.me) created Handwired. The source is at [github.com/chenglou/handwired](https://github.com/chenglou/handwired) under the MIT license (© 2026 Cheng Lou). Please star the repo and read the upstream docs — they are the authoritative reference.
+[Cheng Lou](https://chenglou.me) created Handwired. The source is at [github.com/chenglou/handwired](https://github.com/chenglou/handwired) under the MIT license (© 2026 Cheng Lou). Please star the repo and read the official handwired docs — they are the authoritative reference.
 
 ## Who runs this site?
 
@@ -303,12 +307,12 @@ En Dash Consulting, which also runs [learn-pretext.com](https://learn-pretext.co
 
 ## How do the demos use Handwired?
 
-The demos import Handwired's runtime (`src/runtime/numeric-ui-core.ts`) and template from a commit-pinned git dependency and call only its public functions. Explanations paraphrase or quote upstream's README and docs; figures are from upstream READMEs at that commit.
+The demos import Handwired's runtime (`src/runtime/numeric-ui-core.ts`) and template from a commit-pinned git dependency and call only its public functions. Explanations paraphrase or quote handwired's own README and docs; figures are from official handwired READMEs at that commit.
 
 ## Where can I learn more?
 
 - [chenglou.me/handwired](https://chenglou.me/handwired/) — official demos
-- [Upstream docs](https://github.com/chenglou/handwired/tree/main/docs) — tutorial, expressions, patterns, execution model
+- [The official handwired docs](https://github.com/chenglou/handwired/tree/main/docs) — tutorial, expressions, patterns, execution model
 - [FAQ](/pages/faq.html) on this site
 
 
@@ -390,7 +394,7 @@ The ternary a &gt; 4 ? 10 : 12 becomes above4 = relu(a − 4) − relu(a − 5) 
 
 ## Why does this work?
 
-For an integer `a`, `relu(a − 4) − relu(a − 5)` is 0 when `a ≤ 4` and 1 when `a ≥ 5` — an exact bit. `emitSelect` then computes `bit × on + (1 − bit) × off`, so both branches run and the bit picks one. Set `a` to a fraction like 4.5 and the bit becomes 0.5, blending the branches: that's why upstream's `emitCompare` relies on declared ranges and grids to guarantee exact bits.
+For an integer `a`, `relu(a − 4) − relu(a − 5)` is 0 when `a ≤ 4` and 1 when `a ≥ 5` — an exact bit. `emitSelect` then computes `bit × on + (1 − bit) × off`, so both branches run and the bit picks one. Set `a` to a fraction like 4.5 and the bit becomes 0.5, blending the branches: that's why handwired's own `emitCompare` relies on declared ranges and grids to guarantee exact bits.
 
 ## What does the circuit look like?
 
@@ -447,7 +451,7 @@ The circuit computes `s = clamp(k × (a − t), 0, 1)` with two ReLUs, then `y =
 
 ## Why does the threshold sometimes get stuck?
 
-Gradients only reach `t` and `k` where the ramp is between 0 and 1; outside it the ReLUs are flat. That's the general rule from upstream's notes: exact decisions have zero slope, continuous quantities train well. Upstream's Learned gallery trains a much larger network (244 coefficients) with Adam.
+Gradients only reach `t` and `k` where the ramp is between 0 and 1; outside it the ReLUs are flat. That's the general rule from [handwired's own notes](https://github.com/chenglou/handwired): exact decisions have zero slope, continuous quantities train well. Handwired's own Learned gallery trains a much larger network (244 coefficients) with Adam.
 
 
 ---
@@ -456,7 +460,7 @@ Gradients only reach `t` and `k` where the ramp is between 0 and 1; outside it t
 
 URL: https://handwired.wiki/pages/toggle.html
 
-This is Handwired's template/ app, imported unmodified from the pinned upstream commit. Press and release on the switch: hit testing, arming and the thumb's spring all run as one program.
+This is Handwired's template/ app, imported unmodified from the pinned commit of Cheng Lou's handwired repo. Press and release on the switch: hit testing, arming and the thumb's spring all run as one program.
 
 *(Interactive demo on the page.)*
 
@@ -466,4 +470,4 @@ Event handlers queue pointer events with timestamps. Each frame `advanceFrame` p
 
 ## Is it keyboard accessible?
 
-Not yet: upstream's template is pointer-driven (it acts on press and release). Upstream notes a keyboard shortcut can queue an event through the same path; this embed shows the template as-is.
+Not yet: handwired's own template is pointer-driven (it acts on press and release). The official handwired README notes a keyboard shortcut can queue an event through the same path; this embed shows the template as-is.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Adapts Cheng Lou's JSON search demo (MIT, © 2026 Cheng Lou, github.com/chenglou/handwired/tree/main/src/json-search)
 // into pages/json-search-embed.html, unmodified except: the stylesheet is loaded by Vite, the "Back" link points here,
-// and a credit line is added. Its worker is bundled from upstream's demo-worker.ts into public/pages/demo-worker.js.
+// and a credit line is added. Its worker is bundled from handwired's own demo-worker.ts into public/pages/demo-worker.js.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 const up = 'node_modules/handwired'

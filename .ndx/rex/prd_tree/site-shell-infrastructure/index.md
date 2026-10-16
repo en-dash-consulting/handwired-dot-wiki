@@ -15,6 +15,6 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 | Title | Status |
 |-------|--------|
 | [Global Chrome](./global-chrome/index.md) | in_progress |
+| [Shared Learning Components](./shared-learning-components/index.md) | completed |
 | [Deploy & SEO Basics](./deploy-seo-basics.md) | completed |
 | [Project Scaffold](./project-scaffold.md) | completed |
-| [Shared Learning Components](./shared-learning-components.md) | pending |

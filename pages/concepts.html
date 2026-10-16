@@ -6,7 +6,7 @@
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-DPVSE41LFK');</script>
   <script>try{if(localStorage.getItem('hw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Handwired Concepts: Circuits, Cells, ReLU Soft Switches &amp; Differentiable JavaScript | handwired.wiki</title>
+  <title>Handwired Concepts: ReLU Circuits, Exactness, Gradients | handwired.wiki</title>
   <meta name="description" content="How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Handwired Concepts: Circuits, Cells, ReLU Soft Switches &amp; Differentiable JavaScript | handwired.wiki" />
+  <meta property="og:title" content="Handwired Concepts: ReLU Circuits, Exactness, Gradients | handwired.wiki" />
   <meta property="og:description" content="How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients." />
   <meta property="og:url" content="https://handwired.wiki/pages/concepts.html" />
   <meta property="og:site_name" content="handwired.wiki" />
@@ -28,7 +28,7 @@
   <meta property="og:image:alt" content="handwired.wiki — JavaScript as an exact, differentiable neural net" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Handwired Concepts: Circuits, Cells, ReLU Soft Switches &amp; Differentiable JavaScript | handwired.wiki" />
+  <meta name="twitter:title" content="Handwired Concepts: ReLU Circuits, Exactness, Gradients | handwired.wiki" />
   <meta name="twitter:description" content="How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients." />
   <meta name="twitter:image" content="https://handwired.wiki/og-image.png" />
   <script type="application/ld+json">
@@ -44,7 +44,7 @@
     "@id": "https://handwired.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+   "description": "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
   },
   {
    "@type": "Organization",
@@ -83,7 +83,7 @@
    "@type": "TechArticle",
    "@id": "https://handwired.wiki/pages/concepts.html#page",
    "url": "https://handwired.wiki/pages/concepts.html",
-   "name": "Handwired Concepts: Circuits, Cells, ReLU Soft Switches & Differentiable JavaScript | handwired.wiki",
+   "name": "Handwired Concepts: ReLU Circuits, Exactness, Gradients | handwired.wiki",
    "headline": "Handwired concepts",
    "description": "How Handwired turns if/else, comparisons and min/max into ReLU circuits over FP32: cells, wires, builder code, emitCompare, emitSelect, exactness and gradients.",
    "inLanguage": "en",
@@ -139,7 +139,7 @@
       <p class="lede">A Handwired program is a <strong>circuit</strong>: a fixed list of FP32 operations that reads a table of numbers (<em>cells</em>) and computes outputs. You build it once with ordinary JavaScript, then evaluate it every frame.</p>
 
 <h2>What are the building blocks?</h2>
-<p>From upstream&#39;s <a href="https://github.com/chenglou/handwired/tree/main/docs" rel="noopener">docs</a>, every program is made of four kinds of operation:</p>
+<p>From handwired&#39;s own <a href="https://github.com/chenglou/handwired/tree/main/docs" rel="noopener">docs</a>, every program is made of four kinds of operation:</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Table"><table>
 <thead>
 <tr>
@@ -168,13 +168,13 @@
 <h2>What are cells and wires?</h2>
 <p>The <strong>source table</strong> is a <code>Float32Array</code> the program reads. Each number in it is a <strong>cell</strong>: a constant, an input written by the host (e.g. the viewport width), an event bit (e.g. a pointer press), or state the program computes for the next evaluation. A <strong>wire</strong> is the position of a number — a cell or an operation&#39;s result. The <strong>host</strong> is the JavaScript around the program: it writes inputs, evaluates, copies next state back, and writes the DOM.</p>
 <h2>How does an if/else become a network?</h2>
-<p>Both branches always compute, and an exact bit picks one: <code>emitSelect(circuit, condition, off, on)</code> is <code>condition × on + (1 − condition) × off</code>. An <code>if</code> that assigns a variable becomes a select on that cell&#39;s next value. Loops with runtime counts aren&#39;t allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (upstream&#39;s <code>patterns.md</code>).</p>
+<p>Both branches always compute, and an exact bit picks one: <code>emitSelect(circuit, condition, off, on)</code> is <code>condition × on + (1 − condition) × off</code>. An <code>if</code> that assigns a variable becomes a select on that cell&#39;s next value. Loops with runtime counts aren&#39;t allowed — a program runs every operation on every evaluation — so loops become counts, trees, tables, or the same work on every item (handwired&#39;s own <code>patterns.md</code>).</p>
 <h2>Why are comparisons exact?</h2>
 <p><code>emitCompare(circuit, a, &#39;&gt;=&#39;, b)</code> returns a wire that is exactly 1 when the comparison holds, equal to JavaScript&#39;s comparison for every pair of FP32 values in the operands&#39; declared ranges. With both operands on a declared grid (say whole numbers), it costs 2 operations in 2 layers; without a grid it builds a <em>sign cascade</em> — about 15 operations in 14 layers for operands in 0..16,384. The <a href="/pages/compare-explorer.html">comparison explorer</a> shows these counts live.</p>
 <h2>What exactly is differentiable?</h2>
 <p><code>circuit.backpropagateReference</code> differentiates the FP32 arithmetic as real-valued, with a zero slope at a ReLU&#39;s corner. Sums, products and selects give useful gradients; exact decisions are steps with zero slope. Keep a number you might want to learn in a <strong>cell</strong> rather than baking it into a weight, and gradients will reach it — that&#39;s what the <a href="/pages/train.html">train demo</a> does.</p>
 <h2>Does it need a GPU?</h2>
-<p>No. The runtime evaluates programs in JavaScript on the CPU. Only upstream&#39;s JSON search demo writes its programs as WebGPU shaders.</p>
+<p>No. The runtime evaluates programs in JavaScript on the CPU. Only handwired&#39;s own JSON search demo writes its programs as WebGPU shaders.</p>
 
     </article>
     

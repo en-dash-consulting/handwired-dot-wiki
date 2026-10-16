@@ -1,10 +1,10 @@
 ---
 slug: index
-title: "Handwired — Learn Cheng Lou's JavaScript-to-Neural-Net Library | handwired.wiki"
+title: "Handwired by Cheng Lou: JavaScript as a Neural Net | handwired.wiki"
 nav: Home
-h1: "When would you want your JavaScript to <span class=\"copper\">learn</span>?"
-sub: "When you have code people trust, rules that must stay exact, and data that should tune the numbers. Handwired runs that code as a neural net, exactly, so it can learn. Try the most common case right here."
-description: "Handwired by Cheng Lou turns ordinary JavaScript logic into an exact, fully differentiable neural net that runs in the browser without a GPU. Live demos, tutorials and FAQ."
+h1: "Handwired: your JavaScript, running as a neural net that can <span class=\"copper\">learn</span>"
+sub: "Handwired, by Cheng Lou, turns ordinary JavaScript into an exact neural net: same answers, but differentiable, so data can tune its constants while its rules stay exact. Watch it happen below."
+description: "Handwired by Cheng Lou turns JavaScript into an exact, differentiable neural net that runs in the browser. Live demos, plain-English guides and FAQ."
 type: home
 ---
 ## When would you use this?
@@ -40,7 +40,7 @@ For any integer `a`, both versions return the same number. [Try it live →](/pa
 
 ## What can you do with it?
 
-- **Run UI logic as a network.** Upstream's *Mini OS* is a small desktop — windows, dragging, stacking, springs, a photo gallery — driven by one compiled program with 9,909 weights in 130 layers and zero training.
+- **Run UI logic as a network.** [Handwired's own](https://github.com/chenglou/handwired) *Mini OS* is a small desktop — windows, dragging, stacking, springs, a photo gallery — driven by one compiled program with 9,909 weights in 130 layers and zero training.
 - **Unfreeze the weights and train them.** The *Learned gallery* trains a program's coefficients in real time with its own gradients.
 - **Get GPU-scale parallelism from single-threaded-style code.** The *JSON search* demo writes its programs as WebGPU shaders and searches 100,000 JSON documents at each keystroke.
 
@@ -51,7 +51,7 @@ For any integer `a`, both versions return the same number. [Try it live →](/pa
 <a class="card" href="/pages/compare-explorer.html"><h3>Exact comparisons</h3><p><code>emitCompare</code>, <code>emitSelect</code>, <code>emitMinimumExact</code> vs plain JS, fuzzed.</p></a>
 <a class="card" href="/pages/circuit-graph.html"><h3>Code → network</h3><p>See the operations and layers a program becomes.</p></a>
 <a class="card" href="/pages/train.html"><h3>Unfreeze &amp; train</h3><p>Gradient descent on a handwired program's constants.</p></a>
-<a class="card" href="/pages/toggle.html"><h3>Toggle switch</h3><p>Upstream's template app, a spring-animated switch run as one program.</p></a>
+<a class="card" href="/pages/toggle.html"><h3>Toggle switch</h3><p>Handwired's own template app, a spring-animated switch run as one program.</p></a>
 </div>
 
 ## Where do I start?
