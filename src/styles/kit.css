@@ -136,3 +136,10 @@ fieldset.predict, .predict { border: 0 !important; padding: 0 !important; margin
 .brand .hw-mark { display: block; box-sizing: content-box; width: 14px !important; height: 20px !important; padding: var(--s-2) 11px; border: 2px solid var(--kit-line) !important; border-radius: 10px; background: var(--kit-yellow) !important; color: #111 !important; box-shadow: 2px 2px 0 var(--kit-line) !important; filter: none !important; flex: none; }
 .brand .hw-eyelet { fill: var(--kit-yellow); stroke: #b30f0f; }
 .brand:hover .hw-mark { transform: rotate(-6deg); } @media (prefers-reduced-motion: reduce) { .brand:hover .hw-mark { transform: none; } }
+/* steps: one gap from the scale (the .uc container's own gap), no stacked margins */
+.uc { gap: var(--s-7) !important; }
+.uc > .uc-step + .uc-step { margin-top: 0 !important; }
+/* breadcrumb: one line; the current page truncates instead of wrapping */
+.breadcrumbs ol { display: flex; flex-wrap: nowrap; align-items: baseline; min-width: 0; overflow: hidden; }
+.breadcrumbs li { flex: none; white-space: nowrap; }
+.breadcrumbs li[aria-current] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
