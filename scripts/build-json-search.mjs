@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 const up = 'node_modules/handwired'
 let html = readFileSync(`${up}/assets/json-search.html`, 'utf8')
-html = html.replace('<link rel="stylesheet" href="./json-search.css">', '<meta name="robots" content="noindex" />\n  <link rel="canonical" href="https://handwired.wiki/pages/gpu-search.html" />')
+html = html.replace('<link rel="stylesheet" href="./json-search.css">', `<script async src="https://www.googletagmanager.com/gtag/js?id=G-DPVSE41LFK"></script>\n  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-DPVSE41LFK');</script>\n  ` + '<meta name="robots" content="noindex" />\n  <link rel="canonical" href="https://handwired.wiki/pages/gpu-search.html" />')
   .replace('<a class="brand back" href="../">', '<a class="brand back" href="/pages/gpu-search.html" target="_top">')
   .replace('Back to demos', 'Back to the walkthrough')
   .replace(/<\/main>/, `  <p class="notes">Demo and code by <a href="https://chenglou.me" target="_top">Cheng Lou</a> (Handwired, MIT license, © 2026 Cheng Lou): <a href="https://github.com/chenglou/handwired/tree/main/src/json-search" target="_top">source</a> · <a href="https://github.com/chenglou/handwired/blob/main/LICENSE" target="_top">license</a>. Embedded unmodified by handwired.wiki.</p>\n  </main>`)

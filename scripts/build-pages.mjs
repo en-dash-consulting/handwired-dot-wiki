@@ -12,6 +12,8 @@ import { RANKING, GPUSEARCH, LAYOUT, PHYSICS } from './uc-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
+export const GA = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-DPVSE41LFK"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-DPVSE41LFK');</script>`
 const UPSTREAM = 'https://github.com/chenglou/handwired'
 const NAV = ['gallery', 'why-handwired', 'concepts', 'getting-started', 'faq', 'about']
 const ORDER = ['index', ...NAV, 'ranking', 'layout', 'physics', 'gpu-search', 'js-vs-nn', 'soft-switch', 'compare-explorer', 'circuit-graph', 'train', 'toggle']
@@ -224,6 +226,7 @@ function render(p) {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  ${GA}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(p.title)}</title>
   <meta name="description" content="${esc(p.description)}" />
