@@ -6,10 +6,10 @@ status: "completed"
 priority: "high"
 source: "docs/07-requirements.md"
 startedAt: "2026-10-15T19:07:37.927Z"
-completedAt: "2026-10-15T21:58:43.615Z"
-endedAt: "2026-10-15T21:58:43.615Z"
+completedAt: "2026-10-16T03:25:40.263Z"
+endedAt: "2026-10-16T03:25:40.263Z"
 description: "Code-to-network playground, live input explorer, and unfreeze-and-train learned mode inspired by upstream Learned gallery."
-lastModified: "2026-10-15T21:58:43.632Z"
+lastModified: "2026-10-16T03:25:40.279Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
 
@@ -22,4 +22,5 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 | [Flagship lesson: the cat is a neural net (7-step explorable)](./flagship-lesson-the-cat-is-a-neural/index.md) | completed |
 | [Live Input Explorer](./live-input-explorer/index.md) | completed |
 | [Unfreeze & Train (Learned Mode)](./unfreeze-train-learned-mode/index.md) | completed |
+| [Use-case demos: when would you use Handwired?](./use-case-demos-when-would-you-use/index.md) | completed |
 | [Visual-first demo redesign](./visual-first-demo-redesign.md) | completed |

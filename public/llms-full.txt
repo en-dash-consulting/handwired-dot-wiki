@@ -334,6 +334,17 @@ Show the layout what you want with a few drags. The code learns its numbers, and
 
 ---
 
+# Physics that learns from a recording
+
+URL: https://handwired.wiki/pages/physics.html
+
+Keep your simulation. Let a recording set its constants.
+
+*(Interactive demo on the page.)*
+
+
+---
+
 # Search 100,000 JSON documents on the GPU
 
 URL: https://handwired.wiki/pages/gpu-search.html

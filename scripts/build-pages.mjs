@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { heroSvg } from './hero.mjs'
 import { LESSON } from './lesson-ui.mjs'
-import { RANKING, GPUSEARCH, LAYOUT } from './uc-ui.mjs'
+import { RANKING, GPUSEARCH, LAYOUT, PHYSICS } from './uc-ui.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://handwired.wiki'
@@ -49,6 +49,7 @@ const DEMOS = {
   ranking: RANKING(),
   'gpu-search': GPUSEARCH(),
   layout: LAYOUT(),
+  physics: PHYSICS(),
   'soft-switch': `
 <section class="demo demo-soft" aria-labelledby="demo-title">
   <h2 id="demo-title" class="visually-hidden">Interactive demo</h2>

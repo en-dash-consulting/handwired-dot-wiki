@@ -61,3 +61,24 @@ export function LAYOUT() {
     <p class="hint uc-fine">The simulated designer drags 4 importance levels at 1280, 900 and 420 px, aiming at hidden constants (BASE 140, PER_LEVEL 70, SHARE 0.16) with ±6 px of hand wobble. The bounds check covers 50 screen widths from 320 to 1440 px with 20 seeded cards each. Widths are float32 in the net and float64 in JavaScript, so they agree to a fraction of a pixel, not bit for bit; the clamp itself is exact. Row packing is ordinary JavaScript.</p>`)}
 </div>`
 }
+
+export function PHYSICS() {
+  const step = (n, t, body) => `<section class="uc-step" aria-labelledby="ph-s${n}"><h2 id="ph-s${n}" class="uc-h"><span class="uc-n">${n}</span> ${t}</h2>${body}</section>`
+  return `<div class="uc" data-uc-physics>
+  ${step(1, 'A recording, and a game engine that doesn\u2019t match it', `<p>You filmed a real ball (the dots). Your game's physics has three constants that someone eyeballed, and its ball (the line) lands in the wrong place.</p>
+  <div class="rk-board"><div class="rk-col" role="group" aria-labelledby="ph-code-h"><p id="ph-code-h" class="card-kicker">the physics code <span class="hand">unrolled into one Handwired net</span></p><pre class="big-code rk-code" tabindex="0"><code id="ph-code"></code></pre>
+    <ul class="rk-rules" aria-live="polite"><li><span class="r-label">furthest from the recording</span> <output id="ph-fit">–</output></li><li><span class="r-label">net replay vs plain JS, max difference</span> <output id="ph-js">–</output></li><li><span class="r-label">frames below the floor</span> <output id="ph-floor" class="ok">0</output></li></ul></div>
+  <div class="rk-col" role="group" aria-label="Ball paths"><p class="buttons rk-train"><button id="ph-learn" type="button" class="button">Learn from the recording</button> <button id="ph-play" type="button" class="button secondary">▶ Replay</button> <button id="ph-reset" type="button" class="button secondary">Reset</button></p>
+    <p id="ph-msg" class="hint rk-status" aria-live="polite"></p>
+    <svg id="ph-svg" class="chart ph-svg" viewBox="0 0 640 300" role="img" aria-label="Side view: the recorded ball as dots, the simulated path as a line, and the floor"></svg>
+    <p class="hint"><span class="ph-k k1">● recording</span> <span class="ph-k k2">— your physics</span> <span class="ph-k k3">- - generic model</span> <span class="ph-k k4">··· real ball (new throw)</span></p></div></div>`)}
+  ${step(2, 'Predict', `<fieldset class="predict" id="ph-predict"><legend>Learning moves only GRAVITY, DRAG and BOUNCE. Then you throw a <em>new</em> ball, harder and from lower down, that was never recorded. Will the learned physics follow the real ball?</legend><div class="choices">
+    <button type="button" class="choice" data-v="yes">Yes, closely</button><button type="button" class="choice" data-v="no">No, it only learned that one throw</button></div></fieldset>
+    <p id="ph-reveal" class="reveal" aria-live="polite" hidden></p>`)}
+  ${step(3, 'Throw a new ball', `<p class="buttons"><button id="ph-new" type="button" class="button" disabled>Throw a new ball</button> <span class="hint">(learn first)</span></p><p id="ph-new-msg" class="hint" aria-live="polite"></p>`)}
+  ${step(4, 'The foil: a generic model of the path', `<p>A common shortcut: fit a neural net (frame number and throw → position, 5→16→2) to the recording.</p>
+    <p class="buttons"><button id="ph-mlp" type="button" class="button">Train the generic model</button></p><p id="ph-mlp-msg" class="hint" aria-live="polite"></p>
+    <p class="takeaway"><strong>Reach for Handwired when</strong> you have a simulation you believe in and measurements it should match: fit its constants, and keep the simulation.</p>
+    <p class="hint uc-fine">The “recording” is simulated: the same step with hidden constants (GRAVITY 0.5, DRAG 0.012, BOUNCE 0.72) and ±0.4 px of camera jitter, 72 frames. The step is unrolled 72 times into one circuit (2,379 operations); the floor is an exact comparison and select. A bounce is differentiable in its height but not its timing, and gradients through many frames can explode, so learning starts on the first 12 frames and lengthens the window to all 72. Replay is float32 in the net and float64 in JavaScript, so the paths agree to the stated difference, not bit for bit.</p>`)}
+</div>`
+}

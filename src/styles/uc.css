@@ -61,3 +61,12 @@ button.rk-item:hover { border-color: var(--copper); }
 .ly-handle:focus-visible { outline: 4px solid var(--focus); }
 .ly-card { flex: none; }
 .ly-screen { outline: 2px dashed var(--muted); outline-offset: -1px; background: var(--board-2); }
+.ph-svg { width: 100%; height: auto; background: var(--board); border: 1px solid var(--rule); border-radius: 10px; }
+.ph-floor { stroke: var(--muted); stroke-width: 2; } .ph-dot { fill: var(--led); }
+.ph-sim { stroke: var(--copper); stroke-width: 2.5; } .ph-mlp { stroke: var(--trace); stroke-width: 2; stroke-dasharray: 6 4; } .ph-real { stroke: var(--led); stroke-width: 2; stroke-dasharray: 2 4; }
+.ph-ball { fill: var(--copper-hi); }
+.ph-k { margin-right: .8rem; font-family: var(--font-mono); } .ph-k.k1, .ph-k.k4 { color: var(--led); } .ph-k.k2 { color: var(--copper-hi); } .ph-k.k3 { color: var(--trace); }
+/* reserve room before the script fills these in (CLS) */
+#rk-list:empty { min-height: calc(20 * 40px + 8px); }
+#rk-code:empty, #ly-code:empty, #ph-code:empty { display: block; min-height: 12.5em; }
+@media (max-width: 600px) { .uc-home #rk-list:empty { min-height: calc(10 * 40px); } }
