@@ -6,10 +6,10 @@ status: "completed"
 priority: "high"
 source: "docs/07-requirements.md"
 startedAt: "2026-10-15T19:07:37.927Z"
-completedAt: "2026-10-16T04:28:48.421Z"
-endedAt: "2026-10-16T04:28:48.421Z"
+completedAt: "2026-10-16T04:32:44.425Z"
+endedAt: "2026-10-16T04:32:44.425Z"
 description: "Code-to-network playground, live input explorer, and unfreeze-and-train learned mode inspired by upstream Learned gallery."
-lastModified: "2026-10-16T04:28:48.439Z"
+lastModified: "2026-10-16T04:32:44.483Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
 
@@ -23,4 +23,6 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 | [Live Input Explorer](./live-input-explorer/index.md) | completed |
 | [Unfreeze & Train (Learned Mode)](./unfreeze-train-learned-mode/index.md) | completed |
 | [Use-case demos: when would you use Handwired?](./use-case-demos-when-would-you-use/index.md) | completed |
+| [En Dash favicon set](./en-dash-favicon-set.md) | completed |
+| [Site-wide Graview announcement banner](./site-wide-graview-announcement-banner.md) | completed |
 | [Visual-first demo redesign](./visual-first-demo-redesign.md) | completed |
