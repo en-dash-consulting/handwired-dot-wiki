@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Renders public/og-image.png (1200×630), favicon-32.png, apple-touch-icon.png and icon-512.png with Playwright.
+// Renders public/og-image.png (1200×630) with Playwright. Favicons are En Dash's (copied from html-in-canvas-dot-dev), not generated.
 import { chromium } from '@playwright/test'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -18,8 +18,5 @@ const shot = async (html, w, h, file) => {
   await page.setContent(html); await page.screenshot({ path: join(OUT, file), omitBackground: file !== 'og-image.png' }); await page.close()
 }
 await shot(og, 1200, 630, 'og-image.png')
-await shot(icon(32), 32, 32, 'favicon-32.png')
-await shot(icon(180), 180, 180, 'apple-touch-icon.png')
-await shot(icon(512), 512, 512, 'icon-512.png')
 await browser.close()
-console.log('og + icons written')
+console.log('og image written')

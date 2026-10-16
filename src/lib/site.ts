@@ -11,3 +11,9 @@ if (toggle && nav) {
     if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { toggle.click(); toggle.focus() }
   })
 }
+// Site-wide announcement banner: dismissal remembered in localStorage (the head script hides it before paint).
+document.querySelector<HTMLButtonElement>('.banner-close')?.addEventListener('click', () => {
+  try { localStorage.setItem('hw-banner-graview', 'dismissed') } catch { /* private mode: dismiss for this page only */ }
+  document.documentElement.classList.add('banner-dismissed')
+  document.getElementById('main')?.focus({ preventScroll: true })
+})

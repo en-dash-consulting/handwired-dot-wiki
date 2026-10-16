@@ -190,6 +190,7 @@ function jsonLd(p) {
 function header(active) {
   const links = NAV.map(s => `<li><a href="${path(s)}"${s === active ? ' aria-current="page"' : ''}>${navLabel(s)}</a></li>`).join('')
   return `<a class="skip-link" href="#main">Skip to content</a>
+  <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
     <a class="brand" href="/" aria-label="handwired.wiki home"><span aria-hidden="true" class="brand-mark">⌁</span><span>handwired<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -228,6 +229,7 @@ function render(p) {
 <head>
   <meta charset="UTF-8" />
   ${GA}
+  <script>try{if(localStorage.getItem('hw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(p.title)}</title>
   <meta name="description" content="${esc(p.description)}" />
@@ -237,9 +239,8 @@ function render(p) {
   <meta name="theme-color" content="#111114" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="${url(p.slug)}" />
   <link rel="alternate" type="text/markdown" href="/md/${p.slug}.md" title="Markdown version" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="${p.type === 'home' ? 'website' : 'article'}" />
   <meta property="og:title" content="${esc(p.title)}" />
